@@ -6,9 +6,9 @@ import pathlib
 import uuid
 from datetime import date, timedelta
 
-from sqlalchemy import text
+from sqlalchemy import create_engine, text
 
-from app.core.db import sessionmaker
+from app.core.config import get_settings
 
 from .conftest import As, make_demo
 
@@ -26,6 +26,15 @@ def names(g):
 
 def day(i):
     return (ANCHOR + timedelta(days=i)).isoformat()
+
+
+def add_question(tenant_id, audience, text_, options):
+    """Riley's questions come from Riley; tests add one directly."""
+    eng = create_engine(get_settings().migration_database_url)
+    with eng.begin() as c:
+        c.execute(text("insert into ops.assistant_question (id, tenant_id, audience, text, options, sort_order) "
+                       "values (gen_random_uuid(), :t, :a, :x, cast(:o as jsonb), 0)"), {"t": tenant_id, "a": audience, "x": text_, "o": json.dumps(options)})
+    eng.dispose()
 
 
 def key():
@@ -64,7 +73,7 @@ async def test_plan_all_matches_prototype_and_confirms(client):
     assert all(i["placement_status"] == "scheduled" for i in q["items"])
     assert (await t.post(f"/plan-all/{run['id']}/confirm", json={}, headers=key())).json()["code"] == "plan_closed"
     riley = (await t.get("/assistant")).json()
-    assert riley["observed"] == 46 + 4
+    assert riley["observed"] == 4     # no made-up history: only the four decisions just confirmed
 
 
 async def test_plan_all_goes_stale(client):
@@ -141,8 +150,7 @@ async def test_optimizer_shift_rerun_and_apply(client):
 async def test_riley(client):
     t = await fresh(client, "riley")
     s = (await t.get("/assistant")).json()
-    assert (s["stage"], s["observed"], s["agreed"], s["agreement_pct"]) == (0, 46, 34, 74)
-    assert s["by_job_type"]["exterior"] == {"observed": 18, "agreed": 15}
+    assert (s["stage"], s["observed"], s["agreed"], s["agreement_pct"]) == (0, 0, 0, 0)
     q = (await t.get("/queue")).json()
     J = {i["title"].split(" ")[0].lower(): i for i in q["items"]}
     pick = next(p for p in s["picks"] if p["job_id"] == J["hernandez"]["job_id"])
@@ -168,6 +176,8 @@ async def test_riley(client):
     assert (await t.patch(f"/assistant/habits/{new['id']}", json={"condition": {"bad": 1}})).status_code == 422
     h = await t.patch(f"/assistant/habits/{new['id']}", json={"status": "kept", "condition": {"job_type": "interior", "skills_any": ["drywall"]}})
     assert h.status_code == 200 and h.json()["status"] == "kept"
+    assert (await t.get("/assistant/questions")).json() == []    # Riley has asked nothing yet
+    add_question(t.tenant_id, "admin", "Should HOA jobs prefer Tania?", ["Yes, make it a habit", "No, treat it as chance"])
     qs = (await t.get("/assistant/questions")).json()
     a = await t.post(f"/assistant/questions/{qs[0]['id']}/answer", json={"answer": "Yes, make it a habit"})
     assert a.status_code == 200
@@ -194,6 +204,7 @@ async def test_riley_admin_only(client, ido):
     r = await ido.post("/members", json={"email": "s2@ppp.example", "display_name": "Sam S.", "role": "scheduler"})
     sched = As(client, "s2@ppp.example", ido.tenant_id)
     assert (await sched.put("/assistant/stage", json={"stage": 1})).status_code == 403
+    add_question(ido.tenant_id, "admin", "Should HOA jobs prefer Tania?", ["Yes, make it a habit", "No"])
     qs = (await sched.get("/assistant/questions")).json()
     admin_q = next(q for q in qs if q["audience"] == "admin")
     assert (await sched.post(f"/assistant/questions/{admin_q['id']}/answer", json={"answer": admin_q["options"][0]})).status_code == 403

@@ -136,13 +136,18 @@ async def test_crew_export_and_import(client):
 
 
 async def test_pairings(client):
+    """Only real history: crews that were on the same placement. No sample pairs."""
     t = await fresh(client, "pairs")
-    gian = next(c for c in (await t.get("/crews")).json() if c["name"] == "Gian")
-    p = (await t.get(f"/crews/{gian['id']}/pairings")).json()
-    assert p["source"] == "sample"
-    assert [(x["crew_name"], x["shared_jobs"]) for x in p["pairs"]] == [("Tania", 6), ("Rigo", 3), ("Wonder Painting", 2)]
-    p = (await t.get(f"/crews/{gian['id']}/pairings?job_type=commercial")).json()
-    assert [(x["crew_name"], x["shared_jobs"]) for x in p["pairs"]] == [("Tania", 4), ("Wonder Painting", 2)]
+    crews = {c["name"]: c for c in (await t.get("/crews")).json()}
+    gian, tania = crews["Gian"], crews["Tania"]
+    assert (await t.get(f"/crews/{gian['id']}/pairings")).json()["pairs"] == []
+    q = {i["title"].split(" ")[0].lower(): i for i in (await t.get("/queue")).json()["items"]}
+    p = (await t.post(f"/jobs/{q['hernandez']['job_id']}/placement", json={"lead_crew_id": gian["id"]})).json()
+    p = await t.patch(f"/placements/{p['id']}", json={"extra_crew_ids": [tania["id"]]}, headers={"If-Match": f'"{p["version"]}"'})
+    assert p.status_code == 200, p.text
+    pr = (await t.get(f"/crews/{gian['id']}/pairings")).json()["pairs"]
+    assert [(x["crew_name"], x["shared_jobs"], x["by_job_type"]) for x in pr] == [("Tania", 1, {"exterior": 1})]
+    assert (await t.get(f"/crews/{gian['id']}/pairings?job_type=interior")).json()["pairs"] == []
 
 
 async def test_colors_and_color_form(client):
@@ -193,7 +198,7 @@ async def test_explanation_weather_jobs_audit(client):
 
     cal = (await t.get("/calendar")).json()
     wx = (await t.get("/weather")).json()
-    assert wx["cell"] == "demo" and len(wx["days"]) == 28
+    assert wx["cell"] and len(wx["days"]) == 28
     assert [d["rain"] or 0 for d in wx["days"]] == cal["rain"][:28]
     assert len((await t.get("/weather?from=2026-10-26&to=2026-10-28")).json()["days"]) == 3
 

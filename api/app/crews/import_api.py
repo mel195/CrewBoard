@@ -399,17 +399,10 @@ async def export_csv(ctx: Ctx = Depends(require("admin"))):
 
 # ---------- who works well together (CRW-13) ----------
 
-# Prototype PAIRDATA: crew, crew, shared jobs by job type, days over or under sold (+ = over). Sample data for demo workspaces.
-SAMPLE_PAIRS = [("gian", "tania", {"commercial": 4, "exterior": 2}, -2), ("gian", "rigo", {"exterior": 3}, 1),
-                ("tania", "johan-dani", {"interior": 3, "commercial": 1}, -1), ("johan-dani", "rigo", {"exterior": 2, "interior": 1}, 0.5),
-                ("tania", "maria", {"interior": 2}, 3), ("gian", "wonder-painting", {"commercial": 2}, 4), ("paulo", "vanderlay", {"exterior": 2}, -1),
-                ("johan-dani", "cabinet-canvas", {"cabinets": 2}, -3), ("rigo", "paulo", {"exterior": 1}, 2)]
-
-
 @router.get("/crews/{crew_id}/pairings", operation_id="crews_pairings")
 async def pairings(crew_id: uuid.UUID, job_type: str = "all", ctx: Ctx = Depends(tenant_ctx)):
-    """Crews this crew shared jobs with, by type of work. Counts jobs where both were on the same placement.
-    Demo workspaces also get the prototype's sample history."""
+    """Crews this crew shared jobs with, by type of work: jobs where both were on the same placement (a second crew).
+    Empty until crews have worked together in Crew Board."""
     s = ctx.session
     me = await s.get(Crew, crew_id)
     if not me or me.archived_at:
@@ -417,7 +410,6 @@ async def pairings(crew_id: uuid.UUID, job_type: str = "all", ctx: Ctx = Depends
     crews = {c.id: c for c in (await s.execute(select(Crew).where(Crew.archived_at.is_(None)))).scalars()}
     dims = {d.id: d.key for d in (await s.execute(select(RatingDimension).where(RatingDimension.kind == "job_type"))).scalars()}
     by: dict[uuid.UUID, dict[str, int]] = defaultdict(lambda: defaultdict(int))
-    over: dict[uuid.UUID, float | None] = {}
     pcs = defaultdict(set)
     for pc in (await s.execute(select(PlacementCrew))).scalars():
         pcs[pc.placement_id].add(pc.crew_id)
@@ -427,22 +419,10 @@ async def pairings(crew_id: uuid.UUID, job_type: str = "all", ctx: Ctx = Depends
         if crew_id in members:
             for o in members - {crew_id}:
                 by[o][jt.get(jobs.get(pid)) or "other"] += 1
-    source = "history"
-    if ctx.tenant.is_demo:
-        ids = {slug(c.name): c.id for c in crews.values()}
-        mine = slug(me.name)
-        for a, b, counts, ov in SAMPLE_PAIRS:
-            if mine in (a, b) and (o := ids.get(b if mine == a else a)):
-                for k, n in counts.items():
-                    by[o][k] += n
-                over[o] = ov
-        source = "sample"
     out = []
     for o, counts in by.items():
         n = sum(counts.values()) if job_type == "all" else counts.get(job_type, 0)
         if n > 0 and o in crews:
-            out.append({"crew_id": o, "crew_name": crews[o].name, "shared_jobs": n, "by_job_type": dict(counts),
-                        "days_over_sold": over.get(o), "note": None if over.get(o) is None else
-                        (f"{abs(over[o]):g} days over sold together" if over[o] > 0 else f"{abs(over[o]):g} days under sold together")})
+            out.append({"crew_id": o, "crew_name": crews[o].name, "shared_jobs": n, "by_job_type": dict(counts)})
     out.sort(key=lambda x: -x["shared_jobs"])
-    return {"crew_id": crew_id, "job_type": job_type, "source": source, "pairs": out}
+    return {"crew_id": crew_id, "job_type": job_type, "pairs": out}

@@ -124,7 +124,7 @@ async def test_export_import_round_trip(client):
 async def test_integrations_webhook_crm_and_worker(client):
     t = await fresh(client, "integ")
     lst = (await t.get("/integrations")).json()
-    assert {c["provider"]: c["status"] for c in lst}["paintscout"] == "stub"
+    assert {c["status"] for c in lst} == {"not_connected"}
     os.environ["CREWBOARD_SECRET_PS_WEBHOOK"] = "s3cret"
     put = await t.put("/integrations/paintscout", json={"secret_ref": "ps-webhook"})
     assert put.json()["has_secret"] is True
@@ -141,24 +141,23 @@ async def test_integrations_webhook_crm_and_worker(client):
     assert stale.status_code == 401
     nosecret = await client.post("/api/v1/integrations/salesforce/webhook", content=body, headers={**hdr, "X-Crewboard-Signature": sign("s3cret", ts, body)})
     assert nosecret.json()["code"] == "webhook_not_configured"
-    # CRM account stub: same id on the second call
+    # No made-up Salesforce ids: not connected
     cid = (await t.get("/clients")).json()[0]["id"]
-    one = (await t.post(f"/clients/{cid}/crm-account")).json()
-    two = (await t.post(f"/clients/{cid}/crm-account")).json()
-    assert one["created"] is True and two["created"] is False and one["external_id"] == two["external_id"].upper()
-    # The worker drains both jobs (the webhook and the CRM call)
+    crm = await t.post(f"/clients/{cid}/crm-account")
+    assert crm.status_code == 503 and crm.json()["code"] == "connector_not_connected"
+    # The worker drains the stored webhook
     from app.worker import drain, worker_url
     eng = create_async_engine(worker_url())
     try:
         n = await drain(async_sessionmaker(eng, expire_on_commit=False))
     finally:
         await eng.dispose()
-    assert n >= 2
+    assert n >= 1
     sync = create_engine(get_settings().migration_database_url)
     with sync.begin() as c:
         rows = c.execute(text("select kind, status from system.outbox_job where tenant_id = :t order by kind"), {"t": t.tenant_id}).all()
     sync.dispose()
-    assert [tuple(r) for r in rows] == [("salesforce.create_account", "done"), ("webhook.paintscout", "done")]
+    assert [tuple(r) for r in rows] == [("webhook.paintscout", "done")]
 
 
 def test_every_tenant_table_has_row_level_security(client):

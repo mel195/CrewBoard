@@ -1,7 +1,6 @@
 """Intake: bring in an estimate, read it, check it, add the job to the queue. Edit job (ADD-01 to ADD-15)."""
 from __future__ import annotations
 
-import json
 import pathlib
 import uuid
 from dataclasses import asdict
@@ -29,8 +28,6 @@ from .extract import extract_text, kind_of
 from .models import EstimateDocument, IntakeDraft
 from .readers import ClaudeReader, ClientHistory, DocumentReader, ai_prompt, mark_text, to_draft
 
-SAMPLES = json.loads(pathlib.Path(__file__).with_name("sample_estimates.json").read_text())
-PAINTSCOUT_SAMPLES = {k: v for k, v in SAMPLES.items() if v.get("ps")}
 DRAFT_DAYS = 14
 LANGS = ("en", "es", "ht", "pt")
 
@@ -61,19 +58,10 @@ async def paste(ctx: Ctx, text: str) -> EstimateDocument:
     return doc
 
 
-def paintscout_list(ctx: Ctx) -> list[dict]:
-    """Stub until the PaintScout connector exists: demo tenants see the prototype's sample sold estimates."""
-    if not ctx.tenant.is_demo:
-        return []
-    return [{"id": k, "file": v["file"], **{x: v["ps"].get(x) for x in ("client", "area", "value", "sold")}} for k, v in PAINTSCOUT_SAMPLES.items()]
-
-
-async def paintscout_import(ctx: Ctx, sample_id: str) -> EstimateDocument:
-    if not ctx.tenant.is_demo or sample_id not in PAINTSCOUT_SAMPLES:
-        raise not_found("Sold estimate")
-    s = PAINTSCOUT_SAMPLES[sample_id]
-    doc = EstimateDocument(tenant_id=ctx.tenant_id, kind="paintscout", filename=s["file"], extracted_text=s["text"],
-                           paintscout={k: v for k, v in s["ps"].items() if k != "sold"}, typed=s.get("human"), created_by=ctx.membership.id)
+async def paintscout_import(ctx: Ctx, item: dict) -> EstimateDocument:
+    """A sold estimate from the PaintScout source becomes a document to read (fields it gives are marked paintscout)."""
+    doc = EstimateDocument(tenant_id=ctx.tenant_id, kind="paintscout", filename=item["file"], extracted_text=item["text"],
+                           paintscout={k: v for k, v in item["ps"].items() if k != "sold"}, typed=item.get("human"), created_by=ctx.membership.id)
     ctx.session.add(doc)
     await ctx.session.flush()
     return doc

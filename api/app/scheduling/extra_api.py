@@ -8,7 +8,7 @@ from datetime import date, timedelta
 
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import PlainTextResponse
-from sqlalchemy import func, select
+from sqlalchemy import select
 
 from app.clients.models import Client
 from app.core.context import Ctx, tenant_ctx
@@ -17,6 +17,7 @@ from app.geo.models import ServiceArea
 from app.jobs.models import Job
 from app.scheduling.models import Placement
 from app.weather.models import WeatherDay
+from app.weather.service import area_cell, workspace_cell
 
 from .api import _loaded_job
 from .engine.ranking import FACTOR_LABELS, drive_min, imp, label_for, rank, weights
@@ -97,41 +98,19 @@ async def explanation_csv(job_id: uuid.UUID, crew_id: uuid.UUID | None = None, c
 
 # ---------- weather (CAL-04) ----------
 
-def geohash(lat: float, lon: float, precision: int = 5) -> str:
-    alphabet = "0123456789bcdefghjkmnpqrstuvwxyz"
-    lat_r, lon_r, out, bits, ch, even = [-90.0, 90.0], [-180.0, 180.0], [], 0, 0, True
-    while len(out) < precision:
-        rng, v = (lon_r, lon) if even else (lat_r, lat)
-        mid = (rng[0] + rng[1]) / 2
-        if v >= mid:
-            ch, rng[0] = ch * 2 + 1, mid
-        else:
-            ch, rng[1] = ch * 2, mid
-        even, bits = not even, bits + 1
-        if bits == 5:
-            out.append(alphabet[ch])
-            bits = ch = 0
-    return "".join(out)
-
-
 @router.get("/weather", operation_id="weather_get")
 async def weather(from_: date | None = Query(None, alias="from"), to: date | None = None, area_id: uuid.UUID | None = None, ctx: Ctx = Depends(tenant_ctx)):
-    """Rain probability by day. Demo workspaces use the prototype's sample forecast; others read the cached forecast for the area."""
+    """Rain probability by day for the workspace (or one service area). Days with no cached forecast are null."""
     today = business_today(ctx.tenant)
     frm, until = from_ or today, to or today + timedelta(days=27)
     if until < frm or (until - frm).days > 60:
         raise AppError(422, "validation_failed", "Pick a range of up to 60 days")
-    if ctx.tenant.is_demo:
-        cell = "demo"
-    else:
-        if not area_id:
-            raise AppError(422, "validation_failed", "Pass area_id")
-        a = (await ctx.session.execute(select(func.ST_Y(func.ST_GeomFromWKB(func.ST_AsBinary(ServiceArea.location))),
-                                              func.ST_X(func.ST_GeomFromWKB(func.ST_AsBinary(ServiceArea.location))))
-                                       .where(ServiceArea.id == area_id))).first()
-        if not a:
+    if area_id:
+        if not await ctx.session.get(ServiceArea, area_id):
             raise not_found("Service area")
-        cell = geohash(a[0], a[1])
+        cell = await area_cell(ctx.session, area_id)
+    else:
+        cell = await workspace_cell(ctx.session)
     rows = {w.day: w for w in (await ctx.session.execute(select(WeatherDay).where(WeatherDay.cell == cell, WeatherDay.day >= frm,
                                                                                     WeatherDay.day <= until))).scalars()}
     return {"cell": cell, "source": next((w.source for w in rows.values()), None),

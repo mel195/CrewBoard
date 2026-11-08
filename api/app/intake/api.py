@@ -9,7 +9,10 @@ from pydantic import BaseModel, Field
 
 from app.core import idempotency
 from app.core.context import Ctx, tenant_ctx
+from app.core.errors import not_found
 from app.scheduling.api import RankRowOut, _row
+
+from app.integrations.paintscout import EstimateSource, get_estimate_source
 
 from . import service as svc
 from .readers import DocumentReader
@@ -102,14 +105,20 @@ async def read(doc_id: uuid.UUID, response: Response, ctx: Ctx = Depends(tenant_
 
 
 @router.get("/paintscout/sold-estimates", operation_id="paintscout_list")
-async def paintscout(ctx: Ctx = Depends(tenant_ctx)):
-    """Sold estimates from PaintScout. Stub: demo workspaces see the prototype's samples; others see none."""
-    return svc.paintscout_list(ctx)
+async def paintscout(ctx: Ctx = Depends(tenant_ctx), source: EstimateSource = Depends(get_estimate_source)):
+    """Sold estimates from PaintScout. Empty until the connector is built."""
+    items = await source.sold_estimates(ctx)
+    return [{"id": x["id"], "file": x["file"], **{k: x["ps"].get(k) for k in ("client", "area", "value", "sold")}} for x in items]
 
 
-@router.post("/paintscout/sold-estimates/{sample_id}/import", response_model=DraftOut, status_code=201, operation_id="paintscout_import")
-async def paintscout_import(sample_id: str, ctx: Ctx = Depends(tenant_ctx), reader: DocumentReader | None = Depends(get_reader)):
-    doc = await svc.paintscout_import(ctx, sample_id)
+@router.post("/paintscout/sold-estimates/{estimate_id}/import", response_model=DraftOut, status_code=201, operation_id="paintscout_import")
+async def paintscout_import(estimate_id: str, ctx: Ctx = Depends(tenant_ctx), reader: DocumentReader | None = Depends(get_reader),
+                            source: EstimateSource = Depends(get_estimate_source)):
+    """503 connector_not_connected until PaintScout is connected."""
+    item = await source.estimate(ctx, estimate_id)
+    if not item:
+        raise not_found("Sold estimate")
+    doc = await svc.paintscout_import(ctx, item)
     return draft_out(await svc.read(ctx, doc, reader))
 
 

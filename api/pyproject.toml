@@ -33,7 +33,6 @@ include = ["app*"]
 
 [tool.setuptools.package-data]
 "app.workspace" = ["demo_data.json"]
-"app.intake" = ["sample_estimates.json"]
 "app.messaging" = ["sample_templates.json"]
 
 [tool.pytest.ini_options]

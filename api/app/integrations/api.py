@@ -24,7 +24,7 @@ MAX_WEBHOOK_BYTES = 1024 * 1024
 
 @router.get("/integrations", operation_id="integrations_list")
 async def list_connections(ctx: Ctx = Depends(require("admin"))):
-    """Every connector and its state. Today they are all stubs or not connected."""
+    """Every connector and its state. None is connected yet."""
     return await svc.connections(ctx)
 
 
@@ -47,7 +47,7 @@ class CrmOut(BaseModel):
 
 @router.post("/clients/{client_id}/crm-account", response_model=CrmOut, operation_id="clients_crm_account")
 async def crm_account(client_id: uuid.UUID, ctx: Ctx = Depends(tenant_ctx)):
-    """Create the client in Salesforce. Stub until the connector exists: returns a placeholder id. Calling again returns the same id."""
+    """Create the client in Salesforce, or return the existing link. 503 connector_not_connected until the connector is built."""
     c = await ctx.session.get(Client, client_id)
     if not c or c.archived_at:
         raise not_found("Client")

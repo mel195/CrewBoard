@@ -17,8 +17,8 @@ This covers **all six build steps** of the design's build order, and every endpo
 4. Adding jobs from estimates: upload a PDF, Word file, photo or text, or paste it; read it with the AI reader
    (Claude, when `CREWBOARD_ANTHROPIC_API_KEY` is set) or the built-in rules reader; every field shows where it came
    from (PaintScout, typed, AI, rules, client history, edited, missing); client history fills only language and the
-   important flag; edit the draft, see the 3 best crews, add it to the top of the queue. PaintScout is a stub with
-   the prototype's sample sold estimates for demo workspaces. Edit job keeps every change as a revision and
+   important flag; edit the draft, see the 3 best crews, add it to the top of the queue. PaintScout lists nothing
+   until its connector is built. Edit job keeps every change as a revision and
    re-plans a placed job with the same crew and start.
 
 5. Plan all, the optimizer and Riley. Plan all clears unconfirmed drafts, places every waiting job on its top
@@ -38,9 +38,9 @@ This covers **all six build steps** of the design's build order, and every endpo
    - Workspace export (owner): the whole workspace as one JSON file. Import gives every record a new id and loads
      into an empty workspace, or replaces a demo workspace's data (a demo loaded from another's export schedules
      identically). Members, usage, uploaded files and secrets aren't in the file.
-   - Integrations: every connector is a stub for now (PaintScout, Salesforce, CompanyCam, Google Calendar and
+   - Integrations: no connector is connected yet (PaintScout, Salesforce, CompanyCam, Google Calendar and
      reviews, SMS, email, WhatsApp). Signed webhooks (HMAC-SHA256 with a timestamp) are stored for the worker;
-     "Create CRM account" returns a placeholder Salesforce id. The worker (`python -m app.worker`, also in Docker
+     "Create CRM account" answers `connector_not_connected` rather than making up an id. The worker (`python -m app.worker`, also in Docker
      Compose) drains the outbox with retries.
    - Also: message templates (the prototype's five, four languages, placeholders checked) and one-off client
      messages, colors and the color form, saved calendar views, recommended crew fields, crew CSV export and
@@ -59,7 +59,8 @@ docker compose up --build          # Postgres 17 + PostGIS on :5432, API on :800
 open http://localhost:8000/docs    # OpenAPI UI
 ```
 
-Create a demo workspace seeded with the prototype's sample data (dev only):
+Create a demo workspace seeded with the prototype's data (dev and test only; refused in staging and production,
+so people using Crew Board never see it):
 
 ```bash
 curl -X POST localhost:8000/api/v1/dev/demo-tenant -H 'X-Dev-User: you@example.com' -H 'content-type: application/json' -d '{}'
@@ -98,7 +99,7 @@ pytest                       # everything; needs the database (docker compose up
   through the API; rerun rules, apply, stale plans; Riley's stages, auto-booking and undo, habits, questions,
   learners and log.
 - `tests/api/test_workspace_usage_integrations.py`: consent, usage report, feedback; export, import into a demo
-  workspace (identical rankings and calendar) and into an empty one; signed webhooks, CRM stub and the worker;
+  workspace (identical rankings and calendar) and into an empty one; signed webhooks, connectors reporting not connected, and the worker;
   row-level security on every tenant table.
 - `tests/api/test_step6_endpoints.py`: templates and client messages, views, crew fields, crew export and
   re-import, the sample ratings spreadsheet, pairings, colors and the color form, score explanation, weather,
@@ -116,10 +117,10 @@ pytest                       # everything; needs the database (docker compose up
 | `app/assistant/engine.py` | Riley's pick with structured habit conditions |
 | `app/scheduling/snapshot.py` | Loads one tenant's data from the database into an engine snapshot |
 | `app/*/models.py`, `app/*/api.py` | Tables and endpoints per module |
-| `app/workspace/demo.py` | Demo-tenant seed from the prototype's sample data |
+| `app/workspace/demo.py` | Dev and test demo workspace with the prototype's data |
 | `app/workspace/transfer.py` | Whole-workspace export and import with id remapping |
 | `app/telemetry` | Usage sessions and events, feedback, the owner's usage report |
-| `app/integrations`, `app/worker.py` | Connector stubs, external ids, signed webhooks, the outbox and its worker |
+| `app/integrations`, `app/worker.py` | Connector interfaces (none connected), external ids, signed webhooks, the outbox and its worker |
 | `migrations/` | Alembic; the initial migration also creates schemas, row-level security policies and grants |
 | `deploy/init.sql` | Database roles and PostGIS, run once per database |
 
@@ -144,4 +145,7 @@ Changes from the prototype in step 6:
 - Crew import adds and updates crews by name and keeps crews that aren't in the sheet; the prototype replaced the
   whole crew list. New rating columns are added as rating dimensions next to the existing ones.
 - Send color form builds a client message (with a form link) for review; the prototype only marked it sent.
-- Who works well together counts real shared placements; demo workspaces add the prototype's sample history.
+- No sample data in any feature: who works well together counts only real shared placements, PaintScout lists
+  nothing until connected, Riley starts with no history or questions, and there is no sample forecast (the rain
+  forecast comes from the weather cache for the workspace's area). Only the dev and test demo workspace carries
+  the prototype's data, including its forecast, so the parity tests can run.

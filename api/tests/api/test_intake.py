@@ -13,7 +13,7 @@ from app.main import app
 
 from .conftest import As, make_demo
 
-SAMPLES = json.loads((pathlib.Path(__file__).parents[2] / "app" / "intake" / "sample_estimates.json").read_text())
+SAMPLES = json.loads((pathlib.Path(__file__).parent / "data" / "sample_estimates.json").read_text())   # the prototype's estimates
 MORALES = SAMPLES["morales"]["text"]
 
 
@@ -164,14 +164,36 @@ async def test_photo_needs_ai_and_ai_reader(t: As):
         app.dependency_overrides.pop(get_reader, None)
 
 
-async def test_paintscout_stub(t: As):
-    lst = (await t.get("/paintscout/sold-estimates")).json()
-    assert {x["id"] for x in lst} == {"feld", "morales2", "nguyen2"}
-    d = (await t.post("/paintscout/sold-estimates/feld/import")).json()
-    assert d["fields"]["client_name"] == "Marcy Feld" and d["sources"]["client_name"] == "paintscout"
-    assert d["fields"]["sold_hours"] == 44 and d["sources"]["sold_hours"] == "typed"
-    assert d["fields"]["earliest_start"] == "2026-11-02" and d["sources"]["earliest_start"] == "typed"
-    assert (await t.post("/paintscout/sold-estimates/nope/import")).status_code == 404
+class FakePaintScout:
+    """Stands in for the PaintScout connector with the prototype's sold estimates (test only)."""
+    items = {k: {"id": k, **v} for k, v in SAMPLES.items() if v.get("ps")}
+
+    async def sold_estimates(self, ctx):
+        return list(self.items.values())
+
+    async def estimate(self, ctx, estimate_id):
+        return self.items.get(estimate_id)
+
+
+async def test_paintscout_not_connected(t: As):
+    assert (await t.get("/paintscout/sold-estimates")).json() == []
+    r = await t.post("/paintscout/sold-estimates/feld/import")
+    assert r.status_code == 503 and r.json()["code"] == "connector_not_connected"
+
+
+async def test_paintscout_source(t: As):
+    from app.integrations.paintscout import get_estimate_source
+    app.dependency_overrides[get_estimate_source] = FakePaintScout
+    try:
+        lst = (await t.get("/paintscout/sold-estimates")).json()
+        assert {x["id"] for x in lst} == {"feld", "morales2", "nguyen2"}
+        d = (await t.post("/paintscout/sold-estimates/feld/import")).json()
+        assert d["fields"]["client_name"] == "Marcy Feld" and d["sources"]["client_name"] == "paintscout"
+        assert d["fields"]["sold_hours"] == 44 and d["sources"]["sold_hours"] == "typed"
+        assert d["fields"]["earliest_start"] == "2026-11-02" and d["sources"]["earliest_start"] == "typed"
+        assert (await t.post("/paintscout/sold-estimates/nope/import")).status_code == 404
+    finally:
+        app.dependency_overrides.pop(get_estimate_source, None)
 
 
 async def test_edit_job_replans_placement(t: As):

@@ -29,6 +29,7 @@ from app.settings.models import (DefaultHours, ImportantTrigger, RankingLabel, R
                                  SchedulingRules)
 from app.trades.painting.models import PaintingJob
 from app.weather.models import WeatherDay
+from app.weather.service import workspace_cell
 
 DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -185,7 +186,7 @@ async def load_snapshot(ctx: Ctx) -> LoadedSnapshot:
     label_names = {l.id: l.name for l in labels}
     jr = (await s.execute(select(JobRanking))).scalars().all()
 
-    wx_cell = "demo" if tenant.is_demo else None
+    wx_cell = await workspace_cell(s)
     rain = [0] * 28
     if wx_cell:
         for w in (await s.execute(select(WeatherDay).where(WeatherDay.cell == wx_cell, WeatherDay.day >= anchor,

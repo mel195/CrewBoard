@@ -13,7 +13,7 @@ class AssistantState(TenantScoped, Base):
     __tablename__ = "assistant_state"
     __extra_args__ = (UniqueConstraint("tenant_id"), CheckConstraint("stage between 0 and 3", name="stage"))
     stage: Mapped[int] = mapped_column(SmallInteger, default=0)
-    # Decisions Riley saw before Crew Board (prototype sample history); live counts are added from observations.
+    # Decisions Riley saw before Crew Board (for imported history; zero otherwise); live counts are added from observations.
     base_observed: Mapped[int] = mapped_column(Integer, default=0)
     base_agreed: Mapped[int] = mapped_column(Integer, default=0)
     base_by_type: Mapped[dict] = mapped_column(JSONB, default=dict)
