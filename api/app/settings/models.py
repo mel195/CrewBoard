@@ -5,7 +5,7 @@ import uuid
 from datetime import time
 
 from sqlalchemy import Boolean, CheckConstraint, Index, Numeric, SmallInteger, Text, Time, UniqueConstraint, text
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.db import Base, TenantScoped, Versioned, tfk
@@ -126,3 +126,42 @@ class MessageTrigger(TenantScoped, Base):
     trigger: Mapped[str] = mapped_column(Text)
     recipient_role: Mapped[str] = mapped_column(Text)
     enabled: Mapped[bool] = mapped_column(Boolean, default=True)
+
+
+class CrewFieldSetting(TenantScoped, Base):
+    """Recommended crew fields switched on or off (SET-06). Turning off lead-safe also turns off the lead rule (G-19)."""
+    __tablename__ = "crew_field_setting"
+    __schema__ = "config"
+    __extra_args__ = (UniqueConstraint("tenant_id", "field_key"),)
+    field_key: Mapped[str] = mapped_column(Text)
+    enabled: Mapped[bool] = mapped_column(Boolean, default=False)
+
+
+class CalendarView(TenantScoped, Base):
+    """Saved calendar views (CAL-08). owner null = shared with everyone, as in the prototype."""
+    __tablename__ = "calendar_view"
+    __schema__ = "config"
+    __extra_args__ = (Index("uq_calendar_view_name", "tenant_id", text("lower(name)"), unique=True),)
+    name: Mapped[str] = mapped_column(Text)
+    owner_membership_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
+    config: Mapped[dict] = mapped_column(JSONB, default=dict)   # view, show, group, region, group_by
+
+
+class MessageTemplate(TenantScoped, Versioned, Base):
+    """Client message templates with one text per language (MSG-05)."""
+    __tablename__ = "message_template"
+    __schema__ = "config"
+    __extra_args__ = (UniqueConstraint("tenant_id", "name"), CheckConstraint("recipient_role in ('client','crew','pm')", name="role"))
+    name: Mapped[str] = mapped_column(Text)
+    recipient_role: Mapped[str] = mapped_column(Text, default="client")
+    sort_order: Mapped[int] = mapped_column(SmallInteger, default=0)
+
+
+class MessageTemplateText(TenantScoped, Base):
+    __tablename__ = "message_template_text"
+    __schema__ = "config"
+    __extra_args__ = (UniqueConstraint("template_id", "language"), tfk(["template_id"], "config.message_template", "CASCADE"),
+                      CheckConstraint("language in ('en','es','pt','ht')", name="lang"))
+    template_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
+    language: Mapped[str] = mapped_column(Text)
+    body: Mapped[str] = mapped_column(Text)

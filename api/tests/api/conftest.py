@@ -23,7 +23,7 @@ def _rebuild_schema():
     s = get_settings()
     eng = create_engine(s.migration_database_url)
     with eng.begin() as c:
-        c.execute(text("DROP SCHEMA IF EXISTS platform, config, ops, painting, comms, audit, shared, system CASCADE"))
+        c.execute(text("DROP SCHEMA IF EXISTS platform, config, ops, painting, comms, audit, shared, system, insight CASCADE"))
         c.execute(text("DROP TABLE IF EXISTS public.alembic_version"))
     eng.dispose()
     cfg = Config(os.path.join(ROOT, "alembic.ini"))

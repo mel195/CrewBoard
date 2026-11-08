@@ -26,6 +26,15 @@ services:
     ports: ["8000:8000"]
     volumes:
       - files:/data/files
+  worker:
+    build: .
+    command: ["python", "-m", "app.worker"]
+    depends_on:
+      api: { condition: service_started }
+    environment:
+      CREWBOARD_ENV: dev
+      CREWBOARD_DATABASE_URL: postgresql+asyncpg://crewboard_app:crewboard_app@db:5432/crewboard
+      CREWBOARD_MIGRATION_DATABASE_URL: postgresql+psycopg://crewboard:crewboard@db:5432/crewboard
 volumes:
   pgdata:
   files:

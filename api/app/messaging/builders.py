@@ -47,7 +47,8 @@ CCONF = {
     "ht": lambda t, l: f"Koulè yo konfime pou {t}: {l}. Tout bagay pare.",
 }
 TRIGGERS = {"confirm": "Job confirmed", "move": "Job moved", "cancel": "Job unscheduled", "reminder": "Day-before reminder",
-            "rain": "Rain delay", "colors": "Colors confirmed", "followup": "Client follow-up"}
+            "rain": "Rain delay", "colors": "Colors confirmed", "followup": "Client follow-up", "client": "Client message",
+            "color_form": "Color form"}
 DEFAULT_TRIGGERS = {  # prototype S.comm after v7
     "confirm": {"crew": True, "client": True, "hoa": True, "pm": True},
     "move": {"crew": True, "client": True, "hoa": False, "pm": True},

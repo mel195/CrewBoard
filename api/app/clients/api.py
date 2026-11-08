@@ -150,3 +150,26 @@ async def follow_up_done(follow_up_id: uuid.UUID, ctx: Ctx = Depends(tenant_ctx)
         raise not_found("Follow-up")
     f.done_at, f.done_by = datetime.now(timezone.utc), ctx.membership.id
     return FollowUpOut.model_validate(f)
+
+
+class FollowUpPatch(BaseModel):
+    due_date: date | None = None
+    note: str | None = None
+    done: bool | None = None
+
+
+@router.patch("/follow-ups/{follow_up_id}", response_model=FollowUpOut, operation_id="followups_update")
+async def edit_follow_up(follow_up_id: uuid.UUID, body: FollowUpPatch, ctx: Ctx = Depends(tenant_ctx)):
+    """Change the date or note, or mark it done ({done: true}) or not done."""
+    f = await ctx.session.get(FollowUp, follow_up_id)
+    if not f:
+        raise not_found("Follow-up")
+    if body.due_date is not None:
+        f.due_date = body.due_date
+    if body.note is not None:
+        f.note = body.note
+    if body.done is True and not f.done_at:
+        f.done_at, f.done_by = datetime.now(timezone.utc), ctx.membership.id
+    elif body.done is False:
+        f.done_at = f.done_by = None
+    return FollowUpOut.model_validate(f)

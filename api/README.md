@@ -3,7 +3,7 @@
 Backend for Crew Board, built to the Phase 2 design (modular monolith: Python 3.13, FastAPI, Pydantic v2,
 SQLAlchemy 2, Alembic, PostgreSQL 17 + PostGIS).
 
-This covers **build steps 1 to 5** of the design's build order:
+This covers **all six build steps** of the design's build order, and every endpoint in the Phase 2 API design:
 
 1. Foundation: tenancy with row-level security, platform (users, members, roles), settings, geography, crews,
    clients, jobs, painting job details, audit log, demo-tenant seed.
@@ -31,7 +31,25 @@ This covers **build steps 1 to 5** of the design's build order:
    conditions), questions, which schedulers it learns from, learning log with CSV. Results match the prototype's
    golden fixtures.
 
-Step 6 (usage and feedback, workspace export and import, integrations) is next.
+6. Usage and feedback, workspace export and import, integrations, and the rest of the API.
+   - Usage: per-person consent; the browser sends page time and feature counts (keys only, never names, phones or
+     prices); feedback tied to the page and what was open; the owner's report (sessions, time per page, top
+     features, time viewing as each role, feedback to mark done). Owners' own sessions are hidden by default.
+   - Workspace export (owner): the whole workspace as one JSON file. Import gives every record a new id and loads
+     into an empty workspace, or replaces a demo workspace's data (a demo loaded from another's export schedules
+     identically). Members, usage, uploaded files and secrets aren't in the file.
+   - Integrations: every connector is a stub for now (PaintScout, Salesforce, CompanyCam, Google Calendar and
+     reviews, SMS, email, WhatsApp). Signed webhooks (HMAC-SHA256 with a timestamp) are stored for the worker;
+     "Create CRM account" returns a placeholder Salesforce id. The worker (`python -m app.worker`, also in Docker
+     Compose) drains the outbox with retries.
+   - Also: message templates (the prototype's five, four languages, placeholders checked) and one-off client
+     messages, colors and the color form, saved calendar views, recommended crew fields, crew CSV export and
+     spreadsheet import (reads Ido's two-sheet ratings file), who works well together, how a score was worked out
+     (rule checks, factor table, factors not counted, CSV), rain by day, the job list, the audit log with CSV, and
+     edits for project managers, rating names and follow-ups.
+
+Not built: OIDC sign-in (waits on the identity provider, TQ-01), real connectors and message delivery, and
+importing a prototype backup file (the prototype's own export format).
 
 ## Run it
 
@@ -76,6 +94,15 @@ pytest                       # everything; needs the database (docker compose up
 - `tests/api/test_placements.py`: place, confirm with and without a reason, Riley learning, idempotent confirm,
   message edit and send, drag, non-working days, version conflicts, second crew, split, PM handoff, move with a
   reason, unschedule, append-only decisions, review-off sending, calendar.
+- `tests/api/test_plan_optimizer_riley.py`: Plan all and optimizer results match the prototype's golden fixtures
+  through the API; rerun rules, apply, stale plans; Riley's stages, auto-booking and undo, habits, questions,
+  learners and log.
+- `tests/api/test_workspace_usage_integrations.py`: consent, usage report, feedback; export, import into a demo
+  workspace (identical rankings and calendar) and into an empty one; signed webhooks, CRM stub and the worker;
+  row-level security on every tenant table.
+- `tests/api/test_step6_endpoints.py`: templates and client messages, views, crew fields, crew export and
+  re-import, the sample ratings spreadsheet, pairings, colors and the color form, score explanation, weather,
+  job list, audit log.
 - `tests/api/`: the seeded demo tenant ranks identically through the database and API; tenant isolation
   (API and raw SQL under row-level security); roles; If-Match concurrency; validation errors; append-only audit.
 
@@ -90,6 +117,9 @@ pytest                       # everything; needs the database (docker compose up
 | `app/scheduling/snapshot.py` | Loads one tenant's data from the database into an engine snapshot |
 | `app/*/models.py`, `app/*/api.py` | Tables and endpoints per module |
 | `app/workspace/demo.py` | Demo-tenant seed from the prototype's sample data |
+| `app/workspace/transfer.py` | Whole-workspace export and import with id remapping |
+| `app/telemetry` | Usage sessions and events, feedback, the owner's usage report |
+| `app/integrations`, `app/worker.py` | Connector stubs, external ids, signed webhooks, the outbox and its worker |
 | `migrations/` | Alembic; the initial migration also creates schemas, row-level security policies and grants |
 | `deploy/init.sql` | Database roles and PostGIS, run once per database |
 
@@ -108,3 +138,10 @@ A few prototype behaviors are kept on purpose so results match, and are flagged 
 - The "null min drive" text when a crew has no home base.
 - KPI value counting where an extra crew's booking overwrites the job's value with 0.
 - Ratings allow half points (for example 3.5), as in the sample data.
+
+Changes from the prototype in step 6:
+
+- Crew import adds and updates crews by name and keeps crews that aren't in the sheet; the prototype replaced the
+  whole crew list. New rating columns are added as rating dimensions next to the existing ones.
+- Send color form builds a client message (with a form link) for review; the prototype only marked it sent.
+- Who works well together counts real shared placements; demo workspaces add the prototype's sample history.

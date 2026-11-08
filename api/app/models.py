@@ -7,18 +7,20 @@ from app.messaging.models import MessageBatch, OutboundMessage  # noqa: F401
 from app.audit.models import AuditEvent  # noqa: F401
 from app.clients.models import Client, ClientSignal, FollowUp  # noqa: F401
 from app.core.db import Base  # noqa: F401
-from app.crews.models import Crew, CrewCostPeriod, CrewHours, CrewMember, CrewRating  # noqa: F401
+from app.crews.models import Crew, CrewCostPeriod, CrewHours, CrewImport, CrewMember, CrewRating  # noqa: F401
 from app.geo.models import Region, ServiceArea  # noqa: F401
 from app.intake.models import EstimateDocument, IntakeDraft  # noqa: F401
 from app.jobs.models import Job, JobFieldSource, JobLabelLink, JobRanking, JobRevision, JobSkill  # noqa: F401
 from app.platform.models import AppUser, Membership, Tenant  # noqa: F401
 from app.scheduling.models import PlanAllRun, Placement, PlacementCrew, PlacementVisit, SchedulingDecision  # noqa: F401
-from app.settings.models import (DefaultHours, ImportantTrigger, JobLabel, MessageTrigger, ProjectManager,  # noqa: F401
+from app.settings.models import (CalendarView, CrewFieldSetting, DefaultHours, MessageTemplate, MessageTemplateText, ImportantTrigger, JobLabel, MessageTrigger, ProjectManager,  # noqa: F401
                                  RankingLabel, RankingLabelWeight, RatingDimension, SchedulingRules)
 from app.trades.painting.models import PaintingColor, PaintingJob  # noqa: F401
 from app.weather.models import WeatherDay  # noqa: F401
+from app.telemetry.models import FeedbackItem, UsageEvent, UsageSession  # noqa: F401
+from app.integrations.models import ExternalRef, IntegrationConnection, OutboxJob  # noqa: F401
 
-SCHEMAS = ["platform", "config", "ops", "painting", "comms", "audit", "shared", "system"]
+SCHEMAS = ["platform", "config", "ops", "painting", "comms", "audit", "shared", "system", "insight"]
 
 # Tables with tenant_id that get row-level security. membership is included; app_user and tenant are not.
 TENANT_TABLES = sorted(

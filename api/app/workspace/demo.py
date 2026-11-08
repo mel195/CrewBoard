@@ -72,6 +72,8 @@ async def create_demo_tenant(s: AsyncSession, owner: AppUser, name: str = "PPP (
                          base_by_type={"exterior": [18, 15], "interior": [14, 10], "cabinets": [6, 5], "commercial": [8, 4]}))
     for i, q in enumerate(RILEY_QUESTIONS):
         s.add(AssistantQuestion(tenant_id=tid, audience=q[0], kind=q[1], text=q[2], options=q[3], sort_order=i))
+    from app.messaging.templates_api import seed_templates
+    await seed_templates(s, tid)
 
     r = d["rules"]
     rec = {x["k"]: x["added"] for x in d["RECOMMENDED"]}

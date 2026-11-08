@@ -1,0 +1,57 @@
+[
+ {
+  "id": "t-follow",
+  "name": "Estimate follow-up",
+  "to": "client",
+  "text": {
+   "en": "Hi {first}, it’s {company}. Just checking in on your painting estimate. Any questions I can answer?",
+   "es": "Hola {first}, le escribe {company}. Solo queríamos saber si tiene preguntas sobre su presupuesto de pintura.",
+   "ht": "Bonjou {first}, se {company}. Nou jis vle konnen si w gen kesyon sou estimasyon penti w la.",
+   "pt": "Oi {first}, aqui é a {company}. Só passando para saber se tem dúvidas sobre o orçamento de pintura."
+  }
+ },
+ {
+  "id": "t-colors",
+  "name": "Colors and materials needed",
+  "to": "client",
+  "text": {
+   "en": "Hi {first}, it’s {company}. We still need your color and material picks for {job} before we start. Reply here with them, or use the color form.",
+   "es": "Hola {first}, le escribe {company}. Todavía necesitamos su selección de colores y materiales para {job} antes de comenzar. Respóndanos aquí o use el formulario de colores.",
+   "ht": "Bonjou {first}, se {company}. Nou toujou bezwen chwa koulè ak materyèl ou pou {job} anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè a.",
+   "pt": "Oi {first}, aqui é a {company}. Ainda precisamos da sua escolha de cores e materiais para {job} antes de começar. Responda aqui ou use o formulário de cores."
+  }
+ },
+ {
+  "id": "t-intake",
+  "name": "Send us your details",
+  "to": "client",
+  "text": {
+   "en": "Hi {first}, it’s {company}. Please fill in your contact details and the best way to reach you here: {link}",
+   "es": "Hola {first}, le escribe {company}. Por favor complete sus datos de contacto y la mejor forma de comunicarnos aquí: {link}",
+   "ht": "Bonjou {first}, se {company}. Tanpri ranpli enfòmasyon kontak ou ak pi bon fason pou n jwenn ou isit la: {link}",
+   "pt": "Oi {first}, aqui é a {company}. Por favor preencha seus dados de contato e a melhor forma de falar com você aqui: {link}"
+  }
+ },
+ {
+  "id": "t-late",
+  "name": "Crew running late",
+  "to": "client",
+  "text": {
+   "en": "Hi {first}, it’s {company}. {crew}’s crew is running about 30 minutes late today. Sorry about that.",
+   "es": "Hola {first}, le escribe {company}. El equipo de {crew} llegará unos 30 minutos tarde hoy. Disculpe.",
+   "ht": "Bonjou {first}, se {company}. Ekip {crew} ap an reta anviwon 30 minit jodi a. Eskize nou.",
+   "pt": "Oi {first}, aqui é a {company}. A equipe do {crew} vai atrasar uns 30 minutos hoje. Desculpe."
+  }
+ },
+ {
+  "id": "t-review",
+  "name": "After the job: ask for a review",
+  "to": "client",
+  "text": {
+   "en": "Hi {first}, thanks for choosing {company}. If you’re happy with the work, a quick Google review helps a lot: {link}",
+   "es": "Hola {first}, gracias por elegir a {company}. Si quedó contento con el trabajo, una reseña en Google nos ayuda mucho: {link}",
+   "ht": "Bonjou {first}, mèsi paske w chwazi {company}. Si w kontan ak travay la, yon ti revizyon sou Google ede nou anpil: {link}",
+   "pt": "Oi {first}, obrigado por escolher a {company}. Se gostou do trabalho, uma avaliação no Google ajuda muito: {link}"
+  }
+ }
+]

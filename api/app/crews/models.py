@@ -5,7 +5,7 @@ from datetime import date, datetime, time
 
 from sqlalchemy import (Boolean, CheckConstraint, Date, DateTime, Index, Integer, Numeric, SmallInteger, Text, Time, UniqueConstraint,
                         text)
-from sqlalchemy.dialects.postgresql import ARRAY, UUID
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.db import Base, TenantScoped, Versioned, tfk
@@ -93,3 +93,18 @@ class CrewCostPeriod(TenantScoped, Base):
     crew_pay: Mapped[float] = mapped_column(Numeric(12, 2))
     jobs_count: Mapped[int | None] = mapped_column(Integer)
     five_star_reviews: Mapped[int | None] = mapped_column(Integer)
+
+
+class CrewImport(TenantScoped, Base):
+    """A crew spreadsheet: detected columns, the mapping the admin chose, and what the commit changed (CRW-10, CRW-11)."""
+    __tablename__ = "crew_import"
+    __extra_args__ = (CheckConstraint("status in ('previewed','committed','discarded')", name="status"),)
+    file_name: Mapped[str] = mapped_column(Text)
+    file_ref: Mapped[str | None] = mapped_column(Text)
+    sheets: Mapped[list] = mapped_column(JSONB, default=list)     # [{name, header_row, rows}]
+    columns: Mapped[list] = mapped_column(JSONB, default=list)    # [{sheet, index, header, group, sample, guess}]
+    mapping: Mapped[list | None] = mapped_column(JSONB)
+    data: Mapped[list] = mapped_column(JSONB, default=list)       # parsed rows per sheet, kept until commit
+    status: Mapped[str] = mapped_column(Text, default="previewed")
+    result: Mapped[dict | None] = mapped_column(JSONB)
+    created_by: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))

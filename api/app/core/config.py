@@ -20,6 +20,8 @@ class Settings(BaseSettings):
     # Estimate reading with Claude (DD-23). Without a key, the built-in rules reader is used.
     anthropic_api_key: str | None = None
     reader_model: str = "claude-haiku-4-5-20251001"
+    # The outbox worker works across tenants, so it uses its own role (the owner role by default).
+    worker_database_url: str | None = None
 
 
 @lru_cache
