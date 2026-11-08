@@ -3,7 +3,7 @@
 Backend for Crew Board, built to the Phase 2 design (modular monolith: Python 3.13, FastAPI, Pydantic v2,
 SQLAlchemy 2, Alembic, PostgreSQL 17 + PostGIS).
 
-This covers **build steps 1 to 4** of the design's build order:
+This covers **build steps 1 to 5** of the design's build order:
 
 1. Foundation: tenancy with row-level security, platform (users, members, roles), settings, geography, crews,
    clients, jobs, painting job details, audit log, demo-tenant seed.
@@ -21,8 +21,17 @@ This covers **build steps 1 to 4** of the design's build order:
    the prototype's sample sold estimates for demo workspaces. Edit job keeps every change as a revision and
    re-plans a placed job with the same crew and start.
 
-Plan all and optimizer endpoints, and Riley's settings are steps 5 and 6. The engine for Plan all, the
-optimizer and Riley's pick is already ported and tested; only their endpoints are left.
+5. Plan all, the optimizer and Riley. Plan all clears unconfirmed drafts, places every waiting job on its top
+   crew and confirms them together (no messages by default, PD-01); it refuses with `plan_stale` if anything moved
+   since. Optimizer runs for a window (1, 2 or 4 weeks, or dates) with lock days, all crews and margin options;
+   rejected moves become rules for the next run, kept moves stay; apply turns moves into drafts marked "Optimizer
+   recommended" and moves a confirmed job when the run shifted one (with a decision and a move message); CSV export.
+   Riley: agreement overall, by job type and by scheduler, picks with reasons and runner-up, stages 0 to 3 (stage 2
+   books jobs under the value limit on its own, and undoes them when you leave stage 2), habits (keep, ignore,
+   conditions), questions, which schedulers it learns from, learning log with CSV. Results match the prototype's
+   golden fixtures.
+
+Step 6 (usage and feedback, workspace export and import, integrations) is next.
 
 ## Run it
 

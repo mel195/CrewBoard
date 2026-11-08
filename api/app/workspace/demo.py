@@ -14,7 +14,7 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.assistant.models import AssistantHabit, AssistantState
+from app.assistant.models import AssistantHabit, AssistantQuestion, AssistantState
 from app.clients.models import Client, ClientSignal
 from app.core.db import set_tenant
 from app.crews.models import Crew, CrewCostPeriod, CrewHours, CrewMember, CrewRating
@@ -32,6 +32,14 @@ from app.weather.models import WeatherDay
 DATA = pathlib.Path(__file__).with_name("demo_data.json")
 KIND = {"job": "job_type", "skill": "skill", "attr": "attribute"}
 SRC = {"ps": "paintscout", "human": "typed", "ai": "ai", "rules": "rules"}
+RILEY_QUESTIONS = [
+    ("admin", "bias", "Carla picked Tania over a higher-ranked crew on 3 of the last 4 HOA jobs, with no reason given. Should HOA jobs prefer Tania?",
+     ["Yes, make it a habit", "No, treat it as chance", "Ask Carla for a reason"]),
+    ("admin", "rule", "Gutierrez prefers Haitian Creole, and no ready crew lists Creole. Should the client\u2019s language be a must-have or nice to have?",
+     ["Must-have", "Nice to have"]),
+    ("scheduler", "learn", "You moved Okafor to Johan & Dani after the optimizer suggested Gian. Was that about drive time, cost or something else?",
+     ["Drive time", "Cost", "Keep Gian free for bigger jobs", "Something else"]),
+]
 JOB_LABELS = ["HOA", "Repeat client", "Occupied home", "Rush", "Commercial", "Pets on site", "Gated community"]
 
 
@@ -59,7 +67,11 @@ async def create_demo_tenant(s: AsyncSession, owner: AppUser, name: str = "PPP (
     s.add(tenant)
     await s.flush()
     s.add(Membership(tenant_id=tid, user_id=owner.id, role="owner", display_name=owner.display_name))
-    s.add(AssistantState(tenant_id=tid, stage=0))
+    # Riley's sample history and questions from the prototype
+    s.add(AssistantState(tenant_id=tid, stage=0, base_observed=46, base_agreed=34,
+                         base_by_type={"exterior": [18, 15], "interior": [14, 10], "cabinets": [6, 5], "commercial": [8, 4]}))
+    for i, q in enumerate(RILEY_QUESTIONS):
+        s.add(AssistantQuestion(tenant_id=tid, audience=q[0], kind=q[1], text=q[2], options=q[3], sort_order=i))
 
     r = d["rules"]
     rec = {x["k"]: x["added"] for x in d["RECOMMENDED"]}

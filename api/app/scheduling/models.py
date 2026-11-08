@@ -74,3 +74,14 @@ class SchedulingDecision(TenantScoped, Base):
     chosen_score: Mapped[int | None] = mapped_column(SmallInteger)
     conflicts: Mapped[list] = mapped_column(JSONB, default=list)
     score_snapshot: Mapped[list] = mapped_column(JSONB, default=list)
+
+
+class PlanAllRun(TenantScoped, Base):
+    """Plan all (Q-07, CAL-09, CAL-10): the drafts it placed, what it skipped, and the schedule it saw."""
+    __tablename__ = "plan_all_run"
+    __extra_args__ = (CheckConstraint("status in ('proposed','confirmed','discarded')", name="status"),)
+    items: Mapped[list] = mapped_column(JSONB, default=list)        # [{job_id, crew_id, start, end, score}]
+    skipped: Mapped[list] = mapped_column(JSONB, default=list)      # [job_id]
+    fingerprint: Mapped[dict] = mapped_column(JSONB, default=dict)  # placement id -> version after planning
+    status: Mapped[str] = mapped_column(Text, default="proposed")
+    created_by: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))

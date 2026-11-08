@@ -351,10 +351,13 @@ async def _riley_learn(ctx: Ctx, L: LoadedSnapshot, jid: str, job: Job, dec: Sch
     """Record what Riley would have picked; a disagreement becomes a new habit candidate (BL-49, BL-50)."""
     agreed = bool(rp and rp["crew"] == crew)
     who = ctx.membership.display_name
+    from app.assistant.models import AssistantLearner
+    lr = (await ctx.session.execute(select(AssistantLearner).where(AssistantLearner.membership_id == ctx.membership.id))).scalar_one_or_none()
+    used = lr.enabled if lr else True
     ctx.session.add(AssistantObservation(tenant_id=ctx.tenant_id, decision_id=dec.id, job_id=job.id, job_type=L.snap.jobs[jid].type,
                                          scheduler_id=ctx.membership.id, scheduler_label=who,
                                          riley_pick_crew_id=uuid.UUID(rp["crew"]) if rp else None, chosen_crew_id=uuid.UUID(crew),
-                                         agreed=agreed, reason=reason))
+                                         agreed=agreed, reason=reason, used_in_training=used))
     if not agreed and rp:
         n = len((await ctx.session.execute(select(AssistantHabit.id))).all())
         ctx.session.add(AssistantHabit(tenant_id=ctx.tenant_id, status="new", source="observation", condition=None, evidence_count=1,
