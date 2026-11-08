@@ -15,6 +15,8 @@ class Tenant(Timestamps, Base):
     __table_args__ = (CheckConstraint("status in ('trial','active','suspended')", name="status"), {"schema": "platform"})
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=new_id)
     name: Mapped[str] = mapped_column(Text)
+    # Company name used in messages to crews and clients, e.g. "Precision Painting Plus".
+    message_name: Mapped[str | None] = mapped_column(Text)
     time_zone: Mapped[str] = mapped_column(Text, default="America/New_York")
     currency: Mapped[str] = mapped_column(String(3), default="USD")
     default_language: Mapped[str] = mapped_column(Text, default="en")

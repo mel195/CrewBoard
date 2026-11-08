@@ -101,3 +101,28 @@ class DefaultHours(TenantScoped, Base):
     day_kind: Mapped[str] = mapped_column(Text)
     start_time: Mapped[time | None] = mapped_column(Time)
     end_time: Mapped[time | None] = mapped_column(Time)
+
+
+class ProjectManager(TenantScoped, Base):
+    """Receives job handoffs (BRD-07). Replaces the prototype's PMS."""
+    __tablename__ = "project_manager"
+    __schema__ = "config"
+    __extra_args__ = (UniqueConstraint("tenant_id", "name"), CheckConstraint("channel in ('text','email','whatsapp')", name="channel"))
+    name: Mapped[str] = mapped_column(Text)
+    phone: Mapped[str | None] = mapped_column(Text)
+    email: Mapped[str | None] = mapped_column(Text)
+    channel: Mapped[str] = mapped_column(Text, default="text")
+    language: Mapped[str] = mapped_column(Text, default="en")
+    membership_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
+
+
+class MessageTrigger(TenantScoped, Base):
+    """Which recipients get a message for each trigger (BL-52, MSG-07)."""
+    __tablename__ = "message_trigger"
+    __schema__ = "config"
+    __extra_args__ = (UniqueConstraint("tenant_id", "trigger", "recipient_role"),
+                      CheckConstraint("trigger in ('confirm','move','cancel','reminder','rain','colors')", name="trigger"),
+                      CheckConstraint("recipient_role in ('crew','client','hoa','pm')", name="role"))
+    trigger: Mapped[str] = mapped_column(Text)
+    recipient_role: Mapped[str] = mapped_column(Text)
+    enabled: Mapped[bool] = mapped_column(Boolean, default=True)

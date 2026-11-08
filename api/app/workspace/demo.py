@@ -23,8 +23,9 @@ from app.jobs.models import Job, JobFieldSource, JobLabelLink, JobSkill
 from app.platform.models import AppUser, Membership, Tenant
 from app.scheduling.engine.prototype import SAMPLE_HABIT_CONDITIONS
 from app.scheduling.models import Placement, PlacementCrew, PlacementVisit
-from app.settings.models import (DefaultHours, ImportantTrigger, JobLabel, RankingLabel, RankingLabelWeight, RatingDimension,
-                                 SchedulingRules)
+from app.messaging.builders import DEFAULT_TRIGGERS
+from app.settings.models import (DefaultHours, ImportantTrigger, JobLabel, MessageTrigger, ProjectManager, RankingLabel,
+                                 RankingLabelWeight, RatingDimension, SchedulingRules)
 from app.trades.painting.models import PaintingColor, PaintingJob
 from app.weather.models import WeatherDay
 
@@ -53,7 +54,8 @@ async def create_demo_tenant(s: AsyncSession, owner: AppUser, name: str = "PPP (
     day = lambda i: anchor + timedelta(days=i)
     tid = uuid.uuid4()
     await set_tenant(s, tid)
-    tenant = Tenant(id=tid, name=name, time_zone="America/New_York", status="trial", is_demo=True, calendar_anchor=anchor)
+    tenant = Tenant(id=tid, name=name, message_name="Precision Painting Plus", time_zone="America/New_York", status="trial",
+                    is_demo=True, calendar_anchor=anchor)
     s.add(tenant)
     await s.flush()
     s.add(Membership(tenant_id=tid, user_id=owner.id, role="owner", display_name=owner.display_name))
@@ -65,6 +67,12 @@ async def create_demo_tenant(s: AsyncSession, owner: AppUser, name: str = "PPP (
                           region_rule=r["region"], max_drive_min=r["maxDrive"], min_type_rating=r["minType"], min_reviews=r["minReviews"],
                           allow_unrated=r["untested"], lock_days=d["lock"], important_value=d["impValue"],
                           lead_safe_tracked=bool(rec.get("leadSafe")), languages_tracked=bool(rec.get("languages"))))
+    for trig, roles in DEFAULT_TRIGGERS.items():
+        for role, on in roles.items():
+            s.add(MessageTrigger(tenant_id=tid, trigger=trig, recipient_role=role, enabled=on))
+    for pm in d.get("PMS", {"bo": {"name": "Bo", "channel": "text", "phone": "(305) 555-0170"},
+                            "alan": {"name": "Alan", "channel": "email", "phone": "(305) 555-0175"}}).values():
+        s.add(ProjectManager(tenant_id=tid, name=pm["name"], channel=pm["channel"], phone=pm.get("phone")))
     for k, on in d["impOn"].items():
         s.add(ImportantTrigger(tenant_id=tid, key=k, enabled=on))
     hd = d["hoursDefault"]

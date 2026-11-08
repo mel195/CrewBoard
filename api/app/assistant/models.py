@@ -29,3 +29,19 @@ class AssistantHabit(TenantScoped, Base):
     source: Mapped[str] = mapped_column(default="observation")
     evidence_count: Mapped[int] = mapped_column(Integer, default=1)
     sort_order: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class AssistantObservation(TenantScoped, Base):
+    """One per confirm by a person: what Riley would have picked and whether the scheduler agreed (BL-49, RIL-02)."""
+    __tablename__ = "assistant_observation"
+    __extra_args__ = (tfk(["decision_id"], "ops.scheduling_decision", "CASCADE"),)
+    decision_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
+    job_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
+    job_type: Mapped[str] = mapped_column()
+    scheduler_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
+    scheduler_label: Mapped[str] = mapped_column()
+    riley_pick_crew_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
+    chosen_crew_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
+    agreed: Mapped[bool] = mapped_column()
+    reason: Mapped[str | None] = mapped_column()
+    used_in_training: Mapped[bool] = mapped_column(default=True)

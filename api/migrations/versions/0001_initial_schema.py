@@ -722,7 +722,14 @@ def upgrade() -> None:
 
 def _security() -> None:
     """Row-level security, grants for the app role, append-only audit (Phase 2: tenancy, DD-02, DD-11)."""
-    from app.models import APPEND_ONLY, TENANT_TABLES
+    # Frozen at this revision (later migrations add their own tables).
+    TENANT_TABLES = ['audit.audit_event', 'config.default_hours', 'config.important_trigger', 'config.job_label', 'config.ranking_label',
+                     'config.ranking_label_weight', 'config.rating_dimension', 'config.scheduling_rules', 'ops.assistant_habit',
+                     'ops.assistant_state', 'ops.client', 'ops.client_signal', 'ops.crew', 'ops.crew_cost_period', 'ops.crew_hours',
+                     'ops.crew_member', 'ops.crew_rating', 'ops.follow_up', 'ops.job', 'ops.job_field_source', 'ops.job_label_link',
+                     'ops.job_ranking', 'ops.job_revision', 'ops.job_skill', 'ops.placement', 'ops.placement_crew', 'ops.placement_visit',
+                     'ops.region', 'ops.service_area', 'painting.painting_color', 'painting.painting_job', 'platform.membership']
+    APPEND_ONLY = ['audit.audit_event']
     for sch in SCHEMAS:
         op.execute(f"GRANT USAGE ON SCHEMA {sch} TO crewboard_app")
         op.execute(f"GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA {sch} TO crewboard_app")

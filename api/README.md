@@ -3,15 +3,19 @@
 Backend for Crew Board, built to the Phase 2 design (modular monolith: Python 3.13, FastAPI, Pydantic v2,
 SQLAlchemy 2, Alembic, PostgreSQL 17 + PostGIS).
 
-This is **build steps 1 and 2** of the design's build order:
+This covers **build steps 1 to 3** of the design's build order:
 
 1. Foundation: tenancy with row-level security, platform (users, members, roles), settings, geography, crews,
    clients, jobs, painting job details, audit log, demo-tenant seed.
 2. The scheduling engine, ported from the prototype as pure functions and proven identical with golden tests.
+3. Placements and decisions: place a draft (best crew or a manual pick with a reason), drag to a day or crew,
+   second crews, split and resize visits, project manager and handoff, confirm (reason rule, score snapshot, Riley
+   observation), move a confirmed job (reason required), unschedule, clear, calendar, decision history. Messages:
+   every decision builds a review batch in the recipient's language (texts identical to the prototype), edit text,
+   channel or language, send or skip, message log, trigger settings. Sending is log-only until a provider is chosen.
 
-Placements (place, drag, confirm, move), messages, intake, Plan all and optimizer endpoints, and Riley's
-learning are steps 3 to 6. The engine for Plan all, the optimizer and Riley's pick is already ported and tested;
-only their write endpoints are left.
+Intake, Plan all and optimizer endpoints, and Riley's settings are steps 4 to 6. The engine for Plan all, the
+optimizer and Riley's pick is already ported and tested; only their endpoints are left.
 
 ## Run it
 
@@ -45,6 +49,11 @@ pytest                       # everything; needs the database (docker compose up
   Chromium. Every score, slot, failure message, reason line, optimizer move and KPI must match.
   To recapture after a prototype change: `python tests/golden/capture/capture.py ../index.html tests/golden/fixtures`
   (needs Playwright).
+- `tests/golden/test_messages_parity.py`: every message text (crew lead, client, HOA, PM, color confirmations,
+  shifted bookings) in every language matches the prototype (`capture_messages.py`).
+- `tests/api/test_placements.py`: place, confirm with and without a reason, Riley learning, idempotent confirm,
+  message edit and send, drag, non-working days, version conflicts, second crew, split, PM handoff, move with a
+  reason, unschedule, append-only decisions, review-off sending, calendar.
 - `tests/api/`: the seeded demo tenant ranks identically through the database and API; tenant isolation
   (API and raw SQL under row-level security); roles; If-Match concurrency; validation errors; append-only audit.
 

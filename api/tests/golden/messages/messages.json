@@ -1,0 +1,1874 @@
+{
+ "cases": [
+  {
+   "jid": "hernandez",
+   "trigger": "confirm",
+   "msgs": [
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Hernandez exterior\nlunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos. Horario HOA de 8 a 5.\nRequiere trabajo seguro con plomo.\nColores: Repose Gray, Pure White, Tricorn Black\nPago: $2,250 (15 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Hernandez exterior\nMonday, November 2 – Monday, November 9, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only. HOA hours 8 to 5.\nLead-safe setup required.\nColors: Repose Gray, Pure White, Tricorn Black\nJob pay: $2,250 (15 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Hernandez exterior\nlunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos. Horario HOA de 8 a 5.\nRequiere trabajo seguro con plomo.\nColores: Repose Gray, Pure White, Tricorn Black\nPago: $2,250 (15 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Hernandez exterior\nsegunda, 2 de novembro – segunda, 9 de novembro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos. Horário do HOA das 8 às 17.\nExige trabalho seguro com chumbo.\nCores: Repose Gray, Pure White, Tricorn Black\nPagamento: $2,250 (15 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Hernandez exterior\nlendi 2 novanm – lendi 9 novanm, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk. Lè HOA 8 a 5.\nFòk yo travay san danje ak plon.\nKoulè: Repose Gray, Pure White, Tricorn Black\nPeman: $2,250 (15 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Rosa & Daniel Hernandez",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el lunes 2 de noviembre, con fecha estimada de finalización el lunes 9 de noviembre. El equipo de Gian llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+     "all": {
+      "en": "Hello Rosa and Daniel, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Monday, November 2, with completion expected by Monday, November 9. Gian’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el lunes 2 de noviembre, con fecha estimada de finalización el lunes 9 de noviembre. El equipo de Gian llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Rosa ak Daniel, se Precision Painting Plus. Travay penti eksteryè ou a pwograme pou kòmanse lendi 2 novanm, epi nou prevwa fini lendi 9 novanm. Ekip Gian ap rive a 8:00 AM. Si move tan chanje orè a, n ap kontakte w davans. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    },
+    {
+     "key": "hoa",
+     "role": "hoa",
+     "to": "HOA office",
+     "channel": "email",
+     "lang": "en",
+     "text": "Work notice for the Hernandez residence: exterior painting Monday, November 2 to Monday, November 9, weekdays 8am to 5pm. Approved colors on file. Precision Painting Plus.",
+     "all": {
+      "en": "Work notice for the Hernandez residence: exterior painting Monday, November 2 to Monday, November 9, weekdays 8am to 5pm. Approved colors on file. Precision Painting Plus."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "New job for you: Hernandez exterior\nClient: Rosa & Daniel Hernandez, Pinecrest (HOA, 8 to 5)\nCrew: Gian ((786) 865-3762)\nDates: Monday, November 2 to Monday, November 9\nWork: exterior repaint, 15 painter days, lead-safe setup required\nColors: Repose Gray, Pure White, Tricorn Black (confirmed)\nPaint order: ready to order",
+     "all": {
+      "en": "New job for you: Hernandez exterior\nClient: Rosa & Daniel Hernandez, Pinecrest (HOA, 8 to 5)\nCrew: Gian ((786) 865-3762)\nDates: Monday, November 2 to Monday, November 9\nWork: exterior repaint, 15 painter days, lead-safe setup required\nColors: Repose Gray, Pure White, Tricorn Black (confirmed)\nPaint order: ready to order"
+     }
+    }
+   ]
+  },
+  {
+   "jid": "hernandez",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Hernandez exterior\nahora lunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Hernandez exterior\nnow Monday, November 2 – Monday, November 9, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Hernandez exterior\nahora lunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Hernandez exterior\nagora segunda, 2 de novembro – segunda, 9 de novembro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Hernandez exterior\nkounye a lendi 2 novanm – lendi 9 novanm, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Rosa & Daniel Hernandez",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura exterior: ahora comienza el lunes 2 de noviembre y terminará el lunes 9 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+     "all": {
+      "en": "Hello Rosa and Daniel, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Monday, November 2, with completion expected by Monday, November 9. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura exterior: ahora comienza el lunes 2 de noviembre y terminará el lunes 9 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou Rosa ak Daniel, se Precision Painting Plus. Nou chanje dat travay penti eksteryè ou a: kounye a li kòmanse lendi 2 novanm epi l ap fini lendi 9 novanm. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "Schedule change: Hernandez exterior now runs Monday, November 2 to Monday, November 9. Crew: Gian ((786) 865-3762). Client: Rosa & Daniel Hernandez, Pinecrest.",
+     "all": {
+      "en": "Schedule change: Hernandez exterior now runs Monday, November 2 to Monday, November 9. Crew: Gian ((786) 865-3762). Client: Rosa & Daniel Hernandez, Pinecrest."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "hernandez",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Hernandez exterior (lunes 2 de noviembre – lunes 9 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Hernandez exterior (Monday, November 2 – Monday, November 9) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Hernandez exterior (lunes 2 de noviembre – lunes 9 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Hernandez exterior (segunda, 2 de novembro – segunda, 9 de novembro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Hernandez exterior (lendi 2 novanm – lendi 9 novanm) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Rosa & Daniel Hernandez",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura exterior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+     "all": {
+      "en": "Hello Rosa and Daniel, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura exterior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou Rosa ak Daniel, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti eksteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "Heads up: Hernandez exterior is off the calendar for now. Crew: Gian ((786) 865-3762). Hold any paint order. We’ll send a new date.",
+     "all": {
+      "en": "Heads up: Hernandez exterior is off the calendar for now. Crew: Gian ((786) 865-3762). Hold any paint order. We’ll send a new date."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "hernandez",
+   "trigger": "reminder",
+   "msgs": [
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Hernandez exterior\nlunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos. Horario HOA de 8 a 5.\nRequiere trabajo seguro con plomo.\nColores: Repose Gray, Pure White, Tricorn Black\nPago: $2,250 (15 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Hernandez exterior\nMonday, November 2 – Monday, November 9, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only. HOA hours 8 to 5.\nLead-safe setup required.\nColors: Repose Gray, Pure White, Tricorn Black\nJob pay: $2,250 (15 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Hernandez exterior\nlunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos. Horario HOA de 8 a 5.\nRequiere trabajo seguro con plomo.\nColores: Repose Gray, Pure White, Tricorn Black\nPago: $2,250 (15 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Hernandez exterior\nsegunda, 2 de novembro – segunda, 9 de novembro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos. Horário do HOA das 8 às 17.\nExige trabalho seguro com chumbo.\nCores: Repose Gray, Pure White, Tricorn Black\nPagamento: $2,250 (15 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Hernandez exterior\nlendi 2 novanm – lendi 9 novanm, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk. Lè HOA 8 a 5.\nFòk yo travay san danje ak plon.\nKoulè: Repose Gray, Pure White, Tricorn Black\nPeman: $2,250 (15 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Rosa & Daniel Hernandez",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el lunes 2 de noviembre, con fecha estimada de finalización el lunes 9 de noviembre. El equipo de Gian llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+     "all": {
+      "en": "Hello Rosa and Daniel, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Monday, November 2, with completion expected by Monday, November 9. Gian’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el lunes 2 de noviembre, con fecha estimada de finalización el lunes 9 de noviembre. El equipo de Gian llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Rosa ak Daniel, se Precision Painting Plus. Travay penti eksteryè ou a pwograme pou kòmanse lendi 2 novanm, epi nou prevwa fini lendi 9 novanm. Ekip Gian ap rive a 8:00 AM. Si move tan chanje orè a, n ap kontakte w davans. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "hernandez",
+   "trigger": "rain",
+   "msgs": [
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Hernandez exterior\nlunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos. Horario HOA de 8 a 5.\nRequiere trabajo seguro con plomo.\nColores: Repose Gray, Pure White, Tricorn Black\nPago: $2,250 (15 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Hernandez exterior\nMonday, November 2 – Monday, November 9, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only. HOA hours 8 to 5.\nLead-safe setup required.\nColors: Repose Gray, Pure White, Tricorn Black\nJob pay: $2,250 (15 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Hernandez exterior\nlunes 2 de noviembre – lunes 9 de noviembre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos. Horario HOA de 8 a 5.\nRequiere trabajo seguro con plomo.\nColores: Repose Gray, Pure White, Tricorn Black\nPago: $2,250 (15 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Hernandez exterior\nsegunda, 2 de novembro – segunda, 9 de novembro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos. Horário do HOA das 8 às 17.\nExige trabalho seguro com chumbo.\nCores: Repose Gray, Pure White, Tricorn Black\nPagamento: $2,250 (15 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Hernandez exterior\nlendi 2 novanm – lendi 9 novanm, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk. Lè HOA 8 a 5.\nFòk yo travay san danje ak plon.\nKoulè: Repose Gray, Pure White, Tricorn Black\nPeman: $2,250 (15 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Rosa & Daniel Hernandez",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el lunes 2 de noviembre, con fecha estimada de finalización el lunes 9 de noviembre. El equipo de Gian llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+     "all": {
+      "en": "Hello Rosa and Daniel, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Monday, November 2, with completion expected by Monday, November 9. Gian’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Rosa y Daniel, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el lunes 2 de noviembre, con fecha estimada de finalización el lunes 9 de noviembre. El equipo de Gian llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Rosa ak Daniel, se Precision Painting Plus. Travay penti eksteryè ou a pwograme pou kòmanse lendi 2 novanm, epi nou prevwa fini lendi 9 novanm. Ekip Gian ap rive a 8:00 AM. Si move tan chanje orè a, n ap kontakte w davans. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "okafor",
+   "trigger": "confirm",
+   "msgs": [
+    {
+     "key": "crew:rigo",
+     "role": "crew",
+     "to": "Rigo (crew lead)",
+     "channel": "text",
+     "lang": "es",
+     "text": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $90 (0.6 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Okafor trim & door\nThursday, October 29, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only.\nColors: Urbane Bronze, Extra White\nJob pay: $90 (0.6 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $90 (0.6 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Okafor trim & door\nquinta, 29 de outubro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos.\nCores: Urbane Bronze, Extra White\nPagamento: $90 (0.6 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Okafor trim & door\njedi 29 oktòb, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk.\nKoulè: Urbane Bronze, Extra White\nPeman: $90 (0.6 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $260 (1.7 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Okafor trim & door\nThursday, October 29, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only.\nColors: Urbane Bronze, Extra White\nJob pay: $260 (1.7 painter days)\nYou’re sharing this job with another crew.\nReply YES to accept.",
+      "es": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $260 (1.7 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Okafor trim & door\nquinta, 29 de outubro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos.\nCores: Urbane Bronze, Extra White\nPagamento: $260 (1.7 dias-pintor)\nVocê divide este trabalho com outra equipe.\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Okafor trim & door\njedi 29 oktòb, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk.\nKoulè: Urbane Bronze, Extra White\nPeman: $260 (1.7 jou-pent)\nOu pataje travay sa a ak yon lòt ekip.\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "James Okafor",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello James, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Rigo’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+     "all": {
+      "en": "Hello James, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Rigo’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+      "es": "Hola James, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el jueves 29 de octubre, con fecha estimada de finalización el jueves 29 de octubre. El equipo de Rigo llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+      "ht": "Bonjou James, se Precision Painting Plus. Travay penti eksteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Rigo ap rive a 8:00 AM. Si move tan chanje orè a, n ap kontakte w davans. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Alan (PM)",
+     "channel": "email",
+     "lang": "en",
+     "text": "New job for you: Okafor trim & door\nClient: James Okafor, Pinecrest\nCrew: Rigo ((786) 597-6548) + Tania ((786) 663-3198)\nDates: Thursday, October 29 to Thursday, October 29\nWork: exterior repaint, 2.3 painter days\nColors: Urbane Bronze, Extra White (NOT confirmed yet, client has the color form)\nPaint order: hold until colors are confirmed",
+     "all": {
+      "en": "New job for you: Okafor trim & door\nClient: James Okafor, Pinecrest\nCrew: Rigo ((786) 597-6548) + Tania ((786) 663-3198)\nDates: Thursday, October 29 to Thursday, October 29\nWork: exterior repaint, 2.3 painter days\nColors: Urbane Bronze, Extra White (NOT confirmed yet, client has the color form)\nPaint order: hold until colors are confirmed"
+     }
+    }
+   ]
+  },
+  {
+   "jid": "okafor",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew:rigo",
+     "role": "crew",
+     "to": "Rigo (crew lead)",
+     "channel": "text",
+     "lang": "es",
+     "text": "Cambio de horario: Okafor trim & door\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Okafor trim & door\nnow Thursday, October 29, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Okafor trim & door\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Okafor trim & door\nagora quinta, 29 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Okafor trim & door\nkounye a jedi 29 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Okafor trim & door\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Okafor trim & door\nnow Thursday, October 29, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Okafor trim & door\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Okafor trim & door\nagora quinta, 29 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Okafor trim & door\nkounye a jedi 29 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "James Okafor",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello James, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. We apologize for any inconvenience. Please reply with any questions.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+     "all": {
+      "en": "Hello James, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. We apologize for any inconvenience. Please reply with any questions.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+      "es": "Hola James, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura exterior: ahora comienza el jueves 29 de octubre y terminará el jueves 29 de octubre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+      "ht": "Bonjou James, se Precision Painting Plus. Nou chanje dat travay penti eksteryè ou a: kounye a li kòmanse jedi 29 oktòb epi l ap fini jedi 29 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Alan (PM)",
+     "channel": "email",
+     "lang": "en",
+     "text": "Schedule change: Okafor trim & door now runs Thursday, October 29 to Thursday, October 29. Crew: Rigo ((786) 597-6548) + Tania ((786) 663-3198). Client: James Okafor, Pinecrest. Colors are still outstanding.",
+     "all": {
+      "en": "Schedule change: Okafor trim & door now runs Thursday, October 29 to Thursday, October 29. Crew: Rigo ((786) 597-6548) + Tania ((786) 663-3198). Client: James Okafor, Pinecrest. Colors are still outstanding."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "okafor",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew:rigo",
+     "role": "crew",
+     "to": "Rigo (crew lead)",
+     "channel": "text",
+     "lang": "es",
+     "text": "Cancelado: Okafor trim & door (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Okafor trim & door (Thursday, October 29) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Okafor trim & door (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Okafor trim & door (quinta, 29 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Okafor trim & door (jedi 29 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Okafor trim & door (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Okafor trim & door (Thursday, October 29) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Okafor trim & door (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Okafor trim & door (quinta, 29 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Okafor trim & door (jedi 29 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "James Okafor",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello James, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello James, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola James, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura exterior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou James, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti eksteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Alan (PM)",
+     "channel": "email",
+     "lang": "en",
+     "text": "Heads up: Okafor trim & door is off the calendar for now. Crew: Rigo ((786) 597-6548) + Tania ((786) 663-3198). Hold any paint order. We’ll send a new date.",
+     "all": {
+      "en": "Heads up: Okafor trim & door is off the calendar for now. Crew: Rigo ((786) 597-6548) + Tania ((786) 663-3198). Hold any paint order. We’ll send a new date."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "okafor",
+   "trigger": "reminder",
+   "msgs": [
+    {
+     "key": "crew:rigo",
+     "role": "crew",
+     "to": "Rigo (crew lead)",
+     "channel": "text",
+     "lang": "es",
+     "text": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $90 (0.6 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Okafor trim & door\nThursday, October 29, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only.\nColors: Urbane Bronze, Extra White\nJob pay: $90 (0.6 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $90 (0.6 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Okafor trim & door\nquinta, 29 de outubro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos.\nCores: Urbane Bronze, Extra White\nPagamento: $90 (0.6 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Okafor trim & door\njedi 29 oktòb, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk.\nKoulè: Urbane Bronze, Extra White\nPeman: $90 (0.6 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $260 (1.7 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Okafor trim & door\nThursday, October 29, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only.\nColors: Urbane Bronze, Extra White\nJob pay: $260 (1.7 painter days)\nYou’re sharing this job with another crew.\nReply YES to accept.",
+      "es": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $260 (1.7 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Okafor trim & door\nquinta, 29 de outubro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos.\nCores: Urbane Bronze, Extra White\nPagamento: $260 (1.7 dias-pintor)\nVocê divide este trabalho com outra equipe.\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Okafor trim & door\njedi 29 oktòb, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk.\nKoulè: Urbane Bronze, Extra White\nPeman: $260 (1.7 jou-pent)\nOu pataje travay sa a ak yon lòt ekip.\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "James Okafor",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello James, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Rigo’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+     "all": {
+      "en": "Hello James, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Rigo’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola James, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el jueves 29 de octubre, con fecha estimada de finalización el jueves 29 de octubre. El equipo de Rigo llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou James, se Precision Painting Plus. Travay penti eksteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Rigo ap rive a 8:00 AM. Si move tan chanje orè a, n ap kontakte w davans. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "okafor",
+   "trigger": "rain",
+   "msgs": [
+    {
+     "key": "crew:rigo",
+     "role": "crew",
+     "to": "Rigo (crew lead)",
+     "channel": "text",
+     "lang": "es",
+     "text": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $90 (0.6 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Okafor trim & door\nThursday, October 29, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only.\nColors: Urbane Bronze, Extra White\nJob pay: $90 (0.6 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $90 (0.6 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Okafor trim & door\nquinta, 29 de outubro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos.\nCores: Urbane Bronze, Extra White\nPagamento: $90 (0.6 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Okafor trim & door\njedi 29 oktòb, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk.\nKoulè: Urbane Bronze, Extra White\nPeman: $90 (0.6 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $260 (1.7 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Okafor trim & door\nThursday, October 29, start 8am\nPinecrest, address and photos in the app\nExterior. Wash day 1, body coats on dry days only.\nColors: Urbane Bronze, Extra White\nJob pay: $260 (1.7 painter days)\nYou’re sharing this job with another crew.\nReply YES to accept.",
+      "es": "Nuevo trabajo: Okafor trim & door\njueves 29 de octubre, empieza 8am\nPinecrest, dirección y fotos en la app\nExterior. Lavado el día 1, capas solo en días secos.\nColores: Urbane Bronze, Extra White\nPago: $260 (1.7 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Okafor trim & door\nquinta, 29 de outubro, começa 8h\nPinecrest, endereço e fotos no app\nExterior. Lavar no dia 1, demãos só em dias secos.\nCores: Urbane Bronze, Extra White\nPagamento: $260 (1.7 dias-pintor)\nVocê divide este trabalho com outra equipe.\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Okafor trim & door\njedi 29 oktòb, kòmanse 8am\nPinecrest, adrès ak foto nan app la\nEksteryè. Lave jou 1, kouch yo sèlman jou ki sèk.\nKoulè: Urbane Bronze, Extra White\nPeman: $260 (1.7 jou-pent)\nOu pataje travay sa a ak yon lòt ekip.\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "James Okafor",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello James, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Rigo’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+     "all": {
+      "en": "Hello James, this is Precision Painting Plus. Your exterior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Rigo’s crew will arrive at 8:00 AM. If weather affects the schedule, we will let you know in advance. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola James, le saluda Precision Painting Plus. Su proyecto de pintura exterior está programado para comenzar el jueves 29 de octubre, con fecha estimada de finalización el jueves 29 de octubre. El equipo de Rigo llegará a las 8:00 a. m. Si el clima afecta el calendario, le avisaremos con anticipación. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou James, se Precision Painting Plus. Travay penti eksteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Rigo ap rive a 8:00 AM. Si move tan chanje orè a, n ap kontakte w davans. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "patel",
+   "trigger": "confirm",
+   "msgs": [
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Patel kitchen cabinets\nsábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nKendall, dirección y fotos en la app\nColores: Iron Ore, Alabaster\nPago: $750 (5 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Patel kitchen cabinets\nSaturday, October 31 – Monday, November 2, start 8am\nKendall, address and photos in the app\nColors: Iron Ore, Alabaster\nJob pay: $750 (5 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Patel kitchen cabinets\nsábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nKendall, dirección y fotos en la app\nColores: Iron Ore, Alabaster\nPago: $750 (5 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Patel kitchen cabinets\nsábado, 31 de outubro – segunda, 2 de novembro, começa 8h\nKendall, endereço e fotos no app\nCores: Iron Ore, Alabaster\nPagamento: $750 (5 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Patel kitchen cabinets\nsamdi 31 oktòb – lendi 2 novanm, kòmanse 8am\nKendall, adrès ak foto nan app la\nKoulè: Iron Ore, Alabaster\nPeman: $750 (5 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Priya Patel",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Priya, le saluda Precision Painting Plus. Su proyecto de pintura de gabinetes está programado para comenzar el sábado 31 de octubre, con fecha estimada de finalización el lunes 2 de noviembre. El equipo de Tania llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+     "all": {
+      "en": "Hello Priya, this is Precision Painting Plus. Your cabinet painting project is scheduled to begin Saturday, October 31, with completion expected by Monday, November 2. Tania’s crew will arrive at 8:00 AM. Please reply to this message with any questions. Thank you for choosing us.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+      "es": "Hola Priya, le saluda Precision Painting Plus. Su proyecto de pintura de gabinetes está programado para comenzar el sábado 31 de octubre, con fecha estimada de finalización el lunes 2 de noviembre. El equipo de Tania llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+      "ht": "Bonjou Priya, se Precision Painting Plus. Travay penti kabinè ou a pwograme pou kòmanse samdi 31 oktòb, epi nou prevwa fini lendi 2 novanm. Ekip Tania ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "patel",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Patel kitchen cabinets\nahora sábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Patel kitchen cabinets\nnow Saturday, October 31 – Monday, November 2, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Patel kitchen cabinets\nahora sábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Patel kitchen cabinets\nagora sábado, 31 de outubro – segunda, 2 de novembro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Patel kitchen cabinets\nkounye a samdi 31 oktòb – lendi 2 novanm, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Priya Patel",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Priya, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura de gabinetes: ahora comienza el sábado 31 de octubre y terminará el lunes 2 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+     "all": {
+      "en": "Hello Priya, this is Precision Painting Plus. Your cabinet painting project has been rescheduled to begin Saturday, October 31, with completion expected by Monday, November 2. We apologize for any inconvenience. Please reply with any questions.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+      "es": "Hola Priya, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura de gabinetes: ahora comienza el sábado 31 de octubre y terminará el lunes 2 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+      "ht": "Bonjou Priya, se Precision Painting Plus. Nou chanje dat travay penti kabinè ou a: kounye a li kòmanse samdi 31 oktòb epi l ap fini lendi 2 novanm. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "patel",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Patel kitchen cabinets (sábado 31 de octubre – lunes 2 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Patel kitchen cabinets (Saturday, October 31 – Monday, November 2) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Patel kitchen cabinets (sábado 31 de octubre – lunes 2 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Patel kitchen cabinets (sábado, 31 de outubro – segunda, 2 de novembro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Patel kitchen cabinets (samdi 31 oktòb – lendi 2 novanm) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Priya Patel",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Priya, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura de gabinetes. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+     "all": {
+      "en": "Hello Priya, this is Precision Painting Plus. We need to adjust the start date for your cabinet painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola Priya, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura de gabinetes. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou Priya, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti kabinè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "patel",
+   "trigger": "reminder",
+   "msgs": [
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Patel kitchen cabinets\nsábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nKendall, dirección y fotos en la app\nColores: Iron Ore, Alabaster\nPago: $750 (5 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Patel kitchen cabinets\nSaturday, October 31 – Monday, November 2, start 8am\nKendall, address and photos in the app\nColors: Iron Ore, Alabaster\nJob pay: $750 (5 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Patel kitchen cabinets\nsábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nKendall, dirección y fotos en la app\nColores: Iron Ore, Alabaster\nPago: $750 (5 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Patel kitchen cabinets\nsábado, 31 de outubro – segunda, 2 de novembro, começa 8h\nKendall, endereço e fotos no app\nCores: Iron Ore, Alabaster\nPagamento: $750 (5 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Patel kitchen cabinets\nsamdi 31 oktòb – lendi 2 novanm, kòmanse 8am\nKendall, adrès ak foto nan app la\nKoulè: Iron Ore, Alabaster\nPeman: $750 (5 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Priya Patel",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Priya, le saluda Precision Painting Plus. Su proyecto de pintura de gabinetes está programado para comenzar el sábado 31 de octubre, con fecha estimada de finalización el lunes 2 de noviembre. El equipo de Tania llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+     "all": {
+      "en": "Hello Priya, this is Precision Painting Plus. Your cabinet painting project is scheduled to begin Saturday, October 31, with completion expected by Monday, November 2. Tania’s crew will arrive at 8:00 AM. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Priya, le saluda Precision Painting Plus. Su proyecto de pintura de gabinetes está programado para comenzar el sábado 31 de octubre, con fecha estimada de finalización el lunes 2 de noviembre. El equipo de Tania llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Priya, se Precision Painting Plus. Travay penti kabinè ou a pwograme pou kòmanse samdi 31 oktòb, epi nou prevwa fini lendi 2 novanm. Ekip Tania ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "patel",
+   "trigger": "rain",
+   "msgs": [
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Patel kitchen cabinets\nsábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nKendall, dirección y fotos en la app\nColores: Iron Ore, Alabaster\nPago: $750 (5 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Patel kitchen cabinets\nSaturday, October 31 – Monday, November 2, start 8am\nKendall, address and photos in the app\nColors: Iron Ore, Alabaster\nJob pay: $750 (5 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Patel kitchen cabinets\nsábado 31 de octubre – lunes 2 de noviembre, empieza 8am\nKendall, dirección y fotos en la app\nColores: Iron Ore, Alabaster\nPago: $750 (5 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Patel kitchen cabinets\nsábado, 31 de outubro – segunda, 2 de novembro, começa 8h\nKendall, endereço e fotos no app\nCores: Iron Ore, Alabaster\nPagamento: $750 (5 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Patel kitchen cabinets\nsamdi 31 oktòb – lendi 2 novanm, kòmanse 8am\nKendall, adrès ak foto nan app la\nKoulè: Iron Ore, Alabaster\nPeman: $750 (5 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Priya Patel",
+     "channel": "text",
+     "lang": "es",
+     "text": "Hola Priya, le saluda Precision Painting Plus. Su proyecto de pintura de gabinetes está programado para comenzar el sábado 31 de octubre, con fecha estimada de finalización el lunes 2 de noviembre. El equipo de Tania llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+     "all": {
+      "en": "Hello Priya, this is Precision Painting Plus. Your cabinet painting project is scheduled to begin Saturday, October 31, with completion expected by Monday, November 2. Tania’s crew will arrive at 8:00 AM. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Priya, le saluda Precision Painting Plus. Su proyecto de pintura de gabinetes está programado para comenzar el sábado 31 de octubre, con fecha estimada de finalización el lunes 2 de noviembre. El equipo de Tania llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Priya, se Precision Painting Plus. Travay penti kabinè ou a pwograme pou kòmanse samdi 31 oktòb, epi nou prevwa fini lendi 2 novanm. Ekip Tania ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "gutierrez",
+   "trigger": "confirm",
+   "msgs": [
+    {
+     "key": "crew:johan-dani",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $480 (3 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Gutierrez interior\nThursday, October 29, start 8am\nCoral Gables, address and photos in the app\nLead-safe setup required.\nColors: Sea Salt, Accessible Beige\nJob pay: $480 (3 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $480 (3 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Gutierrez interior\nquinta, 29 de outubro, começa 8h\nCoral Gables, endereço e fotos no app\nExige trabalho seguro com chumbo.\nCores: Sea Salt, Accessible Beige\nPagamento: $480 (3 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Gutierrez interior\njedi 29 oktòb, kòmanse 8am\nCoral Gables, adrès ak foto nan app la\nFòk yo travay san danje ak plon.\nKoulè: Sea Salt, Accessible Beige\nPeman: $480 (3 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $450 (3 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Gutierrez interior\nThursday, October 29, start 8am\nCoral Gables, address and photos in the app\nLead-safe setup required.\nColors: Sea Salt, Accessible Beige\nJob pay: $450 (3 painter days)\nYou’re sharing this job with another crew.\nReply YES to accept.",
+      "es": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $450 (3 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Gutierrez interior\nquinta, 29 de outubro, começa 8h\nCoral Gables, endereço e fotos no app\nExige trabalho seguro com chumbo.\nCores: Sea Salt, Accessible Beige\nPagamento: $450 (3 dias-pintor)\nVocê divide este trabalho com outra equipe.\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Gutierrez interior\njedi 29 oktòb, kòmanse 8am\nCoral Gables, adrès ak foto nan app la\nFòk yo travay san danje ak plon.\nKoulè: Sea Salt, Accessible Beige\nPeman: $450 (3 jou-pent)\nOu pataje travay sa a ak yon lòt ekip.\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Ana Gutierrez",
+     "channel": "text",
+     "lang": "ht",
+     "text": "Bonjou Ana, se Precision Painting Plus. Travay penti enteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Johan & Dani ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a.",
+     "all": {
+      "en": "Hello Ana, this is Precision Painting Plus. Your interior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Johan & Dani’s crew will arrive at 8:00 AM. Please reply to this message with any questions. Thank you for choosing us.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+      "es": "Hola Ana, le saluda Precision Painting Plus. Su proyecto de pintura interior está programado para comenzar el jueves 29 de octubre, con fecha estimada de finalización el jueves 29 de octubre. El equipo de Johan & Dani llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+      "ht": "Bonjou Ana, se Precision Painting Plus. Travay penti enteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Johan & Dani ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "New job for you: Gutierrez interior\nClient: Ana Gutierrez, Coral Gables\nCrew: Johan & Dani ((941) 387-5048) + Gian ((786) 865-3762)\nDates: Thursday, October 29 to Thursday, October 29\nWork: interior repaint, 6 painter days, lead-safe setup required\nColors: Sea Salt, Accessible Beige (NOT confirmed yet, client has the color form)\nPaint order: hold until colors are confirmed",
+     "all": {
+      "en": "New job for you: Gutierrez interior\nClient: Ana Gutierrez, Coral Gables\nCrew: Johan & Dani ((941) 387-5048) + Gian ((786) 865-3762)\nDates: Thursday, October 29 to Thursday, October 29\nWork: interior repaint, 6 painter days, lead-safe setup required\nColors: Sea Salt, Accessible Beige (NOT confirmed yet, client has the color form)\nPaint order: hold until colors are confirmed"
+     }
+    }
+   ]
+  },
+  {
+   "jid": "gutierrez",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew:johan-dani",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Gutierrez interior\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Gutierrez interior\nnow Thursday, October 29, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Gutierrez interior\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Gutierrez interior\nagora quinta, 29 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Gutierrez interior\nkounye a jedi 29 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Gutierrez interior\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Gutierrez interior\nnow Thursday, October 29, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Gutierrez interior\nahora jueves 29 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Gutierrez interior\nagora quinta, 29 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Gutierrez interior\nkounye a jedi 29 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Ana Gutierrez",
+     "channel": "text",
+     "lang": "ht",
+     "text": "Bonjou Ana, se Precision Painting Plus. Nou chanje dat travay penti enteryè ou a: kounye a li kòmanse jedi 29 oktòb epi l ap fini jedi 29 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a.",
+     "all": {
+      "en": "Hello Ana, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. We apologize for any inconvenience. Please reply with any questions.\n\nOne more thing: we still need your color and material picks before we start. Reply here or use the color form we sent.",
+      "es": "Hola Ana, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura interior: ahora comienza el jueves 29 de octubre y terminará el jueves 29 de octubre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.\n\nUna cosa más: todavía necesitamos su selección de colores y materiales antes de comenzar. Responda aquí o use el formulario de colores que le enviamos.",
+      "ht": "Bonjou Ana, se Precision Painting Plus. Nou chanje dat travay penti enteryè ou a: kounye a li kòmanse jedi 29 oktòb epi l ap fini jedi 29 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon.\n\nYon lòt bagay: nou toujou bezwen chwa koulè ak materyèl ou yo anvan nou kòmanse. Reponn isit la oswa itilize fòm koulè nou voye a."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "Schedule change: Gutierrez interior now runs Thursday, October 29 to Thursday, October 29. Crew: Johan & Dani ((941) 387-5048) + Gian ((786) 865-3762). Client: Ana Gutierrez, Coral Gables. Colors are still outstanding.",
+     "all": {
+      "en": "Schedule change: Gutierrez interior now runs Thursday, October 29 to Thursday, October 29. Crew: Johan & Dani ((941) 387-5048) + Gian ((786) 865-3762). Client: Ana Gutierrez, Coral Gables. Colors are still outstanding."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "gutierrez",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew:johan-dani",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Gutierrez interior (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Gutierrez interior (Thursday, October 29) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Gutierrez interior (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Gutierrez interior (quinta, 29 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Gutierrez interior (jedi 29 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Gutierrez interior (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Gutierrez interior (Thursday, October 29) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Gutierrez interior (jueves 29 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Gutierrez interior (quinta, 29 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Gutierrez interior (jedi 29 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Ana Gutierrez",
+     "channel": "text",
+     "lang": "ht",
+     "text": "Bonjou Ana, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti enteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou.",
+     "all": {
+      "en": "Hello Ana, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola Ana, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura interior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou Ana, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti enteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "Heads up: Gutierrez interior is off the calendar for now. Crew: Johan & Dani ((941) 387-5048) + Gian ((786) 865-3762). Hold any paint order. We’ll send a new date.",
+     "all": {
+      "en": "Heads up: Gutierrez interior is off the calendar for now. Crew: Johan & Dani ((941) 387-5048) + Gian ((786) 865-3762). Hold any paint order. We’ll send a new date."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "gutierrez",
+   "trigger": "reminder",
+   "msgs": [
+    {
+     "key": "crew:johan-dani",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $480 (3 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Gutierrez interior\nThursday, October 29, start 8am\nCoral Gables, address and photos in the app\nLead-safe setup required.\nColors: Sea Salt, Accessible Beige\nJob pay: $480 (3 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $480 (3 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Gutierrez interior\nquinta, 29 de outubro, começa 8h\nCoral Gables, endereço e fotos no app\nExige trabalho seguro com chumbo.\nCores: Sea Salt, Accessible Beige\nPagamento: $480 (3 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Gutierrez interior\njedi 29 oktòb, kòmanse 8am\nCoral Gables, adrès ak foto nan app la\nFòk yo travay san danje ak plon.\nKoulè: Sea Salt, Accessible Beige\nPeman: $480 (3 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $450 (3 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Gutierrez interior\nThursday, October 29, start 8am\nCoral Gables, address and photos in the app\nLead-safe setup required.\nColors: Sea Salt, Accessible Beige\nJob pay: $450 (3 painter days)\nYou’re sharing this job with another crew.\nReply YES to accept.",
+      "es": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $450 (3 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Gutierrez interior\nquinta, 29 de outubro, começa 8h\nCoral Gables, endereço e fotos no app\nExige trabalho seguro com chumbo.\nCores: Sea Salt, Accessible Beige\nPagamento: $450 (3 dias-pintor)\nVocê divide este trabalho com outra equipe.\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Gutierrez interior\njedi 29 oktòb, kòmanse 8am\nCoral Gables, adrès ak foto nan app la\nFòk yo travay san danje ak plon.\nKoulè: Sea Salt, Accessible Beige\nPeman: $450 (3 jou-pent)\nOu pataje travay sa a ak yon lòt ekip.\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Ana Gutierrez",
+     "channel": "text",
+     "lang": "ht",
+     "text": "Bonjou Ana, se Precision Painting Plus. Travay penti enteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Johan & Dani ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans.",
+     "all": {
+      "en": "Hello Ana, this is Precision Painting Plus. Your interior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Johan & Dani’s crew will arrive at 8:00 AM. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Ana, le saluda Precision Painting Plus. Su proyecto de pintura interior está programado para comenzar el jueves 29 de octubre, con fecha estimada de finalización el jueves 29 de octubre. El equipo de Johan & Dani llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Ana, se Precision Painting Plus. Travay penti enteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Johan & Dani ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "gutierrez",
+   "trigger": "rain",
+   "msgs": [
+    {
+     "key": "crew:johan-dani",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $480 (3 días-pintor)\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Gutierrez interior\nThursday, October 29, start 8am\nCoral Gables, address and photos in the app\nLead-safe setup required.\nColors: Sea Salt, Accessible Beige\nJob pay: $480 (3 painter days)\nReply YES to accept.",
+      "es": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $480 (3 días-pintor)\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Gutierrez interior\nquinta, 29 de outubro, começa 8h\nCoral Gables, endereço e fotos no app\nExige trabalho seguro com chumbo.\nCores: Sea Salt, Accessible Beige\nPagamento: $480 (3 dias-pintor)\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Gutierrez interior\njedi 29 oktòb, kòmanse 8am\nCoral Gables, adrès ak foto nan app la\nFòk yo travay san danje ak plon.\nKoulè: Sea Salt, Accessible Beige\nPeman: $480 (3 jou-pent)\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $450 (3 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "New job: Gutierrez interior\nThursday, October 29, start 8am\nCoral Gables, address and photos in the app\nLead-safe setup required.\nColors: Sea Salt, Accessible Beige\nJob pay: $450 (3 painter days)\nYou’re sharing this job with another crew.\nReply YES to accept.",
+      "es": "Nuevo trabajo: Gutierrez interior\njueves 29 de octubre, empieza 8am\nCoral Gables, dirección y fotos en la app\nRequiere trabajo seguro con plomo.\nColores: Sea Salt, Accessible Beige\nPago: $450 (3 días-pintor)\nComparte este trabajo con otro equipo.\nResponda SÍ para aceptar.",
+      "pt": "Novo trabalho: Gutierrez interior\nquinta, 29 de outubro, começa 8h\nCoral Gables, endereço e fotos no app\nExige trabalho seguro com chumbo.\nCores: Sea Salt, Accessible Beige\nPagamento: $450 (3 dias-pintor)\nVocê divide este trabalho com outra equipe.\nResponda SIM para aceitar.",
+      "ht": "Nouvo travay: Gutierrez interior\njedi 29 oktòb, kòmanse 8am\nCoral Gables, adrès ak foto nan app la\nFòk yo travay san danje ak plon.\nKoulè: Sea Salt, Accessible Beige\nPeman: $450 (3 jou-pent)\nOu pataje travay sa a ak yon lòt ekip.\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Ana Gutierrez",
+     "channel": "text",
+     "lang": "ht",
+     "text": "Bonjou Ana, se Precision Painting Plus. Travay penti enteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Johan & Dani ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans.",
+     "all": {
+      "en": "Hello Ana, this is Precision Painting Plus. Your interior painting project is scheduled to begin Thursday, October 29, with completion expected by Thursday, October 29. Johan & Dani’s crew will arrive at 8:00 AM. Please reply to this message with any questions. Thank you for choosing us.",
+      "es": "Hola Ana, le saluda Precision Painting Plus. Su proyecto de pintura interior está programado para comenzar el jueves 29 de octubre, con fecha estimada de finalización el jueves 29 de octubre. El equipo de Johan & Dani llegará a las 8:00 a. m. Responda a este mensaje si tiene alguna pregunta. Gracias por confiar en nosotros.",
+      "ht": "Bonjou Ana, se Precision Painting Plus. Travay penti enteryè ou a pwograme pou kòmanse jedi 29 oktòb, epi nou prevwa fini jedi 29 oktòb. Ekip Johan & Dani ap rive a 8:00 AM. Tanpri reponn mesaj sa a si w gen nenpòt kesyon. Mèsi paske w fè nou konfyans."
+     }
+    }
+   ]
+  }
+ ],
+ "fixed": [
+  {
+   "id": "b0",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Delgado\nahora lunes 26 de octubre – miércoles 28 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Delgado\nnow Monday, October 26 – Wednesday, October 28, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Delgado\nahora lunes 26 de octubre – miércoles 28 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Delgado\nagora segunda, 26 de outubro – quarta, 28 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Delgado\nkounye a lendi 26 oktòb – mèkredi 28 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Delgado client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Monday, October 26, with completion expected by Wednesday, October 28. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Monday, October 26, with completion expected by Wednesday, October 28. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura exterior: ahora comienza el lunes 26 de octubre y terminará el miércoles 28 de octubre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti eksteryè ou a: kounye a li kòmanse lendi 26 oktòb epi l ap fini mèkredi 28 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b0",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Delgado (lunes 26 de octubre – miércoles 28 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Delgado (Monday, October 26 – Wednesday, October 28) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Delgado (lunes 26 de octubre – miércoles 28 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Delgado (segunda, 26 de outubro – quarta, 28 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Delgado (lendi 26 oktòb – mèkredi 28 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Delgado client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura exterior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti eksteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Brightwater HOA, phase 2\nahora martes 10 de noviembre – lunes 16 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Brightwater HOA, phase 2\nnow Tuesday, November 10 – Monday, November 16, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Brightwater HOA, phase 2\nahora martes 10 de noviembre – lunes 16 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Brightwater HOA, phase 2\nagora terça, 10 de novembro – segunda, 16 de novembro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Brightwater HOA, phase 2\nkounye a madi 10 novanm – lendi 16 novanm, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Brightwater HOA, phase 2 client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your painting project has been rescheduled to begin Tuesday, November 10, with completion expected by Monday, November 16. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your painting project has been rescheduled to begin Tuesday, November 10, with completion expected by Monday, November 16. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura: ahora comienza el martes 10 de noviembre y terminará el lunes 16 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti ou a: kounye a li kòmanse madi 10 novanm epi l ap fini lendi 16 novanm. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Brightwater HOA, phase 2 (martes 10 de noviembre – lunes 16 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Brightwater HOA, phase 2 (Tuesday, November 10 – Monday, November 16) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Brightwater HOA, phase 2 (martes 10 de noviembre – lunes 16 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Brightwater HOA, phase 2 (terça, 10 de novembro – segunda, 16 de novembro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Brightwater HOA, phase 2 (madi 10 novanm – lendi 16 novanm) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Brightwater HOA, phase 2 client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Lopez\nahora miércoles 18 de noviembre – viernes 20 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Lopez\nnow Wednesday, November 18 – Friday, November 20, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Lopez\nahora miércoles 18 de noviembre – viernes 20 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Lopez\nagora quarta, 18 de novembro – sexta, 20 de novembro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Lopez\nkounye a mèkredi 18 novanm – vandredi 20 novanm, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Lopez client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Wednesday, November 18, with completion expected by Friday, November 20. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Wednesday, November 18, with completion expected by Friday, November 20. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura interior: ahora comienza el miércoles 18 de noviembre y terminará el viernes 20 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti enteryè ou a: kounye a li kòmanse mèkredi 18 novanm epi l ap fini vandredi 20 novanm. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Lopez (miércoles 18 de noviembre – viernes 20 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Lopez (Wednesday, November 18 – Friday, November 20) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Lopez (miércoles 18 de noviembre – viernes 20 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Lopez (quarta, 18 de novembro – sexta, 20 de novembro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Lopez (mèkredi 18 novanm – vandredi 20 novanm) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Lopez client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura interior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti enteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Brickell Bay condo halls\nahora lunes 26 de octubre – viernes 30 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Brickell Bay condo halls\nnow Monday, October 26 – Friday, October 30, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Brickell Bay condo halls\nahora lunes 26 de octubre – viernes 30 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Brickell Bay condo halls\nagora segunda, 26 de outubro – sexta, 30 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Brickell Bay condo halls\nkounye a lendi 26 oktòb – vandredi 30 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Brickell Bay condo halls client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your painting project has been rescheduled to begin Monday, October 26, with completion expected by Friday, October 30. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your painting project has been rescheduled to begin Monday, October 26, with completion expected by Friday, October 30. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura: ahora comienza el lunes 26 de octubre y terminará el viernes 30 de octubre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti ou a: kounye a li kòmanse lendi 26 oktòb epi l ap fini vandredi 30 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Brickell Bay condo halls (lunes 26 de octubre – viernes 30 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Brickell Bay condo halls (Monday, October 26 – Friday, October 30) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Brickell Bay condo halls (lunes 26 de octubre – viernes 30 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Brickell Bay condo halls (segunda, 26 de outubro – sexta, 30 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Brickell Bay condo halls (lendi 26 oktòb – vandredi 30 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Brickell Bay condo halls client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Simmons\nahora miércoles 4 de noviembre – viernes 6 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Simmons\nnow Wednesday, November 4 – Friday, November 6, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Simmons\nahora miércoles 4 de noviembre – viernes 6 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Simmons\nagora quarta, 4 de novembro – sexta, 6 de novembro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Simmons\nkounye a mèkredi 4 novanm – vandredi 6 novanm, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Simmons client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Wednesday, November 4, with completion expected by Friday, November 6. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Wednesday, November 4, with completion expected by Friday, November 6. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura exterior: ahora comienza el miércoles 4 de noviembre y terminará el viernes 6 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti eksteryè ou a: kounye a li kòmanse mèkredi 4 novanm epi l ap fini vandredi 6 novanm. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Simmons (miércoles 4 de noviembre – viernes 6 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Simmons (Wednesday, November 4 – Friday, November 6) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Simmons (miércoles 4 de noviembre – viernes 6 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Simmons (quarta, 4 de novembro – sexta, 6 de novembro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Simmons (mèkredi 4 novanm – vandredi 6 novanm) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Simmons client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura exterior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti eksteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Watts\nahora viernes 13 de noviembre – martes 17 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Watts\nnow Friday, November 13 – Tuesday, November 17, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Watts\nahora viernes 13 de noviembre – martes 17 de noviembre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Watts\nagora sexta, 13 de novembro – terça, 17 de novembro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Watts\nkounye a vandredi 13 novanm – madi 17 novanm, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Watts client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Friday, November 13, with completion expected by Tuesday, November 17. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Friday, November 13, with completion expected by Tuesday, November 17. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura interior: ahora comienza el viernes 13 de noviembre y terminará el martes 17 de noviembre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti enteryè ou a: kounye a li kòmanse vandredi 13 novanm epi l ap fini madi 17 novanm. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Watts (viernes 13 de noviembre – martes 17 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Watts (Friday, November 13 – Tuesday, November 17) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Watts (viernes 13 de noviembre – martes 17 de noviembre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Watts (sexta, 13 de novembro – terça, 17 de novembro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Watts (vandredi 13 novanm – madi 17 novanm) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Watts client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura interior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti enteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Chen\nahora lunes 26 de octubre – martes 27 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Chen\nnow Monday, October 26 – Tuesday, October 27, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Chen\nahora lunes 26 de octubre – martes 27 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Chen\nagora segunda, 26 de outubro – terça, 27 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Chen\nkounye a lendi 26 oktòb – madi 27 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Chen client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Monday, October 26, with completion expected by Tuesday, October 27. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your interior painting project has been rescheduled to begin Monday, October 26, with completion expected by Tuesday, October 27. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura interior: ahora comienza el lunes 26 de octubre y terminará el martes 27 de octubre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti enteryè ou a: kounye a li kòmanse lendi 26 oktòb epi l ap fini madi 27 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Chen (lunes 26 de octubre – martes 27 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Chen (Monday, October 26 – Tuesday, October 27) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Chen (lunes 26 de octubre – martes 27 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Chen (segunda, 26 de outubro – terça, 27 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Chen (lendi 26 oktòb – madi 27 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Chen client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your interior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura interior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti enteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "trigger": "move",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cambio de horario: Navarro\nahora miércoles 28 de octubre – viernes 30 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+     "all": {
+      "en": "Schedule change: Navarro\nnow Wednesday, October 28 – Friday, October 30, start 8am\nReply YES to accept.",
+      "es": "Cambio de horario: Navarro\nahora miércoles 28 de octubre – viernes 30 de octubre, empieza 8am\nResponda SÍ para aceptar.",
+      "pt": "Mudança de agenda: Navarro\nagora quarta, 28 de outubro – sexta, 30 de outubro, começa 8h\nResponda SIM para aceitar.",
+      "ht": "Chanjman orè: Navarro\nkounye a mèkredi 28 oktòb – vandredi 30 oktòb, kòmanse 8am\nReponn WI pou aksepte."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Navarro client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Wednesday, October 28, with completion expected by Friday, October 30. We apologize for any inconvenience. Please reply with any questions.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. Your exterior painting project has been rescheduled to begin Wednesday, October 28, with completion expected by Friday, October 30. We apologize for any inconvenience. Please reply with any questions.",
+      "es": "Hola, le saluda Precision Painting Plus. Hemos reprogramado su proyecto de pintura exterior: ahora comienza el miércoles 28 de octubre y terminará el viernes 30 de octubre. Disculpe las molestias. Responda a este mensaje si tiene alguna pregunta.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou chanje dat travay penti eksteryè ou a: kounye a li kòmanse mèkredi 28 oktòb epi l ap fini vandredi 30 oktòb. Eskize nou pou deranjman an. Tanpri reponn mesaj sa a si w gen kesyon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "trigger": "cancel",
+   "msgs": [
+    {
+     "key": "crew",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Cancelado: Navarro (miércoles 28 de octubre – viernes 30 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+     "all": {
+      "en": "Cancelled: Navarro (Wednesday, October 28 – Friday, October 30) is off your schedule for now. We’ll send a new date.",
+      "es": "Cancelado: Navarro (miércoles 28 de octubre – viernes 30 de octubre) sale de su calendario por ahora. Le enviaremos una nueva fecha.",
+      "pt": "Cancelado: Navarro (quarta, 28 de outubro – sexta, 30 de outubro) saiu da sua agenda por enquanto. Enviaremos uma nova data.",
+      "ht": "Anile: Navarro (mèkredi 28 oktòb – vandredi 30 oktòb) pa nan orè ou pou kounye a. N ap voye yon nouvo dat."
+     }
+    },
+    {
+     "key": "client",
+     "role": "client",
+     "to": "Navarro client",
+     "channel": "text",
+     "lang": "en",
+     "text": "Hello, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+     "all": {
+      "en": "Hello, this is Precision Painting Plus. We need to adjust the start date for your exterior painting project. Our team will contact you shortly with a new date. Thank you for your patience.",
+      "es": "Hola, le saluda Precision Painting Plus. Necesitamos ajustar la fecha de inicio de su proyecto de pintura exterior. Nuestro equipo le contactará pronto con una nueva fecha. Gracias por su paciencia.",
+      "ht": "Bonjou, se Precision Painting Plus. Nou bezwen chanje dat kòmansman travay penti eksteryè ou a. Ekip nou an ap kontakte w byento ak yon nouvo dat. Mèsi pou pasyans ou."
+     }
+    }
+   ]
+  }
+ ],
+ "colors": [
+  {
+   "jid": "hernandez",
+   "msgs": [
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Colores confirmados para Hernandez exterior: Repose Gray, Pure White, Tricorn Black. Todo listo.",
+     "all": {
+      "en": "Colors confirmed for Hernandez exterior: Repose Gray, Pure White, Tricorn Black. You’re good to go.",
+      "es": "Colores confirmados para Hernandez exterior: Repose Gray, Pure White, Tricorn Black. Todo listo.",
+      "pt": "Cores confirmadas para Hernandez exterior: Repose Gray, Pure White, Tricorn Black. Tudo certo.",
+      "ht": "Koulè yo konfime pou Hernandez exterior: Repose Gray, Pure White, Tricorn Black. Tout bagay pare."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "Colors confirmed for Hernandez exterior (Rosa & Daniel Hernandez): Repose Gray, Pure White, Tricorn Black. Paint order can go in. Crew: Gian, starts Monday, November 2.",
+     "all": {
+      "en": "Colors confirmed for Hernandez exterior (Rosa & Daniel Hernandez): Repose Gray, Pure White, Tricorn Black. Paint order can go in. Crew: Gian, starts Monday, November 2."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "okafor",
+   "msgs": [
+    {
+     "key": "crew:rigo",
+     "role": "crew",
+     "to": "Rigo (crew lead)",
+     "channel": "text",
+     "lang": "es",
+     "text": "Colores confirmados para Okafor trim & door: Urbane Bronze, Extra White. Todo listo.",
+     "all": {
+      "en": "Colors confirmed for Okafor trim & door: Urbane Bronze, Extra White. You’re good to go.",
+      "es": "Colores confirmados para Okafor trim & door: Urbane Bronze, Extra White. Todo listo.",
+      "pt": "Cores confirmadas para Okafor trim & door: Urbane Bronze, Extra White. Tudo certo.",
+      "ht": "Koulè yo konfime pou Okafor trim & door: Urbane Bronze, Extra White. Tout bagay pare."
+     }
+    },
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Colores confirmados para Okafor trim & door: Urbane Bronze, Extra White. Todo listo.",
+     "all": {
+      "en": "Colors confirmed for Okafor trim & door: Urbane Bronze, Extra White. You’re good to go.",
+      "es": "Colores confirmados para Okafor trim & door: Urbane Bronze, Extra White. Todo listo.",
+      "pt": "Cores confirmadas para Okafor trim & door: Urbane Bronze, Extra White. Tudo certo.",
+      "ht": "Koulè yo konfime pou Okafor trim & door: Urbane Bronze, Extra White. Tout bagay pare."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Alan (PM)",
+     "channel": "email",
+     "lang": "en",
+     "text": "Colors confirmed for Okafor trim & door (James Okafor): Urbane Bronze, Extra White. Paint order can go in. Crew: Rigo, starts Thursday, October 29.",
+     "all": {
+      "en": "Colors confirmed for Okafor trim & door (James Okafor): Urbane Bronze, Extra White. Paint order can go in. Crew: Rigo, starts Thursday, October 29."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "patel",
+   "msgs": [
+    {
+     "key": "crew:tania",
+     "role": "crew",
+     "to": "Tania (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Colores confirmados para Patel kitchen cabinets: Iron Ore, Alabaster. Todo listo.",
+     "all": {
+      "en": "Colors confirmed for Patel kitchen cabinets: Iron Ore, Alabaster. You’re good to go.",
+      "es": "Colores confirmados para Patel kitchen cabinets: Iron Ore, Alabaster. Todo listo.",
+      "pt": "Cores confirmadas para Patel kitchen cabinets: Iron Ore, Alabaster. Tudo certo.",
+      "ht": "Koulè yo konfime pou Patel kitchen cabinets: Iron Ore, Alabaster. Tout bagay pare."
+     }
+    }
+   ]
+  },
+  {
+   "jid": "gutierrez",
+   "msgs": [
+    {
+     "key": "crew:johan-dani",
+     "role": "crew",
+     "to": "Johan & Dani (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Colores confirmados para Gutierrez interior: Sea Salt, Accessible Beige. Todo listo.",
+     "all": {
+      "en": "Colors confirmed for Gutierrez interior: Sea Salt, Accessible Beige. You’re good to go.",
+      "es": "Colores confirmados para Gutierrez interior: Sea Salt, Accessible Beige. Todo listo.",
+      "pt": "Cores confirmadas para Gutierrez interior: Sea Salt, Accessible Beige. Tudo certo.",
+      "ht": "Koulè yo konfime pou Gutierrez interior: Sea Salt, Accessible Beige. Tout bagay pare."
+     }
+    },
+    {
+     "key": "crew:gian",
+     "role": "crew",
+     "to": "Gian (crew lead)",
+     "channel": "whatsapp",
+     "lang": "es",
+     "text": "Colores confirmados para Gutierrez interior: Sea Salt, Accessible Beige. Todo listo.",
+     "all": {
+      "en": "Colors confirmed for Gutierrez interior: Sea Salt, Accessible Beige. You’re good to go.",
+      "es": "Colores confirmados para Gutierrez interior: Sea Salt, Accessible Beige. Todo listo.",
+      "pt": "Cores confirmadas para Gutierrez interior: Sea Salt, Accessible Beige. Tudo certo.",
+      "ht": "Koulè yo konfime pou Gutierrez interior: Sea Salt, Accessible Beige. Tout bagay pare."
+     }
+    },
+    {
+     "key": "pm",
+     "role": "pm",
+     "to": "Bo (PM)",
+     "channel": "text",
+     "lang": "en",
+     "text": "Colors confirmed for Gutierrez interior (Ana Gutierrez): Sea Salt, Accessible Beige. Paint order can go in. Crew: Johan & Dani, starts Thursday, October 29.",
+     "all": {
+      "en": "Colors confirmed for Gutierrez interior (Ana Gutierrez): Sea Salt, Accessible Beige. Paint order can go in. Crew: Johan & Dani, starts Thursday, October 29."
+     }
+    }
+   ]
+  }
+ ],
+ "scenario": [
+  [
+   "hernandez",
+   "gian",
+   7,
+   [],
+   "bo",
+   null,
+   null
+  ],
+  [
+   "okafor",
+   "rigo",
+   3,
+   [
+    "tania"
+   ],
+   "alan",
+   false,
+   null
+  ],
+  [
+   "patel",
+   "tania",
+   5,
+   [],
+   null,
+   "sent",
+   "es"
+  ],
+  [
+   "gutierrez",
+   "johan-dani",
+   3,
+   [
+    "gian"
+   ],
+   "bo",
+   false,
+   "ht"
+  ]
+ ],
+ "jobs": {
+  "hernandez": {
+   "client": "Rosa & Daniel Hernandez",
+   "colors": [
+    [
+     "Repose Gray",
+     "#CCC9C0"
+    ],
+    [
+     "Pure White",
+     "#F2F0EA"
+    ],
+    [
+     "Tricorn Black",
+     "#2F2F30"
+    ]
+   ],
+   "colorsOk": true,
+   "hoa": true
+  },
+  "okafor": {
+   "client": "James Okafor",
+   "colors": [
+    [
+     "Urbane Bronze",
+     "#54504A"
+    ],
+    [
+     "Extra White",
+     "#F1F0EC"
+    ]
+   ],
+   "colorsOk": false,
+   "hoa": false
+  },
+  "patel": {
+   "client": "Priya Patel",
+   "colors": [
+    [
+     "Iron Ore",
+     "#434341"
+    ],
+    [
+     "Alabaster",
+     "#EDEAE0"
+    ]
+   ],
+   "colorsOk": "sent",
+   "hoa": false
+  },
+  "gutierrez": {
+   "client": "Ana Gutierrez",
+   "colors": [
+    [
+     "Sea Salt",
+     "#CDD5CA"
+    ],
+    [
+     "Accessible Beige",
+     "#D1C7B8"
+    ]
+   ],
+   "colorsOk": false,
+   "hoa": false
+  }
+ },
+ "place": {
+  "hernandez": {
+   "crew": "gian",
+   "extra": [],
+   "segs": [
+    [
+     7,
+     14
+    ]
+   ],
+   "status": "draft",
+   "half": null,
+   "holds": [
+    10
+   ],
+   "pm": "bo"
+  },
+  "okafor": {
+   "crew": "rigo",
+   "extra": [
+    "tania"
+   ],
+   "segs": [
+    [
+     3,
+     3
+    ]
+   ],
+   "status": "draft",
+   "half": "am",
+   "holds": [],
+   "pm": "alan"
+  },
+  "patel": {
+   "crew": "tania",
+   "extra": [],
+   "segs": [
+    [
+     5,
+     7
+    ]
+   ],
+   "status": "draft",
+   "half": null,
+   "holds": []
+  },
+  "gutierrez": {
+   "crew": "johan-dani",
+   "extra": [
+    "gian"
+   ],
+   "segs": [
+    [
+     3,
+     3
+    ]
+   ],
+   "status": "draft",
+   "half": null,
+   "holds": [],
+   "pm": "bo"
+  }
+ },
+ "PMS": {
+  "bo": {
+   "name": "Bo",
+   "channel": "text",
+   "phone": "(305) 555-0170"
+  },
+  "alan": {
+   "name": "Alan",
+   "channel": "email",
+   "phone": "(305) 555-0175"
+  }
+ },
+ "COMPANY": "Precision Painting Plus",
+ "crews": {
+  "gian": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 865-3762"
+  },
+  "tania": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 663-3198"
+  },
+  "johan-dani": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(941) 387-5048"
+  },
+  "rigo": {
+   "clang": "es",
+   "channel": "text",
+   "phone": "(786) 597-6548"
+  },
+  "paulo": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(754) 779-5049"
+  },
+  "marvin": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 848-2987"
+  },
+  "cristhian": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 443-5280"
+  },
+  "jose": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(305) 807-0338"
+  },
+  "frank": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 925-0657"
+  },
+  "elias": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(646) 353-1599"
+  },
+  "alejandro": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 593-5560"
+  },
+  "marcia-wallpaper": {
+   "clang": "es",
+   "channel": "email",
+   "phone": "(973) 508-6166"
+  },
+  "wonder-painting": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(954) 832-2115"
+  },
+  "alfonso": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(561) 900-8113"
+  },
+  "maria": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(954) 295-7825"
+  },
+  "cabinet-canvas": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(954) 588-4910"
+  },
+  "ali-luis": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 709-0234"
+  },
+  "luis-venpro": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(407) 435-7268"
+  },
+  "fabian": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 665-9595"
+  },
+  "vanderlay": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(754) 332-6754"
+  },
+  "ido-test": {
+   "clang": "es",
+   "channel": "whatsapp",
+   "phone": "(786) 676-0451"
+  }
+ }
+}
