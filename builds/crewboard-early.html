@@ -1,0 +1,603 @@
+<title>Crewboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: app shell with top nav; queue grid, match split view, gantt board with side plan panel */
+:root{
+  --bg:#F3F4F1; --surface:#FFFFFF; --sunk:#ECEEEA; --ink:#1A1D21; --soft:#596068; --faint:#949AA1; --line:#DFE2DC;
+  --tape:#2F6BD8; --tape-ink:#FFFFFF; --tape-wash:#E4ECFB;
+  --good:#4E8C14; --good-wash:#E6F2D7; --warn:#A86A00; --warn-wash:#FBEFD6; --bad:#BF3B28; --bad-wash:#FAE2DD;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14161A; --surface:#1D2025; --sunk:#181A1E; --ink:#ECEDEA; --soft:#A9AEB4; --faint:#747A81; --line:#30343A;
+  --tape:#6C9BF0; --tape-ink:#0E1730; --tape-wash:#1F2B45;
+  --good:#8CC556; --good-wash:#1F2E16; --warn:#E3A93E; --warn-wash:#34280F; --bad:#EE7B66; --bad-wash:#3A1D18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14161A; --surface:#1D2025; --sunk:#181A1E; --ink:#ECEDEA; --soft:#A9AEB4; --faint:#747A81; --line:#30343A;
+  --tape:#6C9BF0; --tape-ink:#0E1730; --tape-wash:#1F2B45;
+  --good:#8CC556; --good-wash:#1F2E16; --warn:#E3A93E; --warn-wash:#34280F; --bad:#EE7B66; --bad-wash:#3A1D18; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14.5px;line-height:1.45;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:3px solid var(--tape);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.01em;margin:0;text-wrap:balance}
+/* shell */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+.top-in{max-width:1360px;margin:0 auto;display:flex;align-items:center;gap:18px;min-height:58px;flex-wrap:wrap;padding-block:8px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:19px}
+.brand i{width:26px;height:26px;border-radius:6px;background:var(--tape);display:grid;place-items:center;transform:rotate(-6deg)}
+.brand i::after{content:"";width:14px;height:4px;background:var(--tape-ink);border-radius:2px;opacity:.85}
+.brand small{font-family:var(--body);font-weight:500;font-size:12px;color:var(--faint);margin-left:2px}
+nav.tabs{display:flex;gap:2px;background:var(--sunk);border-radius:10px;padding:3px;overflow-x:auto;max-width:100%}
+nav.tabs button{border:0;background:none;padding:7px 13px;border-radius:8px;font-weight:600;font-size:13.5px;color:var(--soft);white-space:nowrap;display:flex;gap:6px;align-items:center}
+nav.tabs button[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+nav.tabs .ct{background:var(--tape);color:var(--tape-ink);border-radius:10px;font-size:11px;padding:0 6px;min-width:18px;text-align:center}
+.today{margin-left:auto;font-size:13px;color:var(--soft);display:flex;align-items:center;gap:12px}
+main{max-width:1360px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 60px}
+.fb{display:none;border:1px dashed var(--line);background:none;border-radius:8px;padding:5px 10px;font-size:12.5px;font-weight:600;color:var(--soft);align-items:center;gap:6px}
+.has-comments .fb{display:inline-flex}
+.fb:hover{border-color:var(--tape);color:var(--tape)}
+/* generic */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.pad{padding:16px}
+.row{display:flex;gap:10px;align-items:center}
+.grow{flex:1;min-width:0}
+.muted{color:var(--soft)} .tiny{font-size:12px;color:var(--faint)} .small{font-size:13px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--soft);white-space:nowrap}
+.chip.tape{background:var(--tape-wash);color:var(--tape)}
+.chip.good{background:var(--good-wash);color:var(--good)}
+.chip.warn{background:var(--warn-wash);color:var(--warn)}
+.chip.bad{background:var(--bad-wash);color:var(--bad)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.btn{border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14px;background:var(--ink);color:var(--bg);display:inline-flex;align-items:center;gap:8px}
+.btn.tape{background:var(--tape);color:var(--tape-ink)}
+.btn.line{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn.sm{padding:7px 12px;font-size:13px;border-radius:8px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.sec-h{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.sec-h h2{font-size:22px}
+/* queue */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.kpi{padding:14px 16px}
+.kpi b{display:block;font-family:var(--display);font-size:28px;line-height:1.1;margin-top:2px}
+.kpi span{font-size:12.5px;color:var(--soft)}
+.qhead{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.qhead h1{font-size:30px}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.job{overflow:hidden;display:flex;flex-direction:column}
+.chipband{display:flex;height:54px}
+.chipband div{flex:1;position:relative}
+.chipband div span{position:absolute;left:8px;bottom:6px;font-size:10.5px;font-weight:700;letter-spacing:.02em}
+.job .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.job h3{font-size:19px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.facts div{background:var(--sunk);border-radius:8px;padding:7px 9px}
+.facts b{display:block;font-size:14.5px}
+.facts span{font-size:11.5px;color:var(--soft)}
+.rec{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
+/* match */
+.mhead{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px;margin-bottom:18px}
+.mhead h1{font-size:30px}
+.back{border:0;background:none;color:var(--tape);font-weight:700;padding:0;margin-bottom:6px}
+.split{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:18px;align-items:start}
+.writeup{font-size:13.5px;line-height:1.6;color:var(--soft)}
+.writeup mark{background:transparent;color:var(--ink);border-bottom:2px solid var(--tape);padding:0 1px;border-radius:2px;transition:background .15s}
+.writeup mark.on{background:var(--tape-wash)}
+.src{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--faint);margin-bottom:10px}
+.reqs{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.req{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;background:var(--sunk);font-size:13.5px}
+.req .ic{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;flex:none;font-size:12px;font-weight:800}
+.req.must .ic{background:var(--ink);color:var(--bg)}
+.req.nice .ic{background:var(--surface);color:var(--soft);border:1px solid var(--line)}
+.req small{display:block;color:var(--faint);font-size:11.5px}
+.tool{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.seg{display:inline-flex;background:var(--sunk);border-radius:10px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:none;border-radius:8px;padding:6px 11px;font-size:13px;font-weight:600;color:var(--soft)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.crew{padding:16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;margin-bottom:12px}
+.crew.top{border:2px solid var(--tape)}
+.ring{width:76px;height:76px;position:relative}
+.ring svg{width:76px;height:76px;transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:24px}
+.ring small{position:absolute;left:0;right:0;bottom:-18px;text-align:center;font-size:11px;color:var(--faint);font-weight:600}
+.members{display:flex;gap:4px;flex-wrap:wrap}
+.av{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;background:var(--c);position:relative}
+.av.cert::after{content:"";position:absolute;right:-2px;bottom:-2px;width:10px;height:10px;border-radius:50%;background:var(--good);border:2px solid var(--surface)}
+.factors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px;margin-top:12px}
+.f{display:grid;grid-template-columns:96px 1fr 28px;align-items:center;gap:8px;font-size:12.5px}
+.f .bar{height:7px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.f .bar i{display:block;height:100%;background:var(--tape);border-radius:4px}
+.f.w0{opacity:.4}
+.f .v{text-align:right;color:var(--soft);font-size:12px}
+.why{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:13px}
+.why li{display:flex;gap:8px}
+.why li::before{content:"+";font-weight:800;color:var(--good)}
+.why li.minus::before{content:"\2013";color:var(--warn)}
+.slot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px;font-size:13px}
+.out{padding:12px 16px;display:flex;gap:12px;align-items:flex-start;border-top:1px solid var(--line)}
+.out:first-of-type{border-top:0}
+.rules{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.rule{font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--good-wash);color:var(--good)}
+.rule.x{background:var(--bad-wash);color:var(--bad)}
+.mapcard svg{width:100%;height:auto;display:block}
+.drawer{padding:16px;margin-bottom:14px}
+.wrow{display:grid;grid-template-columns:150px 1fr 26px;gap:10px;align-items:center;font-size:13px;padding:4px 0}
+.wrow input{width:100%;accent-color:var(--tape)}
+.tog{width:40px;height:24px;border-radius:12px;border:0;background:var(--line);position:relative;flex:none}
+.tog i{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .15s}
+.tog.on{background:var(--tape)} .tog.on i{left:19px}
+.hr{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.hr:last-child{border-bottom:0}
+/* board */
+.boardwrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+.banner{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:12px 16px;margin-bottom:12px;background:var(--tape-wash);border:1px solid transparent;border-radius:var(--r)}
+.gscroll{overflow-x:auto;border-radius:var(--r)}
+.gantt{--cw:46px;--lw:170px;min-width:calc(var(--lw) + var(--cw)*20);position:relative;user-select:none}
+.grow-h,.grow-r{display:grid;grid-template-columns:var(--lw) repeat(20,var(--cw))}
+.gh{font-size:11px;text-align:center;padding:6px 0 4px;color:var(--soft);border-left:1px solid var(--line)}
+.gh b{display:block;font-size:13px;color:var(--ink)}
+.gh.wk{border-left:2px solid var(--faint)}
+.gh.today b{color:var(--tape)}
+.wx{display:grid;grid-template-columns:var(--lw) repeat(20,var(--cw));border-bottom:1px solid var(--line)}
+.wx div{display:grid;place-items:center;padding:4px 0;font-size:10.5px;color:var(--soft);border-left:1px solid var(--line)}
+.wx div.rain{background:color-mix(in srgb,var(--tape) 10%,transparent)}
+.wx svg{width:18px;height:18px}
+.lab{padding:10px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;justify-content:center;background:var(--surface);position:sticky;left:0;z-index:3}
+.lab b{font-size:13.5px;display:flex;gap:7px;align-items:center}
+.lab span{font-size:11.5px;color:var(--soft)}
+.crow{position:relative;border-bottom:1px solid var(--line);height:64px}
+.crow .cells{position:absolute;inset:0 0 0 var(--lw);display:grid;grid-template-columns:repeat(20,var(--cw))}
+.crow .cells div{border-left:1px solid var(--line)}
+.crow .cells div.wk{border-left:2px solid var(--line)}
+.crow .cells div.rain{background:color-mix(in srgb,var(--tape) 5%,transparent)}
+.crow.drop{background:var(--tape-wash)}
+.crow.inel .cells{background:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--bad) 7%,transparent) 8px 10px)}
+.bk{position:absolute;top:10px;height:44px;border-radius:8px;padding:5px 8px;font-size:11.5px;line-height:1.25;overflow:hidden;background:color-mix(in srgb,var(--c) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 40%,transparent);color:var(--ink);z-index:1}
+.bk b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk span{color:var(--soft);white-space:nowrap}
+.bk.prop{border-style:dashed}
+.ghost{position:absolute;top:8px;height:48px;border:2px dashed var(--tape);border-radius:9px;background:color-mix(in srgb,var(--tape) 8%,transparent);display:flex;align-items:center;gap:6px;padding:0 8px;font-size:12px;font-weight:700;color:var(--tape);z-index:2}
+.ghost:hover{background:color-mix(in srgb,var(--tape) 16%,transparent)}
+.nb{position:absolute;top:8px;height:48px;border-radius:9px;background:var(--tape);color:var(--tape-ink);z-index:4;display:flex;overflow:hidden;cursor:grab;box-shadow:0 6px 16px -6px color-mix(in srgb,var(--tape) 70%,transparent);touch-action:none}
+.nb.dragging{cursor:grabbing;opacity:.92}
+.nb.badpos{background:var(--bad)}
+.nb .ph{flex:1;padding:5px 7px;font-size:11px;line-height:1.2;border-right:1px solid color-mix(in srgb,var(--tape-ink) 25%,transparent);overflow:hidden;white-space:nowrap}
+.nb .ph:last-child{border-right:0}
+.nb .ph b{display:block;font-size:11.5px}
+.nb .hold{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--tape-ink) 22%,transparent) 6px 9px)}
+.dl{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed var(--bad);z-index:5;pointer-events:none}
+.dl span{position:absolute;top:2px;left:4px;font-size:10.5px;font-weight:700;color:var(--bad);white-space:nowrap;background:var(--surface);padding:0 3px;border-radius:3px}
+.cap{display:grid;grid-template-columns:var(--lw) repeat(20,var(--cw))}
+.cap div{height:26px;display:grid;place-items:center;font-size:11px;font-weight:700;border-left:1px solid var(--line)}
+.plan{padding:16px;position:sticky;top:76px}
+.check{display:flex;gap:8px;font-size:13px;padding:5px 0}
+.check i{width:18px;height:18px;border-radius:50%;flex:none;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:800;margin-top:1px}
+.check.ok i{background:var(--good-wash);color:var(--good)}
+.check.wn i{background:var(--warn-wash);color:var(--warn)}
+.check.no i{background:var(--bad-wash);color:var(--bad)}
+.msgtabs{display:flex;gap:4px;margin:12px 0 8px;flex-wrap:wrap}
+.msgtabs button{border:1px solid var(--line);background:none;border-radius:8px;padding:4px 9px;font-size:12px;font-weight:600;color:var(--soft)}
+.msgtabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bubble{background:var(--sunk);border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:13px;white-space:pre-line}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--soft);margin-top:10px}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+/* crews */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.ccard{padding:16px;display:flex;flex-direction:column;gap:12px;border-top:4px solid var(--c)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.stats div{background:var(--sunk);border-radius:8px;padding:6px 8px}
+.stats b{display:block;font-size:14.5px}
+.stats span{font-size:11px;color:var(--soft)}
+.stepper{display:inline-flex;align-items:center;gap:6px}
+.stepper button{width:28px;height:28px;border-radius:7px;border:1px solid var(--line);background:var(--surface);font-weight:800}
+.tdots{display:inline-flex;gap:3px}
+.tdots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.tdots i.on{background:var(--tape)}
+.matrix{overflow-x:auto}
+.matrix table{border-collapse:separate;border-spacing:3px;font-size:12px}
+.matrix th{font-weight:600;color:var(--soft);padding:2px 4px;white-space:nowrap}
+.matrix th.rot{height:70px;vertical-align:bottom}
+.matrix th.rot span{display:inline-block;writing-mode:vertical-rl;transform:rotate(180deg)}
+.matrix td{width:34px;height:30px;text-align:center;border-radius:6px;font-weight:700;font-variant-numeric:tabular-nums}
+/* ideas */
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.idea{padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.idea h3{font-size:16px}
+.idea p{margin:0;font-size:13.5px;color:var(--soft)}
+.icat{margin:26px 0 12px;font-size:20px}
+/* overlay */
+.ov{position:fixed;inset:0;background:color-mix(in srgb,#000 45%,transparent);z-index:50;display:grid;place-items:center;padding:16px}
+.modal{max-width:640px;width:100%;max-height:calc(100% - 32px);overflow:auto;padding:20px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:11px 16px;border-radius:10px;font-weight:600;font-size:13.5px;z-index:60;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);max-width:calc(100% - 32px)}
+@media (max-width:1080px){.split,.boardwrap{grid-template-columns:minmax(0,1fr)}.plan{position:static}}
+@media (max-width:720px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.factors{grid-template-columns:minmax(0,1fr)}.crew{grid-template-columns:minmax(0,1fr)}.today .d{display:none}.gantt{--lw:120px;--cw:42px}.mhead h1,.qhead h1{font-size:24px}.wrow{grid-template-columns:110px 1fr 24px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top"><div class="top-in">
+  <div class="brand"><i aria-hidden="true"></i>Crewboard<small>by Augmenta</small></div>
+  <nav class="tabs" id="tabs" aria-label="Views"></nav>
+  <div class="today"><span class="d">Mon Oct 19 · Brightline Painting</span><button class="fb" data-fb="page" title="Leave feedback on this screen">\u{1F4AC} Feedback</button></div>
+</div></header>
+<main id="app"></main>
+<div id="layer"></div>
+
+<script>
+/* ============ calendar ============ */
+const DAYS=[];(()=>{const d=new Date(2026,9,19);while(DAYS.length<20){const w=d.getDay();if(w>0&&w<6)DAYS.push({dow:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][w],m:d.toLocaleString('en-US',{month:'short'}),n:d.getDate()});d.setDate(d.getDate()+1);}})();
+const dlabel=i=>i>19?'after Nov 13':`${DAYS[i].dow} ${DAYS[i].m} ${DAYS[i].n}`;
+const sdate=i=>i>19?'later':`${DAYS[i].m} ${DAYS[i].n}`;
+const WX=[[0,'sun'],[10,'sun'],[20,'cloud'],[70,'rain'],[60,'rain'],[0,'sun'],[10,'sun'],[20,'cloud'],[55,'rain'],[10,'sun'],[0,'sun'],[10,'sun'],[30,'cloud'],[25,'cloud'],[50,'rain'],[0,'sun'],[10,'sun'],[20,'cloud'],[10,'sun'],[60,'rain']];
+const rain=i=>i<20&&WX[i][0]>=50;
+/* ============ data ============ */
+const SKILL={exterior:'Exterior',interior:'Interior',stucco:'Stucco & elastomeric',highreach:'2-story / lift',pressure:'Pressure washing',sprayer:'Sprayer',cabinets:'Cabinets',finework:'Fine finish',drywall:'Drywall repair',leadsafe:'Lead-safe (RRP)',spanish:'Spanish-speaking lead'};
+const CREWS={
+ D:{id:'D',name:'Crew D',lead:'Yesenia',c:'#B8457A',members:[['Yesenia',0],['Mateo',1],['Jorge',0],['Kevin',0]],skills:['exterior','stucco','highreach','pressure','sprayer'],certs:['leadsafe'],spanish:true,spec:'exterior',together:18,over:-1,cb:2,rating:4.7,ytd:44,base:'Westchester',type:'In-house'},
+ B:{id:'B',name:'Crew B',lead:'Carlos',c:'#1F8A7A',members:[['Carlos',0],['Ana',1],['Luis M.',0]],skills:['interior','exterior','highreach','cabinets','sprayer','finework','drywall'],certs:['leadsafe'],spanish:true,spec:'interior',together:14,over:-4,cb:1,rating:4.9,ytd:38,base:'Coral Gables',type:'In-house'},
+ A:{id:'A',name:'Crew A',lead:'Marcus',c:'#7A5CC0',members:[['Marcus',0],['Dev',0],['Pete',0]],skills:['exterior','highreach','pressure','sprayer'],certs:[],spanish:false,spec:'exterior',together:9,over:6,cb:3,rating:4.6,ytd:41,base:'Kendall',type:'In-house'},
+ C:{id:'C',name:'Crew C',lead:'Tony',c:'#C46A2E',members:[['Tony',0],['Ray',0]],skills:['interior','drywall'],certs:[],spanish:false,spec:'interior',together:2,over:9,cb:6,rating:4.3,ytd:22,base:'South Miami',type:'In-house'},
+ S:{id:'S',name:'Ortiz Painting',lead:'Ramon',c:'#6B7A2E',members:[['Ramon',1],['Eli',0],['Hugo',0],['Nico',0]],skills:['exterior','stucco','highreach','pressure'],certs:['leadsafe'],spanish:true,spec:'exterior',together:11,over:0,cb:4,rating:4.4,ytd:15,base:'Homestead',type:'Subcontractor'}};
+const ORDER=['D','B','A','C','S'];
+const DRIVE={D:{P:24,CG:15,K:16,SM:16},B:{P:18,CG:6,K:22,SM:10},A:{P:15,CG:22,K:6,SM:14},C:{P:12,CG:10,K:14,SM:5},S:{P:30,CG:38,K:25,SM:33}};
+const AREA={P:'Pinecrest',CG:'Coral Gables',K:'Kendall',SM:'South Miami'};
+const BOOK0=[
+ {crew:'A',name:'Delgado',what:'Exterior',s:0,e:4},{crew:'A',name:'Lopez',what:'Exterior',s:6,e:9},{crew:'A',name:'Simmons',what:'Interior',s:11,e:13},
+ {crew:'B',name:'Alvarez',what:'Interior',s:0,e:3},{crew:'B',name:'Chen',what:'Interior',s:5,e:7},{crew:'B',name:'Rivas',what:'Interior',s:15,e:17},
+ {crew:'C',name:'Brooks',what:'Exterior',s:0,e:2},{crew:'C',name:'Kim',what:'Interior',s:5,e:9},{crew:'C',name:'Watts',what:'Interior',s:13,e:16},
+ {crew:'D',name:'Brightwater HOA',what:'Phase 1',s:0,e:4},{crew:'D',name:'Ruiz',what:'Exterior',s:10,e:12},
+ {crew:'S',name:'Brightwater HOA',what:'Phase 1',s:0,e:9},{crew:'S',name:'Navarro',what:'Exterior',s:14,e:18}];
+const JOBS={
+ hernandez:{id:'hernandez',title:'Hernandez exterior',client:'Rosa & Daniel Hernandez',area:'P',ext:true,built:1974,hours:120,value:14800,earliest:5,deadline:18,
+  important:'Returning client who has referred 5 jobs',past:'B',lang:'spanish',
+  colors:[['Repose Gray','#CCC9C0'],['Pure White','#F2F0EA'],['Tricorn Black','#2F2F30']],
+  must:['exterior','highreach'],nice:['stucco','pressure'],phases:['Wash & patch','Prime & body','Body coat 2','Trim & door','Touch-ups'],
+  writeup:'Hernandez residence, Pinecrest. [ext|Two-story CBS/stucco home], [lead|built 1974]. Scope: [pressure|pressure wash all exterior surfaces]; patch [stucco|stucco cracks at NE corner]; prime patches; two coats elastomeric on body (Loxon XP, Repose Gray); trim and fascia in Pure White; front door Tricorn Black. [reach|Second-story eaves need a 28 ft ladder or lift]. Colors HOA-approved Oct 16; [hoa|HOA allows work Mon to Fri, 8am to 5pm only]. [lang|Mrs. Hernandez prefers updates in Spanish]. [due|Hosting a wedding Nov 14, wants everything done by Nov 12]. [hours|Est. 120 labor hours]. Paint delivered Oct 23. [vip|Returning client (2019 interior), has referred 5 jobs].'},
+ okafor:{id:'okafor',title:'Okafor trim & door',client:'James Okafor',area:'P',ext:true,built:1988,hours:18,value:3200,earliest:2,deadline:9,important:null,past:null,lang:null,
+  colors:[['Urbane Bronze','#54504A'],['Extra White','#F1F0EC']],must:['exterior'],nice:[],phases:['Trim & door'],
+  writeup:'Okafor residence, Pinecrest. [ext|Exterior trim, fascia and front door only]. Built 1988. [hours|Est. 18 labor hours, one day]. Flexible on dates, [due|any day before Oct 30].'},
+ patel:{id:'patel',title:'Patel kitchen cabinets',client:'Priya Patel',area:'K',ext:false,built:2004,hours:40,value:6400,earliest:2,deadline:12,important:null,past:null,lang:null,
+  colors:[['Iron Ore','#434341'],['Alabaster','#EDEAE0']],must:['cabinets','sprayer'],nice:['finework'],phases:['Doors off & spray','Cure','Reinstall'],
+  writeup:'Patel residence, Kendall. [cab|Kitchen cabinets: 24 doors, 9 drawer fronts, boxes]. [spray|Spray finish], doors sprayed off-site. [fine|Fine finish, client is particular]. [hours|Est. 40 labor hours]. [due|Before Nov 4].'},
+ gutierrez:{id:'gutierrez',title:'Gutierrez interior',client:'Ana Gutierrez',area:'CG',ext:false,built:1955,hours:48,value:7200,earliest:4,deadline:12,important:null,past:null,lang:null,
+  colors:[['Sea Salt','#CDD5CA'],['Accessible Beige','#D1C7B8']],must:['interior'],nice:['finework','drywall'],phases:['Prep & repair','Walls','Trim'],
+  writeup:'Gutierrez residence, Coral Gables. [int|Interior: living, dining, two bedrooms]. [lead|Built 1955, original plaster]. [drywall|Plaster crack repair in dining room]. [hours|Est. 48 labor hours]. [due|Before Nov 4].'}};
+const QORDER=['hernandez','okafor','patel','gutierrez'];
+const FACT=[['skill','Skill fit'],['trust','Trust'],['together','Works together'],['record','Track record'],['distance','Distance'],['timing','Start date'],['client','Client fit'],['balance','Workload balance']];
+const PRESETS={
+ 'Balanced':{skill:3,trust:2,together:2,record:2,distance:1,timing:2,client:2,balance:1},
+ 'Protect margin':{skill:3,trust:2,together:3,record:4,distance:2,timing:1,client:1,balance:1},
+ 'Fastest start':{skill:2,trust:1,together:1,record:1,distance:1,timing:5,client:1,balance:1},
+ 'White glove':{skill:4,trust:3,together:2,record:3,distance:0,timing:1,client:3,balance:0}};
+/* ============ state ============ */
+const S={view:'queue',job:'hernandez',preset:{},w:{},trust:{D:4,B:5,A:4,C:3,S:3},trustBar:4,rules:{lead:true,trust:true,weather:true,maxDrive:true,keep:true},
+ place:{},drawer:false,msgTab:'crew',toast:null,modal:null,showOut:true};
+const J=()=>JOBS[S.job];
+function presetFor(id){return S.preset[id]||(JOBS[id].important?'White glove':'Balanced');}
+function weights(id){return S.w[id]||PRESETS[presetFor(id)];}
+/* ============ engine ============ */
+function bookings(exceptJob){const b=BOOK0.map(x=>({...x,fixed:true}));
+ Object.entries(S.place).forEach(([jid,p])=>{if(jid!==exceptJob)b.push({crew:p.crew,name:JOBS[jid].title.split(' ')[0],what:p.status==='scheduled'?'Scheduled':'Proposed',s:p.s,e:p.e,jid,prop:p.status!=='scheduled'});});return b;}
+const busy=(B,crew,d)=>B.some(x=>x.crew===crew&&d>=x.s&&d<=x.e);
+function need(job,crew){return Math.max(1,Math.ceil(job.hours/(CREWS[crew].members.length*8)));}
+function span(job,crew,start,B){const n=need(job,crew);let c=0,d=start;const holds=[],conf=[];
+ while(c<n){if(d>23)break;if(busy(B,crew,d))conf.push(d);
+  if(job.ext&&S.rules.weather&&rain(d)&&!(c===0&&n>=3)){holds.push(d);}else c++;d++;}
+ return{s:start,e:d-1,holds,conf,n};}
+function earliestSlot(job,crew,B){for(let s=job.earliest;s<=19;s++){if(busy(B,crew,s))continue;const sp=span(job,crew,s,B);if(!sp.conf.length&&sp.e<=23)return sp;}return null;}
+function hard(job,crew){const c=CREWS[crew],t=S.trust[crew],out=[];
+ job.must.forEach(k=>{if(!c.skills.includes(k))out.push(`No ${SKILL[k].toLowerCase()} skills`);});
+ if(S.rules.lead&&job.built<1978&&!c.certs.includes('leadsafe'))out.push(`No lead-safe certified painter (house built ${job.built})`);
+ if(S.rules.trust&&job.important&&t<S.trustBar)out.push(`Trust ${t}, important clients need ${S.trustBar}+`);
+ if(S.rules.maxDrive&&DRIVE[crew][job.area]>35)out.push(`${DRIVE[crew][job.area]} min away, limit is 35`);
+ return out;}
+function util(B,crew){let n=0;for(let d=0;d<20;d++)if(busy(B,crew,d))n++;return Math.round(n/20*100);}
+function factors(job,crew,slot,B){const c=CREWS[crew];const f={};
+ const cov=job.nice.length?job.nice.filter(k=>c.skills.includes(k)).length/job.nice.length:1;
+ f.skill=Math.round(70+30*cov-((job.ext?'exterior':'interior')===c.spec?0:15));
+ f.trust=S.trust[crew]*20;
+ f.together=Math.min(100,Math.round(c.together/15*100));
+ f.record=Math.max(0,Math.min(100,100-Math.max(0,c.over)*5-c.cb*6+(c.over<0?5:0)));
+ f.distance=Math.max(0,100-DRIVE[crew][job.area]*2);
+ const delay=slot?slot.s-job.earliest:10;f.timing=Math.max(0,100-delay*12);
+ f.client=(job.lang==='spanish'?(c.spanish?70:30):70)+(job.past===crew?30:0);
+ f.balance=100-util(B,crew);
+ return f;}
+function score(f,w){let t=0,s=0;for(const k in w){t+=w[k]*f[k];s+=w[k];}return s?Math.round(t/s):0;}
+function rank(jid,opts={}){const job=JOBS[jid];const B=bookings(jid);const w=weights(jid);
+ return ORDER.map(cr=>{const fails=hard(job,cr);const slot=earliestSlot(job,cr,B);
+  if(slot&&slot.e>job.deadline)fails.push(`Earliest finish ${sdate(slot.e)}, after the ${sdate(job.deadline)} deadline`);
+  if(!slot)fails.push('No open slot in the next 4 weeks');
+  const f=factors(job,cr,slot,B);return{crew:cr,ok:!fails.length,fails,slot,f,score:score(f,w)};}).sort((a,b)=>(b.ok-a.ok)||(b.score-a.score));}
+function whyLines(job,r){const c=CREWS[r.crew],w=weights(job.id),L=[];
+ const add=(k,t)=>L.push([k,r.f[k]*(w[k]||0.1),t]);
+ add('skill',job.ext&&c.spec==='exterior'?`Exterior specialists${job.nice.every(k=>c.skills.includes(k))?', covers stucco and washing in-house':''}`:c.spec==='interior'&&!job.ext?'Interior specialists':`Covers ${job.must.map(k=>SKILL[k].toLowerCase()).join(' and ')}`);
+ add('trust',`Trust ${S.trust[r.crew]} of 5, set by your PM`);
+ add('together',`${c.together} jobs together as this crew`);
+ add('record',`${c.over<=0?Math.abs(c.over)+'% under':c.over+'% over'} estimated hours, ${c.cb}% callbacks`);
+ add('distance',`${DRIVE[r.crew][job.area]} min from ${c.base}`);
+ add('timing',r.slot&&r.slot.s===job.earliest?`Can start ${dlabel(r.slot.s)}, the first possible day`:`First opening ${r.slot?dlabel(r.slot.s):'none'}`);
+ add('client',`${job.past===r.crew?'Did the Hernandez interior in 2019. ':''}${job.lang==='spanish'&&c.spanish?'Lead speaks Spanish':''}`.trim()||'No client history');
+ const s=[...L].sort((a,b)=>b[1]-a[1]);const plus=s.slice(0,3).map(x=>x[2]).filter(Boolean);
+ const minusK=FACT.map(x=>x[0]).filter(k=>(w[k]||0)>0).sort((a,b)=>r.f[a]-r.f[b])[0];
+ const mt={skill:`Not stucco specialists`,trust:`Lower trust score`,together:`Newer pairing (${c.together} jobs)`,record:`Runs ${c.over}% over hours`,distance:`${DRIVE[r.crew][job.area]} min drive each way`,timing:`Can’t start until ${r.slot?dlabel(r.slot.s):'later'}`,client:job.lang==='spanish'&&!c.spanish?'No Spanish speaker on the crew':'No history with this client',balance:`Already ${100-r.f.balance}% booked`}[minusK];
+ return{plus,minus:r.f[minusK]<75?mt:null};}
+/* ============ helpers ============ */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const money=v=>'$'+v.toLocaleString();
+const initials=n=>n.split(/[ .]/).filter(Boolean).map(x=>x[0]).join('').slice(0,2);
+function ringSvg(v,color){const r=32,c=2*Math.PI*r;return `<svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="${r}" fill="none" stroke="var(--sunk)" stroke-width="8"/><circle cx="38" cy="38" r="${r}" fill="none" stroke="${color}" stroke-width="8" stroke-linecap="round" stroke-dasharray="${c*v/100} ${c}"/></svg>`;}
+function wxIcon(t){if(t==='sun')return '<svg viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>';
+ if(t==='cloud')return '<svg viewBox="0 0 24 24" fill="none" stroke="var(--soft)" stroke-width="2"><path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1.5A3.3 3.3 0 0 0 7 18z"/></svg>';
+ return '<svg viewBox="0 0 24 24" fill="none" stroke="var(--tape)" stroke-width="2"><path d="M7 14h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1.5A3.3 3.3 0 0 0 7 14z"/><path d="M8 18l-1 3M12 18l-1 3M16 18l-1 3"/></svg>';}
+const tdots=n=>`<span class="tdots" aria-label="Trust ${n} of 5">${[1,2,3,4,5].map(i=>`<i class="${i<=n?'on':''}"></i>`).join('')}</span>`;
+const avs=cr=>`<div class="members">${CREWS[cr].members.map(([n,cert])=>`<span class="av ${cert?'cert':''}" style="--c:${CREWS[cr].c}" title="${n}${cert?' · lead-safe certified':''}">${initials(n)}</span>`).join('')}</div>`;
+const fbBtn=(key,label='Feedback')=>`<button class="fb" data-fb="${key}" title="Leave feedback here">\u{1F4AC} ${label}</button>`;
+function toast(t){S.toast=t;drawLayer();clearTimeout(toast.h);toast.h=setTimeout(()=>{S.toast=null;drawLayer();},2800);}
+
+/* ============ views ============ */
+const V={};
+V.queue=()=>{const waiting=QORDER.filter(j=>!S.place[j]||S.place[j].status!=='scheduled');const B=bookings();
+ const util4=Math.round(ORDER.slice(0,4).reduce((a,c)=>a+util(B,c),0)/4);const $w=waiting.reduce((a,j)=>a+JOBS[j].value,0);
+ return `<div class="qhead"><div class="grow"><div class="eyebrow">Sold, deposit in</div><h1>Ready to schedule</h1></div>
+  <button class="btn line" data-go="board">Open the board</button><button class="btn tape" data-act="planall" ${waiting.length?'':'disabled'}>Plan all ${waiting.length} jobs</button>${fbBtn('queue')}</div>
+ <div class="kpis"><div class="card kpi"><span>Jobs waiting for a crew</span><b class="num">${waiting.length}</b></div>
+  <div class="card kpi"><span>Sold work not yet scheduled</span><b class="num">${money($w)}</b></div>
+  <div class="card kpi"><span>In-house crews booked, next 4 weeks</span><b class="num">${util4}%</b></div>
+  <div class="card kpi"><span>Average days from deposit to start</span><b class="num">${Object.values(S.place).some(p=>p.status==='scheduled')?'6':'9'}</b></div></div>
+ <div class="jobs">${QORDER.map(jid=>{const j=JOBS[jid];const p=S.place[jid];const r=rank(jid);const top=r.find(x=>x.ok);
+  const flags=[j.ext?'<span class="chip tape">Exterior · weather</span>':'<span class="chip">Interior</span>',j.built<1978?'<span class="chip warn">Lead-safe</span>':'',j.important?'<span class="chip bad">Important client</span>':'',j.must.includes('cabinets')?'<span class="chip">Cure time</span>':''].join('');
+  const gap=top&&top.slot&&top.slot.s===top.slot.e&&busy(bookings(jid),top.crew,top.slot.s-1)&&busy(bookings(jid),top.crew,top.slot.s+1);
+  return `<article class="card job"><div class="chipband">${j.colors.map(([n,c])=>`<div style="background:${c}"><span style="color:${lum(c)>0.55?'#1A1D21':'#fff'}">${n}</span></div>`).join('')}</div>
+  <div class="bd"><div><h3>${j.title}</h3><div class="small muted">${j.client} · ${AREA[j.area]}</div></div>
+   <div class="chips">${flags}</div>
+   <div class="facts"><div><b class="num">${money(j.value)}</b><span>Sold</span></div><div><b class="num">${j.hours} h</b><span>Crew hours</span></div><div><b>${sdate(j.deadline)}</b><span>Finish by</span></div></div>
+   <div class="rec">${p?`<span class="dot" style="--c:${CREWS[p.crew].c}"></span><span class="grow small"><b>${CREWS[p.crew].name}</b> · ${sdate(p.s)} to ${sdate(p.e)}<br><span class="tiny">${p.status==='scheduled'?'Scheduled, everyone notified':'Proposed, not confirmed'}</span></span>
+     <button class="btn sm ${p.status==='scheduled'?'line':'tape'}" data-act="board" data-v="${jid}">${p.status==='scheduled'?'View':'Review'}</button>`:
+    top?`<span class="dot" style="--c:${CREWS[top.crew].c}"></span><span class="grow small"><b>${CREWS[top.crew].name}</b> fits best · ${top.score}<br><span class="tiny">${gap?`Fills an empty ${DAYS[top.slot.s].dow} in their week`:`Can start ${dlabel(top.slot.s)}`}</span></span>
+     ${gap?`<button class="btn sm line" data-act="quick" data-v="${jid}">Book it</button>`:''}<button class="btn sm tape" data-act="match" data-v="${jid}">Find a crew</button>`:'<span class="grow small muted">No crew fits. Check the rules.</span>'}</div></div></article>`;}).join('')}</div>`;};
+function lum(hex){const n=parseInt(hex.slice(1),16);const r=(n>>16&255)/255,g=(n>>8&255)/255,b=(n&255)/255;return .2126*r+.7152*g+.0722*b;}
+
+const REQ_LABEL=job=>{const L=[];
+ job.must.forEach(k=>L.push(['must',SKILL[k],k==='highreach'?'reach':k==='exterior'?'ext':k==='interior'?'int':k==='cabinets'?'cab':k==='sprayer'?'spray':k,'Every crew needs this']));
+ if(job.built<1978)L.push(['must','Lead-safe certified painter on site','lead',`Federal RRP rule, home built ${job.built}`]);
+ if(job.important)L.push(['must',`Crew trust ${S.trustBar} or higher`,'vip',job.important]);
+ if(job.ext)L.push(['must','Body coats only on dry days','ext','Rain over 50% turns a day into a weather hold']);
+ if(job.writeup.includes('[hoa|'))L.push(['must','Weekdays 8am to 5pm','hoa','HOA rule']);
+ L.push(['must',`Finished by ${dlabel(job.deadline)}`,'due','From the client']);
+ job.nice.forEach(k=>L.push(['nice',SKILL[k],k==='finework'?'fine':k,'Ranks higher, not required']));
+ if(job.lang==='spanish')L.push(['nice','Spanish-speaking crew lead','lang','Client preference']);
+ if(job.past)L.push(['nice','Crew that has worked for them before','vip','Client history']);
+ return L;};
+V.match=()=>{const job=J();const R=rank(job.id);const ok=R.filter(r=>r.ok),out=R.filter(r=>!r.ok);const w=weights(job.id);const pr=presetFor(job.id);
+ const wu=job.writeup.replace(/\[(\w+)\|([^\]]+)\]/g,(m,k,t)=>`<mark data-k="${k}">${t}</mark>`);
+ const crewCard=(r,i)=>{const c=CREWS[r.crew];const wl=whyLines(job,r);const col=i===0?'var(--tape)':c.c;
+  return `<article class="card crew ${i===0?'top':''}"><div class="ring">${ringSvg(r.score,col)}<b class="num">${r.score}</b><small>match</small></div>
+  <div style="min-width:0"><div class="row" style="flex-wrap:wrap"><h3 style="font-size:19px">${c.name}</h3>${i===0?'<span class="chip tape">Best fit</span>':''}<span class="chip">${c.type}</span><span class="grow"></span>${avs(r.crew)}</div>
+   <div class="slot"><b>${dlabel(r.slot.s)} to ${dlabel(r.slot.e)}</b><span class="muted">· ${r.slot.n} work day${r.slot.n>1?'s':''} with ${c.members.length} painters</span>${r.slot.holds.length?`<span class="chip tape">${r.slot.holds.length} weather hold</span>`:''}<span class="chip good">${job.deadline-r.slot.e} days before deadline</span></div>
+   <ul class="why">${wl.plus.map(x=>`<li>${esc(x)}</li>`).join('')}${wl.minus?`<li class="minus">${esc(wl.minus)}</li>`:''}</ul>
+   <div class="factors">${FACT.map(([k,l])=>`<div class="f ${(w[k]||0)===0?'w0':''}"><span>${l}</span><span class="bar"><i style="width:${r.f[k]}%;opacity:${0.35+0.65*Math.min(1,(w[k]||0)/4)}"></i></span><span class="v num">${r.f[k]}</span></div>`).join('')}</div>
+   <div class="row" style="margin-top:14px;flex-wrap:wrap"><button class="btn sm ${i===0?'tape':'line'}" data-act="pick" data-v="${r.crew}">Place ${c.name} on the board</button><span class="tiny">Bar opacity shows how much each factor counts right now.</span></div></div></article>`;};
+ return `<button class="back" data-go="queue">← Ready to schedule</button>
+ <div class="mhead"><div class="grow"><div class="eyebrow">Find a crew</div><h1>${job.title}</h1>
+  <div class="chips" style="margin-top:8px"><span class="chip">${AREA[job.area]}</span><span class="chip num">${money(job.value)}</span><span class="chip num">${job.hours} crew hours</span><span class="chip">Finish by ${dlabel(job.deadline)}</span>${job.important?`<span class="chip bad">Important client</span>`:''}</div></div>
+  ${fbBtn('match')}</div>
+ <div class="split"><div style="display:flex;flex-direction:column;gap:14px">
+  <section class="card pad"><div class="src">From the estimate · PaintScout #4127 · imported 9:12 am</div><h3 style="font-size:16px;margin-bottom:8px">Project write-up</h3><p class="writeup" style="margin:0">${wu}</p></section>
+  <section class="card pad"><div class="row"><h3 style="font-size:16px" class="grow">What this job needs</h3><span class="tiny">Read from the write-up</span></div>
+   <div class="reqs">${REQ_LABEL(job).map(([t,l,k,s])=>`<div class="req ${t}" data-k="${k}"><span class="ic">${t==='must'?'!':'+'}</span><span class="grow">${l}<small>${s}</small></span><span class="tiny">${t==='must'?'Must':'Nice'}</span></div>`).join('')}</div></section>
+  <section class="card pad mapcard"><div class="row" style="margin-bottom:6px"><h3 style="font-size:16px" class="grow">Who’s close</h3><span class="tiny">Drive from crew base</span></div>${mapSvg(job)}</section>
+ </div>
+ <div><div class="tool"><span class="small muted">What matters most</span><div class="seg" role="group" aria-label="Priority">${Object.keys(PRESETS).map(p=>`<button aria-pressed="${!S.w[job.id]&&pr===p}" data-act="preset" data-v="${p}">${p}</button>`).join('')}${S.w[job.id]?'<button aria-pressed="true">Custom</button>':''}</div>
+  <button class="btn sm line" data-act="drawer">${S.drawer?'Hide':'Rules and weights'}</button></div>
+  ${S.drawer?drawer(job):''}
+  <div class="sec-h"><h2>${ok.length} crew${ok.length===1?'':'s'} can take it</h2><span class="tiny">Ranked for “${S.w[job.id]?'Custom':pr}”</span></div>
+  ${ok.map(crewCard).join('')||'<div class="card pad">No crew passes the rules. Loosen a rule or raise a trust score.</div>'}
+  ${out.length?`<div class="card" style="margin-top:6px"><button class="out" style="width:100%;border:0;background:none;text-align:left" data-act="toggleout"><b class="grow">${out.length} can’t take it</b><span class="tiny">${S.showOut?'Hide':'Show why'}</span></button>
+   ${S.showOut?out.map(r=>`<div class="out"><span class="dot" style="--c:${CREWS[r.crew].c};margin-top:5px"></span><div class="grow"><b>${CREWS[r.crew].name}</b> <span class="tiny">${CREWS[r.crew].type}</span><div class="rules">${r.fails.map(f=>`<span class="rule x">${esc(f)}</span>`).join('')}</div></div>
+    ${r.fails.some(f=>f.startsWith('Trust'))?`<button class="btn sm line" data-act="trustup" data-v="${r.crew}">Raise trust to ${S.trustBar}</button>`:''}</div>`).join(''):''}</div>`:''}
+ </div></div>`;};
+function drawer(job){const w=weights(job.id);
+ return `<section class="card drawer"><div class="row" style="margin-bottom:8px"><h3 style="font-size:16px" class="grow">How crews are ranked</h3><button class="btn sm line" data-act="resetw">Reset</button></div>
+ <div class="tiny" style="margin-bottom:8px">Rules remove crews. Weights rank the rest.</div>
+ <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+ <div><div class="eyebrow" style="margin-bottom:4px">Rules</div>
+  ${[['lead','Lead-safe painter for pre-1978 homes'],['trust','Trust bar for important clients'],['weather','Hold exterior coats on rain days'],['maxDrive','No crew more than 35 min away']].map(([k,l])=>`<div class="hr"><span class="grow">${l}</span>${k==='trust'?`<span class="stepper"><button data-act="bar" data-v="-1" aria-label="Lower">−</button><b class="num">${S.trustBar}</b><button data-act="bar" data-v="1" aria-label="Raise">+</button></span>`:''}<button class="tog ${S.rules[k]?'on':''}" data-act="rule" data-v="${k}" role="switch" aria-checked="${S.rules[k]}" aria-label="${l}"><i></i></button></div>`).join('')}</div>
+ <div><div class="eyebrow" style="margin-bottom:4px">Weights</div>
+  ${FACT.map(([k,l])=>`<label class="wrow"><span>${l}</span><input type="range" min="0" max="5" step="1" value="${w[k]||0}" data-w="${k}" id="w-${k}"><b class="num">${w[k]||0}</b></label>`).join('')}</div></div></section>`;}
+function mapSvg(job){const P={P:[300,150],CG:[250,80],K:[120,150],SM:[210,120],Westchester:[150,70],'Coral Gables':[250,80],Kendall:[120,150],'South Miami':[210,120],Homestead:[70,205]};
+ const jp=P[job.area];const R=rank(job.id);
+ return `<svg viewBox="0 0 380 230" role="img" aria-label="Map of crew bases and the job">
+ <path d="M340 0 C320 60 330 120 300 230" fill="none" stroke="var(--tape-wash)" stroke-width="40"/>
+ <text x="350" y="20" font-size="10" fill="var(--faint)" text-anchor="end">Biscayne Bay</text>
+ ${ORDER.map(cr=>{const c=CREWS[cr];const p=P[c.base];const r=R.find(x=>x.crew===cr);return `<line x1="${p[0]}" y1="${p[1]}" x2="${jp[0]}" y2="${jp[1]}" stroke="${c.c}" stroke-width="${r.ok?2.5:1}" stroke-dasharray="${r.ok?'0':'4 4'}" opacity="${r.ok?.9:.4}"/>`;}).join('')}
+ ${ORDER.map(cr=>{const c=CREWS[cr];const p=P[c.base];const mx=(p[0]+jp[0])/2,my=(p[1]+jp[1])/2;return `<circle cx="${p[0]}" cy="${p[1]}" r="9" fill="${c.c}"/><text x="${p[0]}" y="${p[1]+3.5}" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">${cr}</text>
+  <text x="${p[0]}" y="${p[1]-14}" font-size="10" fill="var(--soft)" text-anchor="middle">${c.base}</text><rect x="${mx-15}" y="${my-8}" width="30" height="15" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="${mx}" y="${my+3}" font-size="9.5" font-weight="700" fill="var(--ink)" text-anchor="middle">${DRIVE[cr][job.area]}m</text>`;}).join('')}
+ <path d="M${jp[0]} ${jp[1]+2} l-9 -15 a10 10 0 1 1 18 0 z" fill="var(--ink)"/><circle cx="${jp[0]}" cy="${jp[1]-16}" r="4" fill="var(--bg)"/>
+ <text x="${jp[0]}" y="${jp[1]+16}" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">${job.client.split(' ').slice(-1)[0]} job</text></svg>`;}
+
+/* ---------- board ---------- */
+V.board=()=>{const job=J();const B=bookings(job.id);const p=S.place[job.id];const R=rank(job.id);
+ const eligible=new Set(R.filter(r=>r.ok).map(r=>r.crew));
+ const lw='var(--lw)',cw='var(--cw)';
+ const pos=(s,e)=>`left:calc(${lw} + ${cw} * ${s} + 2px);width:calc(${cw} * ${e-s+1} - 4px)`;
+ const head=`<div class="grow-h"><div class="lab" style="padding:6px 12px;justify-content:flex-end"><span class="tiny">Crew</span></div>${DAYS.map((d,i)=>`<div class="gh ${d.dow==='Mon'&&i?'wk':''} ${i===0?'today':''}">${d.dow.slice(0,2)}<b class="num">${d.n}</b></div>`).join('')}</div>
+  <div class="wx"><div class="lab" style="padding:4px 12px"><span class="tiny">Forecast</span></div>${WX.map(([pp,t],i)=>`<div class="${rain(i)?'rain':''}" title="${t==='rain'?'Rain':t==='cloud'?'Cloudy':'Sunny'} ${pp}%">${wxIcon(t)}<span class="num">${pp}%</span></div>`).join('')}</div>`;
+ const rows=ORDER.map(cr=>{const c=CREWS[cr];const ok=eligible.has(cr);const rr=R.find(x=>x.crew===cr);
+  const bars=B.filter(x=>x.crew===cr).map(x=>`<div class="bk ${x.prop?'prop':''}" style="--c:${c.c};${pos(x.s,Math.min(19,x.e))}"><b>${esc(x.name)}</b><span>${esc(x.what)}</span></div>`).join('');
+  const ghost=!p&&ok&&rr.slot?`<button class="ghost" data-act="place" data-v="${cr}" style="${pos(rr.slot.s,Math.min(19,rr.slot.e))}" aria-label="Place on ${c.name}, match ${rr.score}">${rr.score} · ${rr===R[0]?'Best fit':'Option'}</button>`:'';
+  let nb='';if(p&&p.crew===cr){const sp=span(job,cr,p.s,B);const days=[];for(let d=sp.s;d<=sp.e;d++)days.push(d);let wi=0;
+   nb=`<div class="nb ${(sp.conf.length||!ok||sp.e>job.deadline)?'badpos':''}" id="nb" style="${pos(sp.s,Math.min(19,sp.e))}" role="button" tabindex="0" aria-label="${job.title}, drag to move">${days.filter(d=>d<20).map(d=>{const h=sp.holds.includes(d);const ph=h?'Weather hold':job.phases[Math.min(job.phases.length-1,Math.floor(wi++*job.phases.length/sp.n))];return `<div class="ph ${h?'hold':''}"><b>${h?'Hold':esc(ph.split(' ')[0])}</b>${h?'Rain':esc(ph.split(' ').slice(1).join(' '))}</div>`;}).join('')}</div>`;}
+  return `<div class="crow ${!ok?'inel':''}" data-crew="${cr}"><div class="lab" style="position:absolute;left:0;top:0;bottom:0;width:var(--lw)"><b><span class="dot" style="--c:${c.c}"></span>${c.name}</b><span>${c.members.length} painters · ${tdots(S.trust[cr])}</span><span class="num">${util(B,cr)}% booked${!ok?' · <b style="color:var(--bad);font-size:11px;display:inline">can’t take it</b>':''}</span></div>
+   <div class="cells">${DAYS.map((d,i)=>`<div class="${d.dow==='Mon'&&i?'wk':''} ${rain(i)?'rain':''}"></div>`).join('')}</div>${bars}${ghost}${nb}</div>`;}).join('');
+ const cap=`<div class="cap"><div class="lab" style="padding:4px 12px"><span class="tiny">Crews free</span></div>${DAYS.map((d,i)=>{const free=ORDER.filter(cr=>!busy(bookings(),cr,i)).length;return `<div style="background:color-mix(in srgb,var(--good) ${free*16}%,transparent)" class="num">${free}</div>`;}).join('')}</div>`;
+ const dl=job.deadline<20?`<div class="dl" style="left:calc(var(--lw) + var(--cw) * ${job.deadline+1})"><span>Due ${sdate(job.deadline)}</span></div>`:'';
+ return `<button class="back" data-go="${p&&p.status==='scheduled'?'queue':'match'}">← ${p&&p.status==='scheduled'?'Ready to schedule':'Crew ranking'}</button>
+ <div class="mhead"><div class="grow"><div class="eyebrow">Schedule</div><h1>${job.title}</h1></div>
+  <div class="seg" role="group" aria-label="Job">${QORDER.map(j=>`<button aria-pressed="${j===S.job}" data-act="setjob" data-v="${j}">${JOBS[j].title.split(' ')[0]}${S.place[j]?.status==='scheduled'?' ✓':''}</button>`).join('')}</div>${fbBtn('board')}</div>
+ <div class="banner">${p?`<b>${CREWS[p.crew].name}, ${dlabel(p.s)} to ${dlabel(span(job,p.crew,p.s,B).e)}.</b><span class="muted small">Drag the blue bar to another day or crew. Checks update as you move it.</span>`:
+  `<b>Pick a slot.</b><span class="muted small">Dashed outlines are the earliest opening for each crew that passes the rules, with its match score. Striped rows can’t take this job.</span>`}</div>
+ <div class="boardwrap"><div><div class="card gscroll"><div class="gantt" id="gantt">${head}${rows}${cap}${dl}</div></div>
+  <div class="legend"><span><i style="background:var(--tape)"></i>This job</span><span><i style="border:2px dashed var(--tape)"></i>Suggested slot</span><span><i style="background:repeating-linear-gradient(135deg,var(--tape) 0 3px,transparent 3px 6px)"></i>Weather hold</span><span><i style="background:var(--sunk);border:1px dashed var(--faint)"></i>Proposed, not confirmed</span><span><i style="background:color-mix(in srgb,var(--good) 50%,transparent)"></i>More crews free</span></div></div>
+  ${planPanel(job,B,eligible)}</div>`;};
+function planPanel(job,B,eligible){const p=S.place[job.id];
+ if(!p) return `<aside class="card plan"><h3 style="font-size:17px">Plan</h3><p class="small muted">Pick a dashed slot to see checks, crew hours, and the messages that go out.</p>
+  <div class="eyebrow" style="margin-top:14px">Best fit</div>${(()=>{const r=rank(job.id).find(x=>x.ok);return r?`<div class="row" style="margin-top:6px"><span class="dot" style="--c:${CREWS[r.crew].c}"></span><b class="grow">${CREWS[r.crew].name}</b><span class="chip tape num">${r.score}</span></div><div class="small muted" style="margin-top:4px">${dlabel(r.slot.s)} to ${dlabel(r.slot.e)}</div><button class="btn tape sm" style="margin-top:10px" data-act="place" data-v="${r.crew}">Use this slot</button>`:'<div class="small">No crew fits.</div>';})()}</aside>`;
+ const c=CREWS[p.crew];const sp=span(job,p.crew,p.s,B);const ok=eligible.has(p.crew);const fails=hard(job,p.crew);const sched=p.status==='scheduled';
+ const planned=sp.n*c.members.length*8;
+ const checks=[];
+ if(ok)checks.push(['ok',`${c.name} passes every rule`]);else fails.forEach(f=>checks.push(['no',f]));
+ if(sp.conf.length)checks.push(['no',`Overlaps ${B.find(x=>x.crew===p.crew&&sp.conf.includes(x.s)||x.crew===p.crew&&sp.conf.some(d=>d>=x.s&&d<=x.e))?.name||'another job'} on ${sp.conf.map(sdate).join(', ')}`]);
+ if(sp.e>job.deadline)checks.push(['no',`Finishes ${sdate(sp.e)}, after the ${sdate(job.deadline)} deadline`]);else checks.push(['ok',`Finishes ${dlabel(sp.e)}, ${job.deadline-sp.e} days to spare`]);
+ sp.holds.forEach(d=>checks.push(['wn',`${dlabel(d)}: rain ${WX[d][0]}%. Weather hold, crew does covered prep and the front door`]));
+ if(job.ext&&!sp.holds.length&&sp.s<20&&rain(sp.s))checks.push(['wn',`Day 1 is rainy. Fine for pressure washing`]);
+ if(job.built<1978&&c.certs.includes('leadsafe'))checks.push(['ok',`Lead-safe: ${c.members.find(m=>m[1])[0]} is certified and on site`]);
+ checks.push([planned>job.hours*1.1?'wn':'ok',`${planned} crew hours planned for ${job.hours} estimated${planned>job.hours*1.1?'. Expect a short last day':''}`]);
+ const lead=c.lead;const sp1=dlabel(sp.s),spE=dlabel(sp.e);
+ const msgs={crew:{to:`${lead} · WhatsApp`,x:`New job: ${job.title}\n${sp1} to ${spE}, start 8am\n${job.ext?'Exterior. Wash day 1, body coats on dry days only. HOA hours 8 to 5.':'Interior.'}\n${job.built<1978?'Lead-safe setup required.\n':''}Colors: ${job.colors.map(x=>x[0]).join(', ')}\nFull work order in the app.`},
+  client:{to:`${job.client.split(' ')[0]} · Text${job.lang==='spanish'?' in Spanish':''}`,x:job.lang==='spanish'?`Hola Rosa, su proyecto de pintura empieza el ${sp1.replace('Mon','lunes').replace('Tue','martes').replace('Wed','miércoles').replace('Thu','jueves').replace('Fri','viernes')}. El equipo de ${lead} estará a las 8am. Si llueve, le avisamos. ¿Alguna pregunta? Respóndanos aquí.`:`Hi ${job.client.split(' ')[0]}, your project starts ${sp1}. ${lead}’s crew arrives at 8am. Reply here with any questions.`},
+  hoa:{to:'HOA office · Email',x:`Work notice for the ${job.client.split(' ').slice(-1)[0]} residence: exterior painting ${sp1} to ${spE}, weekdays 8am to 5pm. Approved colors on file (Oct 16).`},
+  supplier:{to:'Sherwin-Williams · PO',x:`Paint already delivered Oct 23. Hold 2 gal Loxon touch-up for pickup ${dlabel(Math.max(0,sp.e-1))}.`}};
+ const tabs=job.ext&&job.writeup.includes('[hoa|')?['crew','client','hoa','supplier']:['crew','client','supplier'];
+ const m=msgs[S.msgTab]||msgs.crew;
+ return `<aside class="card plan"><div class="row"><span class="dot" style="--c:${c.c}"></span><h3 style="font-size:17px" class="grow">${c.name}</h3><span class="chip ${sched?'good':'tape'}">${sched?'Scheduled':'Draft'}</span></div>
+ <div class="small muted" style="margin:4px 0 10px">${dlabel(sp.s)} to ${dlabel(sp.e)} · ${sp.n} work days${sp.holds.length?` + ${sp.holds.length} hold`:''}</div>
+ ${checks.map(([k,t])=>`<div class="check ${k}"><i>${k==='ok'?'✓':k==='wn'?'!':'×'}</i><span>${esc(t)}</span></div>`).join('')}
+ <div class="eyebrow" style="margin-top:14px">What goes out on confirm</div>
+ <div class="msgtabs" role="group">${tabs.map(t=>`<button aria-pressed="${S.msgTab===t||(!tabs.includes(S.msgTab)&&t==='crew')}" data-act="msg" data-v="${t}">${{crew:'Crew lead',client:'Client',hoa:'HOA',supplier:'Supplier'}[t]}</button>`).join('')}</div>
+ <div class="tiny" style="margin-bottom:4px">${m.to}</div><div class="bubble">${esc(m.x)}</div>
+ <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">${sched?`<button class="btn line" data-act="unschedule">Unschedule</button>`:`<button class="btn tape" data-act="confirm" ${(ok&&!sp.conf.length&&sp.e<=job.deadline)?'':'disabled'}>Confirm and notify</button><button class="btn line" data-act="clear">Clear</button>`}</div>
+ ${!sched&&!(ok&&!sp.conf.length&&sp.e<=job.deadline)?'<div class="tiny" style="margin-top:8px">Fix the red checks to confirm.</div>':''}</aside>`;}
+
+/* ---------- crews ---------- */
+V.crews=()=>{const B=bookings();const people=['D','B','A'].flatMap(cr=>CREWS[cr].members.slice(0,cr==='D'?3:3).map(m=>[m[0],cr]));
+ const TOG={'Yesenia|Mateo':31,'Yesenia|Jorge':24,'Mateo|Jorge':22,'Carlos|Ana':38,'Carlos|Luis M.':16,'Ana|Luis M.':15,'Marcus|Dev':19,'Marcus|Pete':9,'Dev|Pete':10,'Jorge|Marcus':4,'Ana|Mateo':3,'Carlos|Yesenia':2,'Luis M.|Dev':5};
+ const tg=(a,b)=>TOG[a+'|'+b]||TOG[b+'|'+a]||0;
+ return `<div class="qhead"><div class="grow"><div class="eyebrow">Who can do what</div><h1>Crews</h1></div>${fbBtn('crews')}</div>
+ <div class="cgrid">${ORDER.map(cr=>{const c=CREWS[cr];return `<article class="card ccard" style="--c:${c.c}"><div class="row"><div class="grow"><h3 style="font-size:19px">${c.name}</h3><div class="small muted">${c.type} · based in ${c.base}</div></div>${avs(cr)}</div>
+  <div class="row"><span class="small grow">Trust ${tdots(S.trust[cr])} <span class="tiny">set by your PM</span></span><span class="stepper"><button data-act="trust" data-v="${cr}" data-d="-1" aria-label="Lower trust">−</button><b class="num">${S.trust[cr]}</b><button data-act="trust" data-v="${cr}" data-d="1" aria-label="Raise trust">+</button></span></div>
+  <div class="chips">${c.skills.map(k=>`<span class="chip">${SKILL[k]}</span>`).join('')}${c.certs.map(k=>`<span class="chip good">${SKILL[k]}</span>`).join('')}${c.spanish?'<span class="chip tape">Spanish</span>':''}</div>
+  <div class="stats"><div><b class="num">${c.ytd}</b><span>Jobs this year</span></div><div><b class="num" style="color:${c.over>0?'var(--warn)':'var(--good)'}">${c.over>0?'+':''}${c.over}%</b><span>Hours vs est.</span></div><div><b class="num">${c.cb}%</b><span>Callbacks</span></div><div><b class="num">${c.rating}</b><span>Client rating</span></div></div>
+  <div class="small muted">${c.together} jobs together as this crew · ${util(B,cr)}% booked next 4 weeks</div></article>`;}).join('')}</div>
+ <section class="card pad" style="margin-top:16px"><div class="row" style="margin-bottom:10px"><div class="grow"><h3 style="font-size:17px">Who works well together</h3><div class="small muted">Jobs finished side by side in the last 12 months. Pairs that stay together run closer to estimate.</div></div>${fbBtn('pairs')}</div>
+  <div class="matrix"><table><tr><th></th>${people.map(([n])=>`<th class="rot"><span>${n}</span></th>`).join('')}</tr>
+  ${people.map(([a,ca])=>`<tr><th style="text-align:right"><span class="dot" style="--c:${CREWS[ca].c};display:inline-block;margin-right:6px"></span>${a}</th>${people.map(([b])=>{if(a===b)return '<td style="background:var(--sunk)"></td>';const v=tg(a,b);return `<td style="background:color-mix(in srgb,var(--tape) ${Math.min(90,v*2.4)}%,var(--sunk));color:${v>22?'var(--tape-ink)':'var(--ink)'}">${v||''}</td>`;}).join('')}</tr>`).join('')}</table></div></section>`;};
+
+/* ---------- ideas ---------- */
+const IDEAS=[
+ ['Matching',[
+  ['Explainable match score','Every pick shows the factors behind it and what would change it. Dispatchers trust what they can read.','In this prototype','ServiceTitan Dispatch Pro, Salesforce Field Service'],
+  ['Rules first, then weights','Hard rules remove crews (skills, lead-safe, trust bar). Weighted goals rank the rest.','In this prototype','Salesforce scheduling policies'],
+  ['Priority presets','One tap to rank for white glove, margin, or speed instead of tuning sliders.','In this prototype','Salesforce service objectives'],
+  ['Requirements read from the write-up','Skills, certifications, deadlines and client preferences pulled from the estimate text, each linked back to its sentence.','In this prototype','Bridgit Bench smart suggestions'],
+  ['Learned crew performance','Hours vs estimate and callbacks by job type update after every job, so the ranking gets smarter.','Next','ServiceTitan technician ranking'],
+  ['Build a crew for one job','Borrow a certified painter from another crew for a day instead of disqualifying the whole crew.','Next','Bridgit Bench'],
+  ['Client to crew fit','Match language, past relationship and client temperament to the crew lead.','Next','']]],
+ ['Scheduling',[
+  ['Weather-aware phases','Wash on rainy days, body coats only on dry days, holds shown on the board.','In this prototype','Painting weather rules'],
+  ['Plan the whole queue','Schedule every sold job at once, then review. Not one at a time.','In this prototype','ServiceTitan Assist mode'],
+  ['Gap filler','Short jobs offered for empty days between bigger ones.','In this prototype',''],
+  ['Cure time and return visits','Cabinets and multi-coat jobs scheduled as linked visits with drying gaps between.','Next',''],
+  ['Ripple reschedule','When rain or a sick day hits, re-plan affected jobs and draft all the client texts in one step.','Next','Auto-reschedule on bad weather'],
+  ['Material-ready start','Never start a crew before paint is delivered or the HOA has approved colors.','Next',''],
+  ['Auto mode with guardrails','Let it schedule small jobs on its own, while big or important ones wait for approval.','Later','ServiceTitan Auto mode']]],
+ ['Capacity and money',[
+  ['Backlog runway','Weeks of sold work per crew, so you know when to push sales or hire a sub.','Next','Bridgit Bench forecasting'],
+  ['Sub vs in-house call','Compare a sub’s fixed price with in-house hours and margin before assigning.','Next',''],
+  ['Gross profit per crew-week','The KPI this product moves: more paid days, fewer idle ones.','Next',''],
+  ['What-if scenarios','See the board if you win the HOA bid, before you bid.','Later','Bridgit Bench scenarios']]],
+ ['Crew and client experience',[
+  ['Crew packet on WhatsApp','Dates, colors, access notes and lead-safe setup sent in the crew lead’s language.','In this prototype',''],
+  ['Client start-date text','Sent in the client’s language, with a heads-up if weather moves it.','In this prototype','Housecall Pro notify prompt'],
+  ['HOA and supplier notices','Work notice to the HOA and a paint pickup note, drafted on confirm.','In this prototype',''],
+  ['Crew accepts the job','Crew lead taps accept or flags a problem before the client is told.','Next',''],
+  ['Fair work distribution','Balance good jobs across crews over the month.','Later','']]]];
+V.ideas=()=>`<div class="qhead"><div class="grow"><div class="eyebrow">Idea bank</div><h1>Where this could go</h1><p class="muted" style="margin:6px 0 0;max-width:640px">Everything we considered, grouped. Tags show what’s in this prototype. Leave feedback on any card.</p></div></div>
+ ${IDEAS.map(([cat,list])=>`<h2 class="icat">${cat}</h2><div class="igrid">${list.map(([t,d,tag,src],i)=>`<article class="card idea" id="idea-${cat.slice(0,4)}-${i}"><div class="row"><span class="chip ${tag==='In this prototype'?'tape':tag==='Next'?'good':''}">${tag}</span><span class="grow"></span>${fbBtn('idea','')}</div><h3>${t}</h3><p>${d}</p>${src?`<span class="tiny">Seen in: ${src}</span>`:''}</article>`).join('')}</div>`).join('')}`;
+
+/* ============ render ============ */
+function render(){
+ $('#tabs').innerHTML=[['queue','Ready to schedule',QORDER.filter(j=>S.place[j]?.status!=='scheduled').length],['board','Board'],['crews','Crews'],['ideas','Ideas']].map(([v,l,n])=>`<button data-go="${v}" ${S.view===v||(S.view==='match'&&v==='queue')?'aria-current="page"':''}>${l}${n?`<span class="ct num">${n}</span>`:''}</button>`).join('');
+ $('#app').innerHTML=V[S.view]();
+ bindDrag(); drawLayer();}
+function drawLayer(){let h='';
+ if(S.modal){const m=S.modal;h+=`<div class="ov" data-act="closemodal"><div class="card modal" role="dialog" aria-label="Plan for all jobs" onclick="event.stopPropagation()">
+  <div class="eyebrow">Plan all</div><h2 style="font-size:24px;margin:2px 0 6px">${m.items.length} jobs placed</h2><p class="small muted" style="margin:0 0 12px">Important and earliest-due first. Each job takes the best crew that’s still free. Nothing is sent until you confirm.</p>
+  ${m.items.map(it=>`<div class="row" style="padding:10px 0;border-top:1px solid var(--line)"><span class="dot" style="--c:${CREWS[it.crew].c}"></span><div class="grow"><b>${JOBS[it.jid].title}</b><div class="small muted">${CREWS[it.crew].name} · ${dlabel(it.s)} to ${dlabel(it.e)}</div></div><span class="chip tape num">${it.score}</span></div>`).join('')}
+  ${m.skipped.map(j=>`<div class="row" style="padding:10px 0;border-top:1px solid var(--line)"><span class="dot" style="--c:var(--bad)"></span><div class="grow"><b>${JOBS[j].title}</b><div class="small muted">No crew passes the rules</div></div></div>`).join('')}
+  <div class="row" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line)"><span class="small grow">In-house crews booked: <b class="num">${m.before}% → ${m.after}%</b></span></div>
+  <div class="row" style="margin-top:14px;flex-wrap:wrap"><button class="btn tape" data-act="confirmall">Confirm all and notify</button><button class="btn line" data-act="reviewall">Review on the board</button></div></div></div>`;}
+ if(S.toast)h+=`<div class="toast" role="status">${esc(S.toast)}</div>`;
+ $('#layer').innerHTML=h;}
+
+/* ============ drag on board ============ */
+function bindDrag(){const nb=document.getElementById('nb');if(!nb)return;const g=document.getElementById('gantt');
+ let st=null;
+ nb.addEventListener('pointerdown',e=>{const p=S.place[S.job];if(!p||p.status==='scheduled')return;nb.setPointerCapture(e.pointerId);st={x:e.clientX,y:e.clientY,s:p.s,crew:p.crew,moved:false};nb.classList.add('dragging');});
+ nb.addEventListener('pointermove',e=>{if(!st)return;const cwPx=parseFloat(getComputedStyle(g).getPropertyValue('--cw'));const dx=Math.round((e.clientX-st.x)/cwPx);
+  nb.style.transform=`translate(${dx*cwPx}px,${e.clientY-st.y}px)`;st.moved=true;
+  document.querySelectorAll('.crow').forEach(r=>{const b=r.getBoundingClientRect();r.classList.toggle('drop',e.clientY>=b.top&&e.clientY<b.bottom);});});
+ const end=e=>{if(!st)return;const cwPx=parseFloat(getComputedStyle(g).getPropertyValue('--cw'));const dx=Math.round((e.clientX-st.x)/cwPx);
+  let crew=st.crew;document.querySelectorAll('.crow').forEach(r=>{const b=r.getBoundingClientRect();if(e.clientY>=b.top&&e.clientY<b.bottom)crew=r.dataset.crew;});
+  const s=Math.max(0,Math.min(19,st.s+dx));const p=S.place[S.job];p.s=s;p.crew=crew;const sp=span(J(),crew,s,bookings(S.job));p.e=sp.e;st=null;render();};
+ nb.addEventListener('pointerup',end);nb.addEventListener('pointercancel',end);
+ nb.addEventListener('keydown',e=>{const p=S.place[S.job];if(!p||p.status==='scheduled')return;let d=0,cr=ORDER.indexOf(p.crew);
+  if(e.key==='ArrowRight')d=1;else if(e.key==='ArrowLeft')d=-1;else if(e.key==='ArrowDown')cr=Math.min(ORDER.length-1,cr+1);else if(e.key==='ArrowUp')cr=Math.max(0,cr-1);else return;
+  e.preventDefault();p.s=Math.max(0,Math.min(19,p.s+d));p.crew=ORDER[cr];p.e=span(J(),p.crew,p.s,bookings(S.job)).e;render();document.getElementById('nb')?.focus();});}
+
+/* ============ actions ============ */
+function placeJob(jid,crew){const r=rank(jid).find(x=>x.crew===crew);const job=JOBS[jid];const sl=r.slot||span(job,crew,job.earliest,bookings(jid));S.place[jid]={crew,s:sl.s,e:sl.e,status:'draft'};}
+function planAll(){const B0=bookings();const before=Math.round(ORDER.slice(0,4).reduce((a,c)=>a+util(B0,c),0)/4);const items=[],skipped=[];
+ const todo=QORDER.filter(j=>S.place[j]?.status!=='scheduled').sort((a,b)=>(!!JOBS[b].important-!!JOBS[a].important)||(JOBS[a].deadline-JOBS[b].deadline));
+ todo.forEach(j=>{delete S.place[j];});
+ todo.forEach(j=>{const r=rank(j).find(x=>x.ok);if(!r){skipped.push(j);return;}S.place[j]={crew:r.crew,s:r.slot.s,e:r.slot.e,status:'draft'};items.push({jid:j,crew:r.crew,s:r.slot.s,e:r.slot.e,score:r.score});});
+ const B1=bookings();const after=Math.round(ORDER.slice(0,4).reduce((a,c)=>a+util(B1,c),0)/4);S.modal={items,skipped,before,after};}
+document.addEventListener('click',async e=>{const fb=e.target.closest('[data-fb]');if(fb){feedback(fb);return;}
+ const go=e.target.closest('[data-go]');if(go){S.view=go.dataset.go;render();window.scrollTo(0,0);return;}
+ const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const a=b.dataset.act,v=b.dataset.v;
+ switch(a){
+ case 'match':S.job=v;S.view='match';render();window.scrollTo(0,0);break;
+ case 'board':S.job=v;S.view='board';render();window.scrollTo(0,0);break;
+ case 'setjob':S.job=v;render();break;
+ case 'preset':delete S.w[S.job];S.preset[S.job]=v;render();break;
+ case 'drawer':S.drawer=!S.drawer;render();break;
+ case 'resetw':delete S.w[S.job];delete S.preset[S.job];render();break;
+ case 'rule':S.rules[v]=!S.rules[v];render();toast(`${S.rules[v]?'Rule on':'Rule off'}. Ranking updated`);break;
+ case 'bar':S.trustBar=Math.max(1,Math.min(5,S.trustBar+ +v));render();break;
+ case 'toggleout':S.showOut=!S.showOut;render();break;
+ case 'trustup':S.trust[v]=S.trustBar;render();toast(`${CREWS[v].name} trust raised to ${S.trustBar}. They’re in the running`);break;
+ case 'trust':S.trust[v]=Math.max(1,Math.min(5,S.trust[v]+ +b.dataset.d));render();break;
+ case 'pick':placeJob(S.job,v);S.view='board';render();window.scrollTo(0,0);toast(`Placed on ${CREWS[v].name}. Drag to adjust`);break;
+ case 'place':placeJob(S.job,v);render();toast(`Placed on ${CREWS[v].name}. Drag to adjust`);break;
+ case 'quick':placeJob(v,rank(v).find(x=>x.ok).crew);S.place[v].status='scheduled';render();toast(`${JOBS[v].title} booked on ${CREWS[S.place[v].crew].name}. Crew and client notified`);break;
+ case 'msg':S.msgTab=v;render();break;
+ case 'confirm':S.place[S.job].status='scheduled';render();toast(`Scheduled. ${CREWS[S.place[S.job].crew].lead}, the client${J().writeup.includes('[hoa|')?', the HOA':''} and the supplier are notified`);break;
+ case 'clear':delete S.place[S.job];render();break;
+ case 'unschedule':S.place[S.job].status='draft';render();toast('Back to draft. Nobody has been told yet');break;
+ case 'planall':planAll();render();break;
+ case 'closemodal':S.modal=null;drawLayer();break;
+ case 'reviewall':S.modal=null;S.job=QORDER.find(j=>S.place[j])||'hernandez';S.view='board';render();window.scrollTo(0,0);break;
+ case 'confirmall':Object.values(S.place).forEach(p=>p.status='scheduled');const n=S.modal.items.length;S.modal=null;render();toast(`${n} jobs scheduled. Crews and clients notified`);break;
+ }});
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.w){const w={...weights(S.job)};w[t.dataset.w]=+t.value;S.w[S.job]=w;render();const el=document.getElementById(t.id);if(el)el.focus();}});
+document.addEventListener('mouseover',e=>{const r=e.target.closest('.req');document.querySelectorAll('.writeup mark').forEach(m=>m.classList.toggle('on',!!r&&m.dataset.k===r.dataset.k));});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.modal){S.modal=null;drawLayer();}});
+
+/* ============ feedback via comments ============ */
+let COMMENTS=null;
+(async()=>{try{if(!window.claude||!window.claude.use)return;COMMENTS=await window.claude.use('comments');if(COMMENTS)document.documentElement.classList.add('has-comments');}catch(_){}})();
+async function feedback(btn){if(!COMMENTS)return;const target=btn.dataset.fb==='page'?document.getElementById('app'):(btn.closest('article,section,.card')||document.getElementById('app'));
+ try{const r=await COMMENTS.openComposer({element:target});if(!r.opened)toast('Finish the comment you have open first');}catch(err){if(err&&err.code==='unavailable'){document.documentElement.classList.remove('has-comments');}else toast('Comments aren’t available here');}}
+render();
+</script>
