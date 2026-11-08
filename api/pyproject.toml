@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "crewboard-api"
 version = "0.1.0"
@@ -19,6 +23,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3", "pytest-asyncio>=0.24", "httpx>=0.28", "playwright>=1.48"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+"app.workspace" = ["demo_data.json"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
