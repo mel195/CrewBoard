@@ -1,0 +1,2724 @@
+{
+"DL": [
+{
+"iso": "2026-10-26",
+"dow": "Mon",
+"m": "Oct",
+"n": 26
+},
+{
+"iso": "2026-10-27",
+"dow": "Tue",
+"m": "Oct",
+"n": 27
+},
+{
+"iso": "2026-10-28",
+"dow": "Wed",
+"m": "Oct",
+"n": 28
+},
+{
+"iso": "2026-10-29",
+"dow": "Thu",
+"m": "Oct",
+"n": 29
+},
+{
+"iso": "2026-10-30",
+"dow": "Fri",
+"m": "Oct",
+"n": 30
+},
+{
+"iso": "2026-10-31",
+"dow": "Sat",
+"m": "Oct",
+"n": 31
+},
+{
+"iso": "2026-11-01",
+"dow": "Sun",
+"m": "Nov",
+"n": 1
+},
+{
+"iso": "2026-11-02",
+"dow": "Mon",
+"m": "Nov",
+"n": 2
+},
+{
+"iso": "2026-11-03",
+"dow": "Tue",
+"m": "Nov",
+"n": 3
+},
+{
+"iso": "2026-11-04",
+"dow": "Wed",
+"m": "Nov",
+"n": 4
+},
+{
+"iso": "2026-11-05",
+"dow": "Thu",
+"m": "Nov",
+"n": 5
+},
+{
+"iso": "2026-11-06",
+"dow": "Fri",
+"m": "Nov",
+"n": 6
+},
+{
+"iso": "2026-11-07",
+"dow": "Sat",
+"m": "Nov",
+"n": 7
+},
+{
+"iso": "2026-11-08",
+"dow": "Sun",
+"m": "Nov",
+"n": 8
+},
+{
+"iso": "2026-11-09",
+"dow": "Mon",
+"m": "Nov",
+"n": 9
+},
+{
+"iso": "2026-11-10",
+"dow": "Tue",
+"m": "Nov",
+"n": 10
+},
+{
+"iso": "2026-11-11",
+"dow": "Wed",
+"m": "Nov",
+"n": 11
+},
+{
+"iso": "2026-11-12",
+"dow": "Thu",
+"m": "Nov",
+"n": 12
+},
+{
+"iso": "2026-11-13",
+"dow": "Fri",
+"m": "Nov",
+"n": 13
+},
+{
+"iso": "2026-11-14",
+"dow": "Sat",
+"m": "Nov",
+"n": 14
+},
+{
+"iso": "2026-11-15",
+"dow": "Sun",
+"m": "Nov",
+"n": 15
+},
+{
+"iso": "2026-11-16",
+"dow": "Mon",
+"m": "Nov",
+"n": 16
+},
+{
+"iso": "2026-11-17",
+"dow": "Tue",
+"m": "Nov",
+"n": 17
+},
+{
+"iso": "2026-11-18",
+"dow": "Wed",
+"m": "Nov",
+"n": 18
+},
+{
+"iso": "2026-11-19",
+"dow": "Thu",
+"m": "Nov",
+"n": 19
+},
+{
+"iso": "2026-11-20",
+"dow": "Fri",
+"m": "Nov",
+"n": 20
+},
+{
+"iso": "2026-11-21",
+"dow": "Sat",
+"m": "Nov",
+"n": 21
+},
+{
+"iso": "2026-11-22",
+"dow": "Sun",
+"m": "Nov",
+"n": 22
+},
+{
+"iso": "2026-11-23",
+"dow": "Mon",
+"m": "Nov",
+"n": 23
+},
+{
+"iso": "2026-11-24",
+"dow": "Tue",
+"m": "Nov",
+"n": 24
+},
+{
+"iso": "2026-11-25",
+"dow": "Wed",
+"m": "Nov",
+"n": 25
+},
+{
+"iso": "2026-11-26",
+"dow": "Thu",
+"m": "Nov",
+"n": 26
+},
+{
+"iso": "2026-11-27",
+"dow": "Fri",
+"m": "Nov",
+"n": 27
+},
+{
+"iso": "2026-11-28",
+"dow": "Sat",
+"m": "Nov",
+"n": 28
+},
+{
+"iso": "2026-11-29",
+"dow": "Sun",
+"m": "Nov",
+"n": 29
+},
+{
+"iso": "2026-11-30",
+"dow": "Mon",
+"m": "Nov",
+"n": 30
+},
+{
+"iso": "2026-12-01",
+"dow": "Tue",
+"m": "Dec",
+"n": 1
+},
+{
+"iso": "2026-12-02",
+"dow": "Wed",
+"m": "Dec",
+"n": 2
+},
+{
+"iso": "2026-12-03",
+"dow": "Thu",
+"m": "Dec",
+"n": 3
+},
+{
+"iso": "2026-12-04",
+"dow": "Fri",
+"m": "Dec",
+"n": 4
+},
+{
+"iso": "2026-12-05",
+"dow": "Sat",
+"m": "Dec",
+"n": 5
+},
+{
+"iso": "2026-12-06",
+"dow": "Sun",
+"m": "Dec",
+"n": 6
+}
+],
+"CREWS": [
+{
+"id": "gian",
+"name": "Gian",
+"c": "#2F6BD8",
+"f": {
+"sfName": "LC Gian NEW Painting MIA",
+"gcal": "Giancarlos Florida Painter",
+"email": "giancarlobenavides4@gmail.com",
+"phone": "(786) 865-3762",
+"status": "active",
+"size": {
+"min": 3,
+"max": 3
+},
+"sizeFixed": false,
+"base": "Kendall",
+"baseSample": true,
+"notes": "Best Crew",
+"languages": "English, Spanish",
+"leadSafe": true,
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": true,
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": "Per painter day · $150"
+},
+"r": {
+"interior": 5,
+"exterior": 5,
+"cabinets": 5,
+"commercial": 5,
+"wallpaper": null,
+"decorative": 2,
+"drywall": 3,
+"prep": 5,
+"cutin": 5,
+"spray": 5,
+"color": 5,
+"speed": 4,
+"reliability": 5,
+"quality": 5,
+"communication": 5,
+"care": 5,
+"independence": 5,
+"client": 5
+},
+"added": false,
+"rc": {
+"interior": 9,
+"exterior": 14,
+"cabinets": 6,
+"commercial": 5,
+"decorative": 1,
+"drywall": 4,
+"prep": 12,
+"cutin": 11,
+"spray": 9,
+"color": 10
+},
+"members": [
+{
+"n": "Gian",
+"role": "Crew lead",
+"langs": "English, Spanish",
+"lead": true,
+"note": "11 years. Handles HOA walkthroughs.",
+"phone": ""
+},
+{
+"n": "Luis",
+"role": "Painter, sprayer",
+"langs": "Spanish",
+"lead": false,
+"note": "Runs the spray rig.",
+"phone": ""
+},
+{
+"n": "Marco",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "Prep and patching.",
+"phone": ""
+}
+],
+"rsrc": {}
+},
+{
+"id": "tania",
+"name": "Tania",
+"c": "#1F8A7A",
+"f": {
+"sfName": "Tania Painting MIA",
+"gcal": "Tania Painting Florida",
+"email": "taniablanco2021@gmail.com",
+"phone": "(786) 663-3198",
+"status": "active",
+"size": {
+"min": 6,
+"max": 6
+},
+"sizeFixed": false,
+"base": "Hialeah",
+"baseSample": true,
+"notes": "",
+"languages": "Spanish",
+"leadSafe": false,
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": true,
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": [
+"08:00",
+"14:00"
+],
+"sun": null
+},
+"pay": "Per painter day · $150"
+},
+"r": {
+"interior": 3.5,
+"exterior": 4,
+"cabinets": 4,
+"commercial": 5,
+"wallpaper": null,
+"decorative": null,
+"drywall": 4,
+"prep": 4,
+"cutin": 4,
+"spray": 4,
+"color": 3,
+"speed": 4,
+"reliability": 5,
+"quality": 4,
+"communication": 3,
+"care": 3,
+"independence": 2,
+"client": 4
+},
+"added": false,
+"rc": {
+"interior": 2,
+"exterior": 7,
+"cabinets": 4,
+"commercial": 9,
+"drywall": 3,
+"prep": 6,
+"cutin": 5,
+"spray": 5,
+"color": 3
+},
+"members": [
+{
+"n": "Tania",
+"role": "Crew lead",
+"langs": "Spanish",
+"lead": false,
+"note": "Runs big commercial jobs.",
+"phone": ""
+},
+{
+"n": "Yuli",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "",
+"phone": ""
+},
+{
+"n": "Carlos",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "",
+"phone": ""
+},
+{
+"n": "Ana",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "Cut-in specialist.",
+"phone": ""
+},
+{
+"n": "Pedro",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "",
+"phone": ""
+},
+{
+"n": "Dayana",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "",
+"phone": ""
+}
+],
+"rsrc": {}
+},
+{
+"id": "johan-dani",
+"name": "Johan & Dani",
+"c": "#B8457A",
+"f": {
+"sfName": "LC Johan Danny FL",
+"gcal": "Johan Miami",
+"email": "prorenovationshome275@gmail.com",
+"phone": "(941) 387-5048",
+"status": "active",
+"size": {
+"min": 3,
+"max": 3
+},
+"sizeFixed": false,
+"base": "Westchester",
+"baseSample": true,
+"notes": "",
+"languages": "Spanish, Portuguese",
+"leadSafe": false,
+"phone2": "(754) 330-5136",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": true,
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": "Per painter day · $160"
+},
+"r": {
+"interior": 4,
+"exterior": 4,
+"cabinets": null,
+"commercial": 5,
+"wallpaper": null,
+"decorative": 3,
+"drywall": 1,
+"prep": 4,
+"cutin": 4,
+"spray": 5,
+"color": 5,
+"speed": 4,
+"reliability": 5,
+"quality": 4,
+"communication": 5,
+"care": 5,
+"independence": 5,
+"client": 5
+},
+"added": false,
+"rc": {
+"interior": 6,
+"exterior": 5,
+"commercial": 4,
+"decorative": 2,
+"drywall": 2,
+"prep": 5,
+"cutin": 5,
+"spray": 4,
+"color": 4
+},
+"members": [
+{
+"n": "Johan",
+"role": "Crew lead",
+"langs": "Spanish, Portuguese",
+"lead": false,
+"note": "",
+"phone": ""
+},
+{
+"n": "Dani",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "Detail and color work.",
+"phone": ""
+},
+{
+"n": "Bruno",
+"role": "Helper",
+"langs": "Portuguese",
+"lead": false,
+"note": "",
+"phone": ""
+}
+],
+"rsrc": {}
+},
+{
+"id": "rigo",
+"name": "Rigo",
+"c": "#C46A2E",
+"f": {
+"sfName": "LC Rigoberto Cabezas FL",
+"gcal": "Rigo South Florida",
+"email": "rigoallin1llc@gmail.com",
+"phone": "(786) 597-6548",
+"status": "active",
+"size": {
+"min": 2,
+"max": 2
+},
+"sizeFixed": true,
+"base": "Homestead",
+"baseSample": true,
+"notes": "",
+"languages": "Spanish",
+"leadSafe": true,
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "text",
+"clang": "es",
+"clangSet": true,
+"sizeWas": "2-3",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": [
+"08:00",
+"12:00"
+],
+"sun": null
+},
+"pay": "Per painter day · $145"
+},
+"r": {
+"interior": 4,
+"exterior": 5,
+"cabinets": null,
+"commercial": 5,
+"wallpaper": null,
+"decorative": null,
+"drywall": 3,
+"prep": 4,
+"cutin": 4,
+"spray": 4,
+"color": 5,
+"speed": 5,
+"reliability": 5,
+"quality": 4,
+"communication": 5,
+"care": 5,
+"independence": 5,
+"client": 5
+},
+"added": false,
+"rc": {
+"interior": 3,
+"exterior": 11,
+"commercial": 6,
+"drywall": 2,
+"prep": 7,
+"cutin": 6,
+"spray": 5,
+"color": 5
+},
+"members": [
+{
+"n": "Rigo",
+"role": "Crew lead",
+"langs": "Spanish",
+"lead": true,
+"note": "Lift operator.",
+"phone": ""
+},
+{
+"n": "Andrés",
+"role": "Painter",
+"langs": "Spanish",
+"lead": false,
+"note": "Joins on bigger jobs.",
+"phone": ""
+}
+],
+"rsrc": {}
+},
+{
+"id": "paulo",
+"name": "Paulo",
+"c": "#7A5CC0",
+"f": {
+"sfName": "LC Paulo Da Costa FL",
+"gcal": "Paolo Florida",
+"email": "lara_davidgo@hotmail.com",
+"phone": "(754) 779-5049",
+"status": "active",
+"size": {
+"min": 2,
+"max": 2
+},
+"sizeFixed": true,
+"base": "Fort Lauderdale",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Broward, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "2-4",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "marvin",
+"name": "Marvin",
+"c": "#6B7A2E",
+"f": {
+"sfName": "Marvin Umanzor FL",
+"gcal": "Marvin Umazor Painting",
+"email": "premierpaintingsfl@gmail.com",
+"phone": "(786) 848-2987",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Miami",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "cristhian",
+"name": "Cristhian",
+"c": "#2E7FA8",
+"f": {
+"sfName": "LC Cristhian Painting MIA",
+"gcal": "Cristian Miami",
+"email": "cruzzavalac@gmail.com",
+"phone": "(786) 443-5280",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Doral",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "jose",
+"name": "Jose",
+"c": "#A8452E",
+"f": {
+"sfName": "LC Finish Line MIA",
+"gcal": "Jose Finish Line MIA",
+"email": "finishlinepainter@gmail.com",
+"phone": "(305) 807-0338",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Miami",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "frank",
+"name": "Frank",
+"c": "#4E6B9A",
+"f": {
+"sfName": "Frank MIA",
+"gcal": "Frank Painter Miami",
+"email": "info@142llc.pro",
+"phone": "(786) 925-0657",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Miami",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "elias",
+"name": "Elias",
+"c": "#8A6D1F",
+"f": {
+"sfName": "LC Elias Remez MIA",
+"gcal": "Elias South Florida",
+"email": "eliasreme@gmail.com",
+"phone": "(646) 353-1599",
+"status": "active",
+"size": {
+"min": 2,
+"max": 2
+},
+"sizeFixed": true,
+"base": "Hialeah",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "2-3",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "alejandro",
+"name": "Alejandro",
+"c": "#3E8A4E",
+"f": {
+"sfName": "LC NEW Alejandro Mori MIA",
+"gcal": "Alejandro Mori NJ",
+"email": "alejandromori90@gmail.com",
+"phone": "(786) 593-5560",
+"status": "active",
+"size": {
+"min": 2,
+"max": 2
+},
+"sizeFixed": true,
+"base": "Newark",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "New Jersey",
+"regionNote": "From calendar name “Alejandro Mori NJ”. Confirm.",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "2-3",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "marcia-wallpaper",
+"name": "Marcia (wallpaper)",
+"c": "#9A4E7A",
+"f": {
+"sfName": "Marcia Voto FL",
+"gcal": "Marcia Voto Wallpaper",
+"email": "votollc@yahoo.com",
+"phone": "(973) 508-6166",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": false,
+"base": "Miami Beach",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "email",
+"clang": "es",
+"clangSet": false,
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "wonder-painting",
+"name": "Wonder Painting",
+"c": "#5B6470",
+"f": {
+"sfName": "LC Wonderpainting",
+"gcal": "Joao Wonderpainting Pompano",
+"email": "wonderpaintingservicesllc@gmail.com",
+"phone": "(954) 832-2115",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Pompano Beach",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Broward, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "alfonso",
+"name": "Alfonso",
+"c": "#A85E2E",
+"f": {
+"sfName": "Alfonso Skim Coat MIA",
+"gcal": "Alfonso Drywall MIA",
+"email": "baltazasolis@gmail.com",
+"phone": "(561) 900-8113",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Miami",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "maria",
+"name": "Maria",
+"c": "#2E8A8A",
+"f": {
+"sfName": "LC Maria Antonio FL",
+"gcal": "Antonio Ft. Lauderdale",
+"email": "antonioflorez30@gmail.com",
+"phone": "(954) 295-7825",
+"status": "active",
+"size": {
+"min": 2,
+"max": 2
+},
+"sizeFixed": true,
+"base": "Fort Lauderdale",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Broward, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "2-3",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "cabinet-canvas",
+"name": "Cabinet Canvas",
+"c": "#7A3EA8",
+"f": {
+"sfName": "LC Cabinet Canvas",
+"gcal": "Cabinet Canvas",
+"email": "cabinetcanvasinfo@gmail.com",
+"phone": "(954) 588-4910",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": false,
+"base": "Fort Lauderdale",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Broward, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "ali-luis",
+"name": "Ali & Luis",
+"c": "#6A8A2E",
+"f": {
+"sfName": "LC NZ Corp Luis FL",
+"gcal": "Ali Ocampo Miami",
+"email": "nzcorpusa@gmail.com",
+"phone": "(786) 709-0234",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Miami",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "luis-venpro",
+"name": "Luis Venpro",
+"c": "#A82E5B",
+"f": {
+"sfName": "LC Luis Venpro MIA",
+"gcal": "Luis Venpro Miami",
+"email": "info@simpleconstruction-design.com",
+"phone": "(407) 435-7268",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "Doral",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Miami-Dade, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-3",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "fabian",
+"name": "Fabian",
+"c": "#3E5BA8",
+"f": {
+"sfName": "TBD",
+"gcal": "Fabian Painter Miami",
+"email": "fabiancairojobss@gmail.com",
+"phone": "(786) 665-9595",
+"status": "active",
+"size": {
+"min": 1,
+"max": 1
+},
+"sizeFixed": true,
+"base": "",
+"baseSample": false,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "1-2",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "vanderlay",
+"name": "Vanderlay",
+"c": "#8A4E2E",
+"f": {
+"sfName": "LC Vanderlei MIA",
+"gcal": "Wanderlay MIA",
+"email": "vanderlie26usa@gmail.com",
+"phone": "(754) 332-6754",
+"status": "active",
+"size": {
+"min": 2,
+"max": 2
+},
+"sizeFixed": true,
+"base": "Pompano Beach",
+"baseSample": true,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "Broward, FL",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"sizeWas": "2-4",
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+},
+{
+"id": "ido-test",
+"name": "Ido Test",
+"c": "#777",
+"f": {
+"sfName": "Lc Ido Dotan",
+"gcal": "Unknown",
+"email": "ido@PrecisionPaintingPlus.net",
+"phone": "(786) 676-0451",
+"status": "inactive",
+"size": null,
+"sizeFixed": false,
+"base": "",
+"baseSample": false,
+"notes": "",
+"languages": "",
+"phone2": "",
+"region": "",
+"regionNote": "",
+"channel": "whatsapp",
+"clang": "es",
+"clangSet": false,
+"hours": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"pay": ""
+},
+"r": {
+"interior": null,
+"exterior": null,
+"cabinets": null,
+"commercial": null,
+"wallpaper": null,
+"decorative": null,
+"drywall": null,
+"prep": null,
+"cutin": null,
+"spray": null,
+"color": null,
+"speed": null,
+"reliability": null,
+"quality": null,
+"communication": null,
+"care": null,
+"independence": null,
+"client": null
+},
+"added": false,
+"rc": {},
+"members": [],
+"rsrc": {}
+}
+],
+"JOBS": {
+"hernandez": {
+"id": "hernandez",
+"title": "Hernandez exterior",
+"client": "Rosa & Daniel Hernandez",
+"area": "Pinecrest",
+"type": "exterior",
+"ext": true,
+"built": 1974,
+"hours": 120,
+"value": 14800,
+"earliest": 7,
+"deadline": 17,
+"lang": "es",
+"hoa": true,
+"skills": [
+"prep",
+"spray"
+],
+"labels": [
+"HOA",
+"Repeat client"
+],
+"colors": [
+[
+"Repose Gray",
+"#CCC9C0"
+],
+[
+"Pure White",
+"#F2F0EA"
+],
+[
+"Tricorn Black",
+"#2F2F30"
+]
+],
+"colorsOk": true,
+"photos": 14,
+"sig": {
+"returning": "2019 interior",
+"referrals": 5
+},
+"past": "tania",
+"src": "PaintScout #4127 · sold Oct 16 by Dana R.",
+"srcs": {
+"client": "ps",
+"area": "ps",
+"value": "ps",
+"built": "ai",
+"hours": "human",
+"earliest": "human",
+"deadline": "ai"
+},
+"writeup": "Hernandez residence, Pinecrest. [ext|Two-story CBS/stucco home], [lead|built 1974]. Scope: [prep|pressure wash, patch stucco cracks at NE corner, prime patches]; [spray|two coats elastomeric on body] (Loxon XP, Repose Gray); trim and fascia in Pure White; front door Tricorn Black. Second-story eaves need a 28 ft ladder or lift. Colors HOA-approved Oct 16; [hoa|HOA allows work Mon to Fri, 8am to 5pm only]. [lang|Mrs. Hernandez prefers updates in Spanish]. [due|Hosting a wedding Nov 14, wants everything done by Nov 12]. [hours|Est. 120 labor hours]. [vip|Returning client (2019 interior), has referred 5 jobs].",
+"region": "Miami-Dade, FL"
+},
+"okafor": {
+"id": "okafor",
+"title": "Okafor trim & door",
+"client": "James Okafor",
+"area": "Pinecrest",
+"type": "exterior",
+"ext": true,
+"built": 1988,
+"hours": 18,
+"value": 2400,
+"earliest": 1,
+"deadline": 8,
+"lang": "en",
+"hoa": false,
+"skills": [
+"cutin",
+"color"
+],
+"labels": [],
+"colors": [
+[
+"Urbane Bronze",
+"#54504A"
+],
+[
+"Extra White",
+"#F1F0EC"
+]
+],
+"colorsOk": true,
+"photos": 6,
+"sig": {},
+"src": "PaintScout #4133 · sold Oct 20 by Dana R.",
+"srcs": {
+"client": "ps",
+"area": "ps",
+"value": "ps",
+"built": "ps",
+"hours": "ps",
+"earliest": "human",
+"deadline": "ai"
+},
+"writeup": "Okafor residence, Pinecrest. [ext|Exterior trim, fascia and front door only]. Built 1988. [cutin|Crisp cut lines at the stucco], [color|door in Urbane Bronze]. [hours|Est. 18 labor hours, one day]. Flexible on dates, [due|any day before Nov 2].",
+"region": "Miami-Dade, FL"
+},
+"patel": {
+"id": "patel",
+"title": "Patel kitchen cabinets",
+"client": "Priya Patel",
+"area": "Kendall",
+"type": "cabinets",
+"ext": false,
+"built": 2004,
+"hours": 40,
+"value": 6400,
+"earliest": 1,
+"deadline": 11,
+"lang": "en",
+"hoa": false,
+"skills": [
+"spray",
+"color"
+],
+"labels": [
+"Occupied home"
+],
+"colors": [
+[
+"Iron Ore",
+"#434341"
+],
+[
+"Alabaster",
+"#EDEAE0"
+]
+],
+"colorsOk": false,
+"photos": 9,
+"sig": {},
+"src": "PaintScout #4140 · sold Oct 21 by Luis P.",
+"srcs": {
+"client": "ps",
+"area": "ps",
+"value": "ps",
+"built": "ai",
+"hours": "ps",
+"earliest": "ai",
+"deadline": "ai"
+},
+"writeup": "Patel residence, Kendall. [cab|Kitchen cabinets: 24 doors, 9 drawer fronts, boxes]. [spray|Spray finish], doors sprayed off-site. [color|Fine finish, client is particular about color]. [hours|Est. 40 labor hours]. [due|Before Nov 6].",
+"region": "Miami-Dade, FL"
+},
+"gutierrez": {
+"id": "gutierrez",
+"title": "Gutierrez interior",
+"client": "Ana Gutierrez",
+"area": "Coral Gables",
+"type": "interior",
+"ext": false,
+"built": 1955,
+"hours": 48,
+"value": 7200,
+"earliest": 2,
+"deadline": 11,
+"lang": "ht",
+"hoa": false,
+"skills": [
+"drywall",
+"cutin"
+],
+"labels": [],
+"colors": [
+[
+"Sea Salt",
+"#CDD5CA"
+],
+[
+"Accessible Beige",
+"#D1C7B8"
+]
+],
+"colorsOk": true,
+"photos": 11,
+"sig": {},
+"src": "PaintScout #4142 · sold Oct 22 by Dana R.",
+"srcs": {
+"client": "ps",
+"area": "ps",
+"value": "ps",
+"built": "ai",
+"hours": "ps",
+"earliest": "human",
+"deadline": "ai"
+},
+"writeup": "Gutierrez residence, Coral Gables. [int|Interior: living, dining, two bedrooms]. [lead|Built 1955, original plaster]. [drywall|Plaster crack repair in dining room]. [cutin|Clean cut lines at the crown]. [hours|Est. 48 labor hours]. [lang|Ms. Gutierrez prefers Haitian Creole]. [due|Before Nov 6].",
+"region": "Miami-Dade, FL"
+}
+},
+"QORDER": [
+"hernandez",
+"okafor",
+"patel",
+"gutierrez"
+],
+"BOOKS": [
+{
+"id": "b0",
+"crew": "gian",
+"name": "Delgado",
+"what": "Exterior",
+"s": 0,
+"e": 2,
+"value": 9800,
+"half": null
+},
+{
+"id": "b1",
+"crew": "gian",
+"name": "Brightwater HOA, phase 2",
+"what": "Commercial",
+"s": 15,
+"e": 21,
+"value": 21000,
+"half": null
+},
+{
+"id": "b2",
+"crew": "gian",
+"name": "Lopez",
+"what": "Interior",
+"s": 23,
+"e": 25,
+"value": 6200,
+"half": null
+},
+{
+"id": "b3",
+"crew": "tania",
+"name": "Brickell Bay condo halls",
+"what": "Commercial",
+"s": 0,
+"e": 4,
+"value": 18500,
+"half": null
+},
+{
+"id": "b4",
+"crew": "tania",
+"name": "Simmons",
+"what": "Exterior",
+"s": 9,
+"e": 11,
+"value": 8900,
+"half": null
+},
+{
+"id": "b5",
+"crew": "tania",
+"name": "Watts",
+"what": "Interior",
+"s": 18,
+"e": 22,
+"value": 7100,
+"half": null
+},
+{
+"id": "b6",
+"crew": "johan-dani",
+"name": "Chen",
+"what": "Interior",
+"s": 0,
+"e": 1,
+"value": 4100,
+"half": null
+},
+{
+"id": "b7",
+"crew": "johan-dani",
+"name": "Navarro",
+"what": "Exterior",
+"s": 2,
+"e": 4,
+"value": 9400,
+"half": null
+},
+{
+"id": "b8",
+"crew": "johan-dani",
+"name": "Kim",
+"what": "Interior",
+"s": 15,
+"e": 17,
+"value": 6800,
+"half": null
+},
+{
+"id": "b9",
+"crew": "rigo",
+"name": "Alvarez",
+"what": "Exterior",
+"s": 0,
+"e": 3,
+"value": 8800,
+"half": null
+},
+{
+"id": "b10",
+"crew": "rigo",
+"name": "Ruiz",
+"what": "Exterior",
+"s": 8,
+"e": 11,
+"value": 9900,
+"half": null
+},
+{
+"id": "b11",
+"crew": "rigo",
+"name": "Ortega",
+"what": "Exterior",
+"s": 16,
+"e": 22,
+"value": 11200,
+"half": null
+},
+{
+"id": "b12",
+"crew": "paulo",
+"name": "Weston townhomes",
+"what": "Exterior",
+"s": 2,
+"e": 10,
+"value": 16400,
+"half": null
+},
+{
+"id": "b13",
+"crew": "marvin",
+"name": "Lee touch-up",
+"what": "Interior",
+"s": 1,
+"e": 1,
+"value": 600,
+"half": "am"
+},
+{
+"id": "b14",
+"crew": "marvin",
+"name": "Ortega front door",
+"what": "Exterior",
+"s": 1,
+"e": 1,
+"value": 450,
+"half": "pm"
+},
+{
+"id": "b15",
+"crew": "marvin",
+"name": "Castillo",
+"what": "Interior",
+"s": 7,
+"e": 9,
+"value": 5200,
+"half": null
+},
+{
+"id": "b16",
+"crew": "cristhian",
+"name": "Baker",
+"what": "Interior",
+"s": 0,
+"e": 2,
+"value": 4300,
+"half": null
+},
+{
+"id": "b17",
+"crew": "cristhian",
+"name": "Reyes bath",
+"what": "Interior",
+"s": 11,
+"e": 14,
+"value": 1900,
+"half": null
+},
+{
+"id": "b18",
+"crew": "jose",
+"name": "Gomez trim",
+"what": "Exterior",
+"s": 3,
+"e": 4,
+"value": 2600,
+"half": null
+},
+{
+"id": "b19",
+"crew": "jose",
+"name": "Diaz",
+"what": "Interior",
+"s": 16,
+"e": 18,
+"value": 5100,
+"half": null
+},
+{
+"id": "b20",
+"crew": "frank",
+"name": "Coral Way offices",
+"what": "Commercial",
+"s": 0,
+"e": 7,
+"value": 12800,
+"half": null
+},
+{
+"id": "b21",
+"crew": "elias",
+"name": "Hialeah duplex",
+"what": "Exterior",
+"s": 8,
+"e": 11,
+"value": 7600,
+"half": null
+},
+{
+"id": "b22",
+"crew": "alejandro",
+"name": "Morris",
+"what": "Interior",
+"s": 1,
+"e": 3,
+"value": 3900,
+"half": null
+},
+{
+"id": "b23",
+"crew": "marcia-wallpaper",
+"name": "Levin powder room",
+"what": "Wallpaper",
+"s": 4,
+"e": 4,
+"value": 1200,
+"half": null
+},
+{
+"id": "b24",
+"crew": "marcia-wallpaper",
+"name": "Stein dining room",
+"what": "Wallpaper",
+"s": 14,
+"e": 15,
+"value": 2400,
+"half": null
+},
+{
+"id": "b25",
+"crew": "wonder-painting",
+"name": "Pompano HOA, phase 1",
+"what": "Commercial",
+"s": 0,
+"e": 11,
+"value": 24000,
+"half": null
+},
+{
+"id": "b26",
+"crew": "alfonso",
+"name": "Patton skim coat",
+"what": "Interior",
+"s": 2,
+"e": 3,
+"value": 2100,
+"half": null
+},
+{
+"id": "b27",
+"crew": "alfonso",
+"name": "Rossi drywall patch",
+"what": "Interior",
+"s": 10,
+"e": 10,
+"value": 700,
+"half": "am"
+},
+{
+"id": "b28",
+"crew": "maria",
+"name": "Las Olas condo",
+"what": "Interior",
+"s": 7,
+"e": 11,
+"value": 9800,
+"half": null
+},
+{
+"id": "b29",
+"crew": "cabinet-canvas",
+"name": "Wu kitchen",
+"what": "Cabinets",
+"s": 3,
+"e": 7,
+"value": 5600,
+"half": null
+},
+{
+"id": "b30",
+"crew": "ali-luis",
+"name": "Grant",
+"what": "Exterior",
+"s": 0,
+"e": 1,
+"value": 3300,
+"half": null
+},
+{
+"id": "b31",
+"crew": "ali-luis",
+"name": "Nguyen fence",
+"what": "Exterior",
+"s": 9,
+"e": 11,
+"value": 2900,
+"half": null
+},
+{
+"id": "b32",
+"crew": "luis-venpro",
+"name": "Doral office",
+"what": "Commercial",
+"s": 15,
+"e": 21,
+"value": 13500,
+"half": null
+},
+{
+"id": "b33",
+"crew": "vanderlay",
+"name": "Deerfield",
+"what": "Exterior",
+"s": 4,
+"e": 10,
+"value": 10200,
+"half": null
+}
+],
+"rules": {
+"minType": 3,
+"lead": true,
+"imp": true,
+"impBar": 4,
+"weather": true,
+"maxDrive": 45,
+"untested": false,
+"region": true,
+"minReviews": 3
+},
+"impOn": {
+"returning": true,
+"referrals": true,
+"value": true,
+"crm": true,
+"trade": true,
+"manual": true
+},
+"impValue": 12000,
+"hoursDefault": {
+"wk": [
+"08:00",
+"17:00"
+],
+"sat": null,
+"sun": null
+},
+"LABELS": {
+"Balanced": {
+"w": {
+"jobType": 3,
+"skills": 3,
+"quality": 2,
+"reliability": 2,
+"timing": 2
+},
+"d": "Job fit first, then quality, reliability and start date.",
+"by": "Ido D. (Admin)"
+},
+"Protect margin": {
+"w": {
+"record": 4,
+"cost": 4,
+"jobType": 2,
+"skills": 2,
+"speed": 2
+},
+"d": "Crews that finish within the sold days at a good cost.",
+"by": "Ido D. (Admin)"
+},
+"Fastest start": {
+"w": {
+"timing": 5,
+"jobType": 2,
+"reliability": 2,
+"skills": 1,
+"distance": 1
+},
+"d": "Whoever can start soonest and show up.",
+"by": "Ido D. (Admin)"
+},
+"White glove": {
+"w": {
+"quality": 4,
+"client": 4,
+"care": 3,
+"jobType": 3,
+"skills": 3
+},
+"d": "Best quality and client manner. Default for important clients.",
+"by": "Ido D. (Admin)"
+}
+},
+"DIMS": [
+{
+"k": "interior",
+"l": "Interior repaint",
+"g": "job"
+},
+{
+"k": "exterior",
+"l": "Exterior repaint",
+"g": "job"
+},
+{
+"k": "cabinets",
+"l": "Cabinets",
+"g": "job"
+},
+{
+"k": "commercial",
+"l": "Commercial / HOA",
+"g": "job"
+},
+{
+"k": "wallpaper",
+"l": "Wallpaper",
+"g": "job"
+},
+{
+"k": "decorative",
+"l": "Decorative",
+"g": "job"
+},
+{
+"k": "drywall",
+"l": "Drywall / skim",
+"g": "skill"
+},
+{
+"k": "prep",
+"l": "Prep & repairs",
+"g": "skill"
+},
+{
+"k": "cutin",
+"l": "Cut-in & finish",
+"g": "skill"
+},
+{
+"k": "spray",
+"l": "Spraying",
+"g": "skill"
+},
+{
+"k": "color",
+"l": "Color & detail",
+"g": "skill"
+},
+{
+"k": "speed",
+"l": "Speed",
+"g": "attr"
+},
+{
+"k": "reliability",
+"l": "Reliability",
+"g": "attr"
+},
+{
+"k": "quality",
+"l": "Quality",
+"g": "attr"
+},
+{
+"k": "communication",
+"l": "Communication",
+"g": "attr"
+},
+{
+"k": "care",
+"l": "Jobsite care",
+"g": "attr"
+},
+{
+"k": "independence",
+"l": "Independence",
+"g": "attr"
+},
+{
+"k": "client",
+"l": "Client-facing",
+"g": "attr"
+}
+],
+"WX": [
+[
+0,
+"sun"
+],
+[
+10,
+"sun"
+],
+[
+20,
+"cloud"
+],
+[
+70,
+"rain"
+],
+[
+60,
+"rain"
+],
+[
+10,
+"sun"
+],
+[
+30,
+"cloud"
+],
+[
+0,
+"sun"
+],
+[
+10,
+"sun"
+],
+[
+20,
+"cloud"
+],
+[
+55,
+"rain"
+],
+[
+10,
+"sun"
+],
+[
+65,
+"rain"
+],
+[
+20,
+"cloud"
+],
+[
+0,
+"sun"
+],
+[
+10,
+"sun"
+],
+[
+30,
+"cloud"
+],
+[
+25,
+"cloud"
+],
+[
+50,
+"rain"
+],
+[
+0,
+"sun"
+],
+[
+40,
+"cloud"
+],
+[
+0,
+"sun"
+],
+[
+10,
+"sun"
+],
+[
+20,
+"cloud"
+],
+[
+10,
+"sun"
+],
+[
+60,
+"rain"
+],
+[
+10,
+"sun"
+],
+[
+15,
+"sun"
+]
+],
+"GEO": {
+"Pinecrest": [
+25.665,
+-80.308
+],
+"Coral Gables": [
+25.721,
+-80.268
+],
+"Kendall": [
+25.687,
+-80.39
+],
+"South Miami": [
+25.707,
+-80.293
+],
+"Westchester": [
+25.748,
+-80.327
+],
+"Hialeah": [
+25.857,
+-80.278
+],
+"Homestead": [
+25.468,
+-80.477
+],
+"Fort Lauderdale": [
+26.122,
+-80.137
+],
+"Pompano Beach": [
+26.238,
+-80.125
+],
+"Doral": [
+25.819,
+-80.355
+],
+"Miami": [
+25.774,
+-80.193
+],
+"Miami Beach": [
+25.79,
+-80.13
+],
+"Newark": [
+40.735,
+-74.172
+]
+},
+"HIST": {
+"gian": {
+"five": 23,
+"sold": 410,
+"actual": 396,
+"pay": 61500,
+"jobs": 31
+},
+"tania": {
+"five": 12,
+"sold": 520,
+"actual": 562,
+"pay": 78000,
+"jobs": 28
+},
+"johan-dani": {
+"five": 15,
+"sold": 300,
+"actual": 309,
+"pay": 48000,
+"jobs": 22
+},
+"rigo": {
+"five": 18,
+"sold": 350,
+"actual": 343,
+"pay": 50750,
+"jobs": 25
+},
+"paulo": {
+"five": 6,
+"sold": 180,
+"actual": 196,
+"pay": 26800,
+"jobs": 11
+},
+"marvin": {
+"five": 9,
+"sold": 120,
+"actual": 118,
+"pay": 17400,
+"jobs": 14
+},
+"wonder-painting": {
+"five": 4,
+"sold": 210,
+"actual": 231,
+"pay": 30500,
+"jobs": 9
+},
+"maria": {
+"five": 7,
+"sold": 150,
+"actual": 149,
+"pay": 22000,
+"jobs": 10
+}
+},
+"AVG_COST": 152,
+"LANGS": {
+"en": "English",
+"es": "Spanish",
+"ht": "Haitian Creole"
+},
+"RECOMMENDED": [
+{
+"k": "languages",
+"added": true
+},
+{
+"k": "leadSafe",
+"added": true
+},
+{
+"k": "channel",
+"added": true
+},
+{
+"k": "hours",
+"added": true
+},
+{
+"k": "pay",
+"added": true
+},
+{
+"k": "insurance",
+"added": false
+},
+{
+"k": "equipment",
+"added": false
+},
+{
+"k": "maxDrive",
+"added": false
+},
+{
+"k": "maxJobsDay",
+"added": false
+},
+{
+"k": "photo",
+"added": false
+}
+],
+"learned": [
+{
+"id": "p1",
+"text": "Schedulers pick Gian for exteriors worth $12,000 or more, even when another crew can start sooner.",
+"crew": "gian",
+"avoid": null,
+"n": 6,
+"status": "kept",
+"matches": {
+"hernandez": true,
+"okafor": false,
+"patel": false,
+"gutierrez": false
+}
+},
+{
+"id": "p2",
+"text": "Tania’s crew of 6 goes on commercial and HOA jobs first because they finish big jobs fastest.",
+"crew": "tania",
+"avoid": null,
+"n": 5,
+"status": "kept",
+"matches": {
+"hernandez": false,
+"okafor": false,
+"patel": false,
+"gutierrez": false
+}
+},
+{
+"id": "p3",
+"text": "Johan & Dani get passed over for interiors with plaster or drywall repair.",
+"crew": null,
+"avoid": "johan-dani",
+"n": 4,
+"status": "new",
+"matches": {
+"hernandez": false,
+"okafor": false,
+"patel": false,
+"gutierrez": true
+}
+}
+],
+"lock": 5
+}

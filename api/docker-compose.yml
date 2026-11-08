@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgis/postgis:17-3.5
+    environment:
+      POSTGRES_DB: crewboard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports: ["5432:5432"]
+    volumes:
+      - ./deploy/init.sql:/docker-entrypoint-initdb.d/10-init.sql:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crewboard"]
+      interval: 2s
+      retries: 30
+  api:
+    build: .
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      CREWBOARD_ENV: dev
+      CREWBOARD_DATABASE_URL: postgresql+asyncpg://crewboard_app:crewboard_app@db:5432/crewboard
+      CREWBOARD_MIGRATION_DATABASE_URL: postgresql+psycopg://crewboard:crewboard@db:5432/crewboard
+    ports: ["8000:8000"]
+volumes:
+  pgdata:

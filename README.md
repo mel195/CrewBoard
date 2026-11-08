@@ -14,6 +14,7 @@ Open `index.html` in a browser. Outside claude.ai it runs on sample data and not
 | `src/base/` | Original source modules: `data.js` (dates, sample jobs, crews, bookings), `engine.js` (state, rules, scoring, ranking), `core.js` (extra job data, work orders), `views1.js` / `views2.js` (screens), `add.js` (Add a job), `ops.js` (helpers), `main.js` (modals, actions, render). |
 | `src/layers/` | The changes on top of the base, in load order: `v5.js`, `v6.js`, `v7.js` + `v7.css`, `v8.js` + `v8.css`, `v9.js` + `v9.css`. |
 | `src/combined/app.js` | The full app script as it runs in the build (base plus v5 to v8 in one file), extracted from `index.html`. |
+| `api/` | Backend (FastAPI + PostgreSQL), build steps 1 and 2: foundation and the scheduling engine with golden parity tests. See `api/README.md`. |
 | `builds/` | Earlier published builds: early, v7, v8, v9. |
 | `samples/crews-with-ratings.xlsx` | Sample crew spreadsheet for testing the import. |
 | `test/mock.js` | Mock `window.claude` db and user, injected to test saving outside claude.ai. |

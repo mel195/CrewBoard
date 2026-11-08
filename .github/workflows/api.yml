@@ -1,0 +1,25 @@
+name: api
+on:
+  push: { paths: ["api/**", ".github/workflows/api.yml"] }
+  pull_request: { paths: ["api/**"] }
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgis/postgis:17-3.5
+        env: { POSTGRES_DB: crewboard, POSTGRES_USER: postgres, POSTGRES_PASSWORD: postgres }
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U postgres" --health-interval 2s --health-retries 30
+    defaults: { run: { working-directory: api } }
+    env:
+      CREWBOARD_ENV: test
+      CREWBOARD_DATABASE_URL: postgresql+asyncpg://crewboard_app:crewboard_app@localhost:5432/crewboard
+      CREWBOARD_MIGRATION_DATABASE_URL: postgresql+psycopg://crewboard:crewboard@localhost:5432/crewboard
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: pip install ".[dev]"
+      - run: PGPASSWORD=postgres psql -h localhost -U postgres -d crewboard -f deploy/init.sql
+      - run: pytest -q
