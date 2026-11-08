@@ -7,6 +7,7 @@ from app.clients.models import Client, ClientSignal, FollowUp  # noqa: F401
 from app.core.db import Base  # noqa: F401
 from app.crews.models import Crew, CrewCostPeriod, CrewHours, CrewMember, CrewRating  # noqa: F401
 from app.geo.models import Region, ServiceArea  # noqa: F401
+from app.intake.models import EstimateDocument, IntakeDraft  # noqa: F401
 from app.jobs.models import Job, JobFieldSource, JobLabelLink, JobRanking, JobRevision, JobSkill  # noqa: F401
 from app.platform.models import AppUser, Membership, Tenant  # noqa: F401
 from app.scheduling.models import Placement, PlacementCrew, PlacementVisit, SchedulingDecision  # noqa: F401

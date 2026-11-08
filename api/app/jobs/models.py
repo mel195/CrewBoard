@@ -61,7 +61,7 @@ class JobFieldSource(TenantScoped, Base):
     """Where each field came from (ADD-07)."""
     __tablename__ = "job_field_source"
     __extra_args__ = (UniqueConstraint("job_id", "field"), tfk(["job_id"], "ops.job", "CASCADE"),
-                      CheckConstraint("source in ('paintscout','typed','ai','rules','client_history','edited','missing')", name="source"))
+                      CheckConstraint("source in ('paintscout','typed','ai','rules','client_history','edited','missing','guessed')", name="source"))
     job_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
     field: Mapped[str] = mapped_column(Text)
     source: Mapped[str] = mapped_column(Text)

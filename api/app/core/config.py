@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     auth_mode: str = "dev"
     oidc_issuer: str | None = None
     oidc_audience: str | None = None
+    # Uploaded estimates (local disk until object storage is set up, DD-24)
+    file_store_dir: str = ".data/files"
+    # Estimate reading with Claude (DD-23). Without a key, the built-in rules reader is used.
+    anthropic_api_key: str | None = None
+    reader_model: str = "claude-haiku-4-5-20251001"
 
 
 @lru_cache

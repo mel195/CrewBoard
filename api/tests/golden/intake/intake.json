@@ -1,0 +1,1271 @@
+{
+ "samples": {
+  "morales": {
+   "file": "Morales_Proposal_4188.pdf",
+   "ps": null,
+   "human": null,
+   "text": "PRECISION PAINTING PLUS PROPOSAL #4188\nClient: Luis & Carmen Morales\nProperty: 6410 SW 58 Pl, South Miami, FL\nPrepared by: Dana R. | Date: Oct 21, 2026 | Status: SOLD, deposit received Oct 23\nHome: two-story CBS/stucco, built 1968, approx. 2,400 sq ft\nSCOPE OF WORK, EXTERIOR\n1. Pressure wash all stucco, soffits and driveway pavers.\n2. Repair hairline stucco cracks; fill and texture-match at garage corner.\n3. Body: 2 coats elastomeric, sprayed and back-rolled, Agreeable Gray SW 7029.\n4. Trim, fascia, garage door: 2 coats SW Duration, Extra White SW 7006.\n5. Front door: Naval SW 6244, semi-gloss.\nLabor: 96 hrs | Materials: $2,140 | Total: $11,350\nNOTES: Owners speak Spanish at home; Carmen prefers WhatsApp in Spanish. Earliest start Nov 2 (paint on order). Must be finished by Nov 20, family arriving for Thanksgiving. Dogs in backyard, keep side gate closed.",
+   "rule": {
+    "client": "Luis & Carmen Morales",
+    "area": "South Miami",
+    "typeEv": "stucco",
+    "type": "exterior",
+    "built": 1968,
+    "hours": 96,
+    "value": 11350,
+    "deadline": "2026-11-20",
+    "earliest": "2026-11-02",
+    "skills": [
+     "drywall",
+     "prep",
+     "spray"
+    ],
+    "lang": "es",
+    "hoa": false,
+    "important": null,
+    "colors": [
+     {
+      "name": "Agreeable Gray"
+     },
+     {
+      "name": "Extra White"
+     },
+     {
+      "name": "Naval"
+     }
+    ],
+    "title": "Morales exterior",
+    "evidence": {
+     "client": "Client: Luis & Carmen Morales",
+     "area": "South Miami",
+     "type": "stucco",
+     "built": "built 1968",
+     "hours": "96 hrs",
+     "value": "Total: $11,350",
+     "deadline": "by Nov 20",
+     "earliest": "Earliest start Nov 2",
+     "drywall": "crack",
+     "prep": "Prep",
+     "spray": "spray",
+     "lang": "Spanish"
+    }
+   },
+   "draft": {
+    "title": "Morales exterior",
+    "client": "Luis & Carmen Morales",
+    "area": "South Miami",
+    "type": "exterior",
+    "built": 1968,
+    "hours": 96,
+    "value": 11350,
+    "earliest": 7,
+    "deadline": 25,
+    "colors": [
+     [
+      "Agreeable Gray",
+      "#D1CBC1"
+     ],
+     [
+      "Extra White",
+      "#F1F0EC"
+     ],
+     [
+      "Naval",
+      "#2F3B4C"
+     ]
+    ],
+    "skills": [
+     "drywall",
+     "prep",
+     "spray"
+    ],
+    "lang": "es",
+    "hoa": false,
+    "impOn": true,
+    "important": "Returning client (2021 interior repaint)",
+    "labels": [],
+    "ev": {
+     "client": "Client: Luis & Carmen Morales",
+     "area": "South Miami",
+     "type": "stucco",
+     "built": "built 1968",
+     "hours": "96 hrs",
+     "value": "Total: $11,350",
+     "deadline": "by Nov 20",
+     "earliest": "Earliest start Nov 2",
+     "drywall": "crack",
+     "prep": "Prep",
+     "spray": "spray",
+     "lang": "Spanish"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": "morales",
+    "src": {
+     "client": "ai",
+     "area": "ai",
+     "built": "ai",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "ai",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "ai"
+    }
+   },
+   "marked": "PRECISION PAINTING PLUS PROPOSAL #4188\n[client|Client: Luis & Carmen Morales]\nProperty: 6410 SW 58 Pl, [area|South Miami], FL\n[prep|Prep]ared by: Dana R. | Date: Oct 21, 2026 | Status: SOLD, deposit received Oct 23\nHome: two-story CBS/[type|stucco], [lead|built 1968], approx. 2,400 sq ft\nSCOPE OF WORK, EXTERIOR\n1. Pressure wash all stucco, soffits and driveway pavers.\n2. Repair hairline stucco [drywall|crack]s; fill and texture-match at garage corner.\n3. Body: 2 coats elastomeric, [spray|spray]ed and back-rolled, Agreeable Gray SW 7029.\n4. Trim, fascia, garage door: 2 coats SW Duration, Extra White SW 7006.\n5. Front door: Naval SW 6244, semi-gloss.\nLabor: [hours|96 hrs] | Materials: $2,140 | [value|Total: $11,350]\nNOTES: Owners speak [lang|Spanish] at home; Carmen prefers WhatsApp in Spanish. [start|Earliest start Nov 2] (paint on order). Must be finished [due|by Nov 20], family arriving for Thanksgiving. Dogs in backyard, keep side gate closed."
+  },
+  "nguyen": {
+   "file": "Nguyen_Estimate_4191.docx",
+   "ps": null,
+   "human": null,
+   "text": "Estimate 4191, Nguyen Residence\nCustomer: Thao Nguyen, 1120 Alhambra Cir, Coral Gables\nSold Oct 22, 2026. Deposit paid.\nYear built: 1951 (plaster walls)\nINTERIOR SCOPE\n- Living room, dining room, hallway, 3 bedrooms: walls 2 coats, ceilings 1 coat\n- Repair plaster cracks in hallway and dining room ceiling\n- All trim and 9 doors: sand, prime, 2 coats semi-gloss\n- Kitchen cabinets NOT included\nColors: walls Sea Salt SW 6204, ceilings Pure White, trim Extra White\nCustomer is very particular about cut lines. Works from home, needs crew out by 4pm daily.\nHours: 72 | Price: $10,900\nNeeds to be completed by Nov 13.",
+   "rule": {
+    "client": "Thao Nguyen",
+    "area": "Coral Gables",
+    "typeEv": "INTERIOR",
+    "type": "interior",
+    "built": 1951,
+    "hours": 72,
+    "value": 10900,
+    "deadline": "2026-11-13",
+    "earliest": null,
+    "skills": [
+     "drywall",
+     "prep",
+     "cutin",
+     "color"
+    ],
+    "lang": null,
+    "hoa": false,
+    "important": null,
+    "colors": [
+     {
+      "name": "Extra White"
+     },
+     {
+      "name": "Pure White"
+     },
+     {
+      "name": "Sea Salt"
+     }
+    ],
+    "title": "Nguyen interior",
+    "evidence": {
+     "client": "Customer: Thao Nguyen",
+     "area": "Coral Gables",
+     "type": "INTERIOR",
+     "built": "Year built: 1951",
+     "hours": "Hours: 72",
+     "value": "Price: $10,900",
+     "deadline": "by Nov 13",
+     "drywall": "plaster",
+     "prep": "Repair",
+     "cutin": "cut lines",
+     "color": "particular"
+    }
+   },
+   "draft": {
+    "title": "Nguyen interior",
+    "client": "Thao Nguyen",
+    "area": "Coral Gables",
+    "type": "interior",
+    "built": 1951,
+    "hours": 72,
+    "value": 10900,
+    "earliest": null,
+    "deadline": 18,
+    "colors": [
+     [
+      "Extra White",
+      "#F1F0EC"
+     ],
+     [
+      "Pure White",
+      "#F2F0EA"
+     ],
+     [
+      "Sea Salt",
+      "#CDD5CA"
+     ]
+    ],
+    "skills": [
+     "drywall",
+     "prep",
+     "cutin",
+     "color"
+    ],
+    "lang": "",
+    "hoa": false,
+    "impOn": false,
+    "important": "",
+    "labels": [],
+    "ev": {
+     "client": "Customer: Thao Nguyen",
+     "area": "Coral Gables",
+     "type": "INTERIOR",
+     "built": "Year built: 1951",
+     "hours": "Hours: 72",
+     "value": "Price: $10,900",
+     "deadline": "by Nov 13",
+     "drywall": "plaster",
+     "prep": "Repair",
+     "cutin": "cut lines",
+     "color": "particular"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "ai",
+     "area": "ai",
+     "built": "ai",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "missing",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "Estimate 4191, Nguyen Residence\n[client|Customer: Thao Nguyen], 1120 Alhambra Cir, [area|Coral Gables]\nSold Oct 22, 2026. Deposit paid.\n[lead|Year built: 1951] ([drywall|plaster] walls)\n[type|INTERIOR] SCOPE\n- Living room, dining room, hallway, 3 bedrooms: walls 2 coats, ceilings 1 coat\n- [prep|Repair] plaster cracks in hallway and dining room ceiling\n- All trim and 9 doors: sand, prime, 2 coats semi-gloss\n- Kitchen cabinets NOT included\nColors: walls Sea Salt SW 6204, ceilings Pure White, trim Extra White\nCustomer is very [color|particular] about [cutin|cut lines]. Works from home, needs crew out by 4pm daily.\n[hours|Hours: 72] | [value|Price: $10,900]\nNeeds to be completed [due|by Nov 13]."
+  },
+  "feld": {
+   "file": "PaintScout #4195",
+   "ps": {
+    "client": "Marcy Feld",
+    "area": "Kendall",
+    "value": 7600,
+    "sold": "Oct 24"
+   },
+   "human": {
+    "hours": 44,
+    "earliest": "2026-11-02",
+    "by": "Dana R."
+   },
+   "text": "Proposal #4195, Feld Kitchen\nClient: Marcy Feld, 9030 SW 92 Ave, Kendall. Built 1999.\nCabinets: 30 doors, 12 drawer fronts, boxes and crown. Degrease, scuff sand, bonding primer, spray 2 coats Emerald Urethane, color Iron Ore. Doors sprayed in shop.\nFine color and detail work expected, client is an interior designer and refers a lot of work.\nLabor 44 hrs. Total $7,600. Start any time after Nov 2. Wants it done by Nov 13.",
+   "rule": {
+    "client": "Marcy Feld",
+    "area": "Kendall",
+    "typeEv": "Cabinet",
+    "type": "cabinets",
+    "built": 1999,
+    "hours": 44,
+    "value": 7600,
+    "deadline": "2026-11-13",
+    "earliest": "2026-11-02",
+    "skills": [
+     "prep",
+     "spray",
+     "color"
+    ],
+    "lang": null,
+    "hoa": false,
+    "important": "refers a lot of work",
+    "colors": [
+     {
+      "name": "Iron Ore"
+     }
+    ],
+    "title": "Feld cabinets",
+    "evidence": {
+     "client": "Client: Marcy Feld",
+     "area": "Kendall",
+     "type": "Cabinet",
+     "built": "Built 1999",
+     "hours": "44 hrs",
+     "value": "Total $7,600",
+     "deadline": "by Nov 13",
+     "earliest": "Start any time after Nov 2",
+     "prep": "Degrease",
+     "spray": "spray",
+     "color": "color and detail",
+     "important": "refers a lot of work"
+    }
+   },
+   "draft": {
+    "title": "Feld cabinets",
+    "client": "Marcy Feld",
+    "area": "Kendall",
+    "type": "cabinets",
+    "built": 1999,
+    "hours": 44,
+    "value": 7600,
+    "earliest": 7,
+    "deadline": 18,
+    "colors": [
+     [
+      "Iron Ore",
+      "#434341"
+     ]
+    ],
+    "skills": [
+     "prep",
+     "spray",
+     "color"
+    ],
+    "lang": "",
+    "hoa": false,
+    "impOn": true,
+    "important": "refers a lot of work",
+    "labels": [],
+    "ev": {
+     "client": "Client: Marcy Feld",
+     "area": "Kendall",
+     "type": "Cabinet",
+     "built": "Built 1999",
+     "hours": "44 hrs",
+     "value": "Total $7,600",
+     "deadline": "by Nov 13",
+     "earliest": "Start any time after Nov 2",
+     "prep": "Degrease",
+     "spray": "spray",
+     "color": "color and detail",
+     "important": "refers a lot of work"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "ps",
+     "area": "ps",
+     "built": "ai",
+     "hours": "human",
+     "value": "ps",
+     "earliest": "human",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "Proposal #4195, Feld Kitchen\n[client|Client: Marcy Feld], 9030 SW 92 Ave, [area|Kendall]. [lead|Built 1999].\n[type|Cabinet]s: 30 doors, 12 drawer fronts, boxes and crown. [prep|Degrease], scuff sand, bonding primer, [spray|spray] 2 coats Emerald Urethane, color Iron Ore. Doors sprayed in shop.\nFine [color|color and detail] work expected, client is an interior designer and [vip|refers a lot of work].\nLabor [hours|44 hrs]. [value|Total $7,600]. [start|Start any time after Nov 2]. Wants it done [due|by Nov 13]."
+  },
+  "morales2": {
+   "file": "PaintScout #4188",
+   "ps": {
+    "client": "Luis & Carmen Morales",
+    "area": "South Miami",
+    "value": 11350,
+    "sold": "Oct 23"
+   },
+   "human": {
+    "hours": 96,
+    "earliest": "2026-11-02",
+    "by": "Dana R."
+   },
+   "text": "PRECISION PAINTING PLUS PROPOSAL #4188\nClient: Luis & Carmen Morales\nProperty: 6410 SW 58 Pl, South Miami, FL\nPrepared by: Dana R. | Date: Oct 21, 2026 | Status: SOLD, deposit received Oct 23\nHome: two-story CBS/stucco, built 1968, approx. 2,400 sq ft\nSCOPE OF WORK, EXTERIOR\n1. Pressure wash all stucco, soffits and driveway pavers.\n2. Repair hairline stucco cracks; fill and texture-match at garage corner.\n3. Body: 2 coats elastomeric, sprayed and back-rolled, Agreeable Gray SW 7029.\n4. Trim, fascia, garage door: 2 coats SW Duration, Extra White SW 7006.\n5. Front door: Naval SW 6244, semi-gloss.\nLabor: 96 hrs | Materials: $2,140 | Total: $11,350\nNOTES: Owners speak Spanish at home; Carmen prefers WhatsApp in Spanish. Earliest start Nov 2 (paint on order). Must be finished by Nov 20, family arriving for Thanksgiving. Dogs in backyard, keep side gate closed.",
+   "rule": {
+    "client": "Luis & Carmen Morales",
+    "area": "South Miami",
+    "typeEv": "stucco",
+    "type": "exterior",
+    "built": 1968,
+    "hours": 96,
+    "value": 11350,
+    "deadline": "2026-11-20",
+    "earliest": "2026-11-02",
+    "skills": [
+     "drywall",
+     "prep",
+     "spray"
+    ],
+    "lang": "es",
+    "hoa": false,
+    "important": null,
+    "colors": [
+     {
+      "name": "Agreeable Gray"
+     },
+     {
+      "name": "Extra White"
+     },
+     {
+      "name": "Naval"
+     }
+    ],
+    "title": "Morales exterior",
+    "evidence": {
+     "client": "Client: Luis & Carmen Morales",
+     "area": "South Miami",
+     "type": "stucco",
+     "built": "built 1968",
+     "hours": "96 hrs",
+     "value": "Total: $11,350",
+     "deadline": "by Nov 20",
+     "earliest": "Earliest start Nov 2",
+     "drywall": "crack",
+     "prep": "Prep",
+     "spray": "spray",
+     "lang": "Spanish"
+    }
+   },
+   "draft": {
+    "title": "Morales exterior",
+    "client": "Luis & Carmen Morales",
+    "area": "South Miami",
+    "type": "exterior",
+    "built": 1968,
+    "hours": 96,
+    "value": 11350,
+    "earliest": 7,
+    "deadline": 25,
+    "colors": [
+     [
+      "Agreeable Gray",
+      "#D1CBC1"
+     ],
+     [
+      "Extra White",
+      "#F1F0EC"
+     ],
+     [
+      "Naval",
+      "#2F3B4C"
+     ]
+    ],
+    "skills": [
+     "drywall",
+     "prep",
+     "spray"
+    ],
+    "lang": "es",
+    "hoa": false,
+    "impOn": true,
+    "important": "Returning client (2021 interior repaint)",
+    "labels": [],
+    "ev": {
+     "client": "Client: Luis & Carmen Morales",
+     "area": "South Miami",
+     "type": "stucco",
+     "built": "built 1968",
+     "hours": "96 hrs",
+     "value": "Total: $11,350",
+     "deadline": "by Nov 20",
+     "earliest": "Earliest start Nov 2",
+     "drywall": "crack",
+     "prep": "Prep",
+     "spray": "spray",
+     "lang": "Spanish"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": "morales",
+    "src": {
+     "client": "ps",
+     "area": "ps",
+     "built": "ai",
+     "hours": "human",
+     "value": "ps",
+     "earliest": "human",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "ai"
+    }
+   },
+   "marked": "PRECISION PAINTING PLUS PROPOSAL #4188\n[client|Client: Luis & Carmen Morales]\nProperty: 6410 SW 58 Pl, [area|South Miami], FL\n[prep|Prep]ared by: Dana R. | Date: Oct 21, 2026 | Status: SOLD, deposit received Oct 23\nHome: two-story CBS/[type|stucco], [lead|built 1968], approx. 2,400 sq ft\nSCOPE OF WORK, EXTERIOR\n1. Pressure wash all stucco, soffits and driveway pavers.\n2. Repair hairline stucco [drywall|crack]s; fill and texture-match at garage corner.\n3. Body: 2 coats elastomeric, [spray|spray]ed and back-rolled, Agreeable Gray SW 7029.\n4. Trim, fascia, garage door: 2 coats SW Duration, Extra White SW 7006.\n5. Front door: Naval SW 6244, semi-gloss.\nLabor: [hours|96 hrs] | Materials: $2,140 | [value|Total: $11,350]\nNOTES: Owners speak [lang|Spanish] at home; Carmen prefers WhatsApp in Spanish. [start|Earliest start Nov 2] (paint on order). Must be finished [due|by Nov 20], family arriving for Thanksgiving. Dogs in backyard, keep side gate closed."
+  },
+  "nguyen2": {
+   "file": "PaintScout #4191",
+   "ps": {
+    "client": "Thao Nguyen",
+    "area": "Coral Gables",
+    "value": 10900,
+    "sold": "Oct 22"
+   },
+   "human": {
+    "hours": 72,
+    "by": "Dana R."
+   },
+   "text": "Estimate 4191, Nguyen Residence\nCustomer: Thao Nguyen, 1120 Alhambra Cir, Coral Gables\nSold Oct 22, 2026. Deposit paid.\nYear built: 1951 (plaster walls)\nINTERIOR SCOPE\n- Living room, dining room, hallway, 3 bedrooms: walls 2 coats, ceilings 1 coat\n- Repair plaster cracks in hallway and dining room ceiling\n- All trim and 9 doors: sand, prime, 2 coats semi-gloss\n- Kitchen cabinets NOT included\nColors: walls Sea Salt SW 6204, ceilings Pure White, trim Extra White\nCustomer is very particular about cut lines. Works from home, needs crew out by 4pm daily.\nHours: 72 | Price: $10,900\nNeeds to be completed by Nov 13.",
+   "rule": {
+    "client": "Thao Nguyen",
+    "area": "Coral Gables",
+    "typeEv": "INTERIOR",
+    "type": "interior",
+    "built": 1951,
+    "hours": 72,
+    "value": 10900,
+    "deadline": "2026-11-13",
+    "earliest": null,
+    "skills": [
+     "drywall",
+     "prep",
+     "cutin",
+     "color"
+    ],
+    "lang": null,
+    "hoa": false,
+    "important": null,
+    "colors": [
+     {
+      "name": "Extra White"
+     },
+     {
+      "name": "Pure White"
+     },
+     {
+      "name": "Sea Salt"
+     }
+    ],
+    "title": "Nguyen interior",
+    "evidence": {
+     "client": "Customer: Thao Nguyen",
+     "area": "Coral Gables",
+     "type": "INTERIOR",
+     "built": "Year built: 1951",
+     "hours": "Hours: 72",
+     "value": "Price: $10,900",
+     "deadline": "by Nov 13",
+     "drywall": "plaster",
+     "prep": "Repair",
+     "cutin": "cut lines",
+     "color": "particular"
+    }
+   },
+   "draft": {
+    "title": "Nguyen interior",
+    "client": "Thao Nguyen",
+    "area": "Coral Gables",
+    "type": "interior",
+    "built": 1951,
+    "hours": 72,
+    "value": 10900,
+    "earliest": null,
+    "deadline": 18,
+    "colors": [
+     [
+      "Extra White",
+      "#F1F0EC"
+     ],
+     [
+      "Pure White",
+      "#F2F0EA"
+     ],
+     [
+      "Sea Salt",
+      "#CDD5CA"
+     ]
+    ],
+    "skills": [
+     "drywall",
+     "prep",
+     "cutin",
+     "color"
+    ],
+    "lang": "",
+    "hoa": false,
+    "impOn": false,
+    "important": "",
+    "labels": [],
+    "ev": {
+     "client": "Customer: Thao Nguyen",
+     "area": "Coral Gables",
+     "type": "INTERIOR",
+     "built": "Year built: 1951",
+     "hours": "Hours: 72",
+     "value": "Price: $10,900",
+     "deadline": "by Nov 13",
+     "drywall": "plaster",
+     "prep": "Repair",
+     "cutin": "cut lines",
+     "color": "particular"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "ps",
+     "area": "ps",
+     "built": "ai",
+     "hours": "human",
+     "value": "ps",
+     "earliest": "missing",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "Estimate 4191, Nguyen Residence\n[client|Customer: Thao Nguyen], 1120 Alhambra Cir, [area|Coral Gables]\nSold Oct 22, 2026. Deposit paid.\n[lead|Year built: 1951] ([drywall|plaster] walls)\n[type|INTERIOR] SCOPE\n- Living room, dining room, hallway, 3 bedrooms: walls 2 coats, ceilings 1 coat\n- [prep|Repair] plaster cracks in hallway and dining room ceiling\n- All trim and 9 doors: sand, prime, 2 coats semi-gloss\n- Kitchen cabinets NOT included\nColors: walls Sea Salt SW 6204, ceilings Pure White, trim Extra White\nCustomer is very [color|particular] about [cutin|cut lines]. Works from home, needs crew out by 4pm daily.\n[hours|Hours: 72] | [value|Price: $10,900]\nNeeds to be completed [due|by Nov 13]."
+  }
+ },
+ "extra": [
+  {
+   "text": "Client: Maria Lopez\nKitchen cabinets refinish, 40 labor hours. Total: $5,200. Start after Nov 9, finish by Nov 20. Customer prefers Spanish.",
+   "rule": {
+    "client": "Maria Lopez",
+    "area": null,
+    "typeEv": "cabinet",
+    "type": "cabinets",
+    "built": null,
+    "hours": 40,
+    "value": 5200,
+    "deadline": "2026-11-20",
+    "earliest": "2026-11-09",
+    "skills": [],
+    "lang": "es",
+    "hoa": false,
+    "important": null,
+    "colors": [],
+    "title": "Lopez cabinets",
+    "evidence": {
+     "client": "Client: Maria Lopez",
+     "type": "cabinet",
+     "hours": "40 labor hours",
+     "value": "Total: $5,200",
+     "deadline": "by Nov 20",
+     "earliest": "Start after Nov 9",
+     "lang": "Spanish"
+    }
+   },
+   "draft": {
+    "title": "Lopez cabinets",
+    "client": "Maria Lopez",
+    "area": "",
+    "type": "cabinets",
+    "built": null,
+    "hours": 40,
+    "value": 5200,
+    "earliest": 14,
+    "deadline": 25,
+    "colors": [],
+    "skills": [],
+    "lang": "es",
+    "hoa": false,
+    "impOn": false,
+    "important": "",
+    "labels": [],
+    "ev": {
+     "client": "Client: Maria Lopez",
+     "type": "cabinet",
+     "hours": "40 labor hours",
+     "value": "Total: $5,200",
+     "deadline": "by Nov 20",
+     "earliest": "Start after Nov 9",
+     "lang": "Spanish"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "ai",
+     "area": "missing",
+     "built": "missing",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "ai",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "ai"
+    }
+   },
+   "marked": "[client|Client: Maria Lopez]\nKitchen [type|cabinet]s refinish, [hours|40 labor hours]. [value|Total: $5,200]. [start|Start after Nov 9], finish [due|by Nov 20]. Customer prefers [lang|Spanish]."
+  },
+  {
+   "text": "Customer: Beacon Office Park\nCommercial office repaint, two floors. 160 hours. Price $24,800. Need it done before Dec 4. Earliest start: Nov 16.",
+   "rule": {
+    "client": "Beacon Office Park",
+    "area": null,
+    "typeEv": "Office",
+    "type": "commercial",
+    "built": null,
+    "hours": 160,
+    "value": 24800,
+    "deadline": "2026-12-04",
+    "earliest": "2026-11-16",
+    "skills": [],
+    "lang": null,
+    "hoa": false,
+    "important": null,
+    "colors": [],
+    "title": "Park commercial",
+    "evidence": {
+     "client": "Customer: Beacon Office Park",
+     "type": "Office",
+     "hours": "160 hours",
+     "value": "Price $24,800",
+     "deadline": "before Dec 4",
+     "earliest": "Earliest start: Nov 16"
+    }
+   },
+   "draft": {
+    "title": "Park commercial",
+    "client": "Beacon Office Park",
+    "area": "",
+    "type": "commercial",
+    "built": null,
+    "hours": 160,
+    "value": 24800,
+    "earliest": 21,
+    "deadline": 34,
+    "colors": [],
+    "skills": [],
+    "lang": "",
+    "hoa": false,
+    "impOn": false,
+    "important": "",
+    "labels": [],
+    "ev": {
+     "client": "Customer: Beacon Office Park",
+     "type": "Office",
+     "hours": "160 hours",
+     "value": "Price $24,800",
+     "deadline": "before Dec 4",
+     "earliest": "Earliest start: Nov 16"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "ai",
+     "area": "missing",
+     "built": "missing",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "ai",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "[client|Customer: Beacon Office Park]\nCommercial office repaint, two floors. [hours|160 hours]. [value|Price $24,800]. Need it done [due|before Dec 4]. [start|Earliest start: Nov 16]."
+  },
+  {
+   "text": "Jean Baptiste residence, Miami. Built 1962. Exterior stucco and fascia, pressure wash and patch cracks, spray body. Colors: Naval and Extra White. HOA approval pending. Mrs. Baptiste speaks Creole. Labor 88 hrs. Total $9,900. Returning client, referred by the Lees.",
+   "rule": {
+    "client": "Baptiste",
+    "area": "Miami",
+    "typeEv": "Exterior",
+    "type": "exterior",
+    "built": 1962,
+    "hours": 88,
+    "value": 9900,
+    "deadline": null,
+    "earliest": null,
+    "skills": [
+     "drywall",
+     "prep",
+     "spray"
+    ],
+    "lang": "ht",
+    "hoa": true,
+    "important": "Returning client, referred by the Lees",
+    "colors": [
+     {
+      "name": "Extra White"
+     },
+     {
+      "name": "Naval"
+     }
+    ],
+    "title": "Baptiste exterior",
+    "evidence": {
+     "area": "Miami",
+     "type": "Exterior",
+     "built": "Built 1962",
+     "hours": "88 hrs",
+     "value": "Total $9,900",
+     "drywall": "crack",
+     "prep": "pressure wash",
+     "spray": "spray",
+     "lang": "Creole",
+     "hoa": "HOA",
+     "important": "Returning client, referred by the Lees"
+    }
+   },
+   "draft": {
+    "title": "Baptiste exterior",
+    "client": "Baptiste",
+    "area": "Miami",
+    "type": "exterior",
+    "built": 1962,
+    "hours": 88,
+    "value": 9900,
+    "earliest": null,
+    "deadline": null,
+    "colors": [
+     [
+      "Extra White",
+      "#F1F0EC"
+     ],
+     [
+      "Naval",
+      "#2F3B4C"
+     ]
+    ],
+    "skills": [
+     "drywall",
+     "prep",
+     "spray"
+    ],
+    "lang": "ht",
+    "hoa": true,
+    "impOn": true,
+    "important": "Returning client, referred by the Lees",
+    "labels": [
+     "HOA"
+    ],
+    "ev": {
+     "area": "Miami",
+     "type": "Exterior",
+     "built": "Built 1962",
+     "hours": "88 hrs",
+     "value": "Total $9,900",
+     "drywall": "crack",
+     "prep": "pressure wash",
+     "spray": "spray",
+     "lang": "Creole",
+     "hoa": "HOA",
+     "important": "Returning client, referred by the Lees"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "guessed",
+     "area": "ai",
+     "built": "ai",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "missing",
+     "deadline": "missing",
+     "type": "ai",
+     "lang": "ai"
+    }
+   },
+   "marked": "Jean Baptiste residence, [area|Miami]. [lead|Built 1962]. [type|Exterior] stucco and fascia, [prep|pressure wash] and patch [drywall|crack]s, [spray|spray] body. Colors: Naval and Extra White. [hoa|HOA] approval pending. Mrs. Baptiste speaks [lang|Creole]. Labor [hours|88 hrs]. [value|Total $9,900]. [vip|Returning client, referred by the Lees]."
+  },
+  {
+   "text": "Wallpaper install in the powder room, Coral Gables. 12 hours. Total $1,450. Starting Nov 3. Designer: Ava Studio, very particular about seams.",
+   "rule": {
+    "client": null,
+    "area": "Coral Gables",
+    "typeEv": "Wallpaper",
+    "type": "wallpaper",
+    "built": null,
+    "hours": 12,
+    "value": 1450,
+    "deadline": null,
+    "earliest": "2026-11-03",
+    "skills": [
+     "color"
+    ],
+    "lang": null,
+    "hoa": false,
+    "important": null,
+    "colors": [],
+    "title": "New wallpaper",
+    "evidence": {
+     "area": "Coral Gables",
+     "type": "Wallpaper",
+     "hours": "12 hours",
+     "value": "Total $1,450",
+     "earliest": "Starting Nov 3",
+     "color": "Designer"
+    }
+   },
+   "draft": {
+    "title": "New wallpaper",
+    "client": "",
+    "area": "Coral Gables",
+    "type": "wallpaper",
+    "built": null,
+    "hours": 12,
+    "value": 1450,
+    "earliest": 8,
+    "deadline": null,
+    "colors": [],
+    "skills": [
+     "color"
+    ],
+    "lang": "",
+    "hoa": false,
+    "impOn": false,
+    "important": "",
+    "labels": [],
+    "ev": {
+     "area": "Coral Gables",
+     "type": "Wallpaper",
+     "hours": "12 hours",
+     "value": "Total $1,450",
+     "earliest": "Starting Nov 3",
+     "color": "Designer"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "missing",
+     "area": "ai",
+     "built": "missing",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "ai",
+     "deadline": "missing",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "[type|Wallpaper] install in the powder room, [area|Coral Gables]. [hours|12 hours]. [value|Total $1,450]. [start|Starting Nov 3]. [color|Designer]: Ava Studio, very particular about seams."
+  },
+  {
+   "text": "Interior repaint, 3 bedrooms. Cabinets not included. Doral. Built in 1999. 30 hrs. Total: $3,100. Colors Agreeable Gray, Alabaster.",
+   "rule": {
+    "client": null,
+    "area": "Doral",
+    "typeEv": "Interior",
+    "type": "interior",
+    "built": 1999,
+    "hours": 30,
+    "value": 3100,
+    "deadline": null,
+    "earliest": null,
+    "skills": [],
+    "lang": null,
+    "hoa": false,
+    "important": null,
+    "colors": [
+     {
+      "name": "Agreeable Gray"
+     },
+     {
+      "name": "Alabaster"
+     }
+    ],
+    "title": "New interior",
+    "evidence": {
+     "area": "Doral",
+     "type": "Interior",
+     "built": "Built in 1999",
+     "hours": "30 hrs",
+     "value": "Total: $3,100"
+    }
+   },
+   "draft": {
+    "title": "New interior",
+    "client": "",
+    "area": "Doral",
+    "type": "interior",
+    "built": 1999,
+    "hours": 30,
+    "value": 3100,
+    "earliest": null,
+    "deadline": null,
+    "colors": [
+     [
+      "Agreeable Gray",
+      "#D1CBC1"
+     ],
+     [
+      "Alabaster",
+      "#EDEAE0"
+     ]
+    ],
+    "skills": [],
+    "lang": "",
+    "hoa": false,
+    "impOn": false,
+    "important": "",
+    "labels": [],
+    "ev": {
+     "area": "Doral",
+     "type": "Interior",
+     "built": "Built in 1999",
+     "hours": "30 hrs",
+     "value": "Total: $3,100"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "missing",
+     "area": "ai",
+     "built": "ai",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "missing",
+     "deadline": "missing",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "[type|Interior] repaint, 3 bedrooms. Cabinets not included. [area|Doral]. [lead|Built in 1999]. [hours|30 hrs]. [value|Total: $3,100]. Colors Agreeable Gray, Alabaster."
+  },
+  {
+   "text": "Venetian plaster accent wall, Miami Beach. VIP client. 20 hours. price: $4,000 by Dec 12",
+   "rule": {
+    "client": null,
+    "area": "Miami",
+    "typeEv": "Venetian",
+    "type": "decorative",
+    "built": null,
+    "hours": 20,
+    "value": 4000,
+    "deadline": "2026-12-12",
+    "earliest": null,
+    "skills": [
+     "drywall"
+    ],
+    "lang": null,
+    "hoa": false,
+    "important": "VIP client",
+    "colors": [],
+    "title": "New decorative",
+    "evidence": {
+     "area": "Miami",
+     "type": "Venetian",
+     "hours": "20 hours",
+     "value": "price: $4,000",
+     "deadline": "by Dec 12",
+     "drywall": "plaster",
+     "important": "VIP client"
+    }
+   },
+   "draft": {
+    "title": "New decorative",
+    "client": "",
+    "area": "Miami",
+    "type": "decorative",
+    "built": null,
+    "hours": 20,
+    "value": 4000,
+    "earliest": null,
+    "deadline": 34,
+    "colors": [],
+    "skills": [
+     "drywall"
+    ],
+    "lang": "",
+    "hoa": false,
+    "impOn": true,
+    "important": "VIP client",
+    "labels": [],
+    "ev": {
+     "area": "Miami",
+     "type": "Venetian",
+     "hours": "20 hours",
+     "value": "price: $4,000",
+     "deadline": "by Dec 12",
+     "drywall": "plaster",
+     "important": "VIP client"
+    },
+    "method": "rules",
+    "sig0": {},
+    "clientId": null,
+    "src": {
+     "client": "missing",
+     "area": "ai",
+     "built": "missing",
+     "hours": "ai",
+     "value": "ai",
+     "earliest": "missing",
+     "deadline": "ai",
+     "type": "ai",
+     "lang": "missing"
+    }
+   },
+   "marked": "[type|Venetian] [drywall|plaster] accent wall, [area|Miami] Beach. [vip|VIP client]. [hours|20 hours]. [value|price: $4,000] [due|by Dec 12]"
+  }
+ ],
+ "KNOWN": {
+  "Repose Gray": "#CCC9C0",
+  "Agreeable Gray": "#D1CBC1",
+  "Extra White": "#F1F0EC",
+  "Pure White": "#F2F0EA",
+  "Naval": "#2F3B4C",
+  "Sea Salt": "#CDD5CA",
+  "Iron Ore": "#434341",
+  "Alabaster": "#EDEAE0",
+  "Tricorn Black": "#2F2F30",
+  "Urbane Bronze": "#54504A",
+  "Accessible Beige": "#D1C7B8",
+  "Snowbound": "#EFEDE8",
+  "Mindful Gray": "#BCB7AD",
+  "Dover White": "#F0EADC",
+  "Swiss Coffee": "#EEE9DF",
+  "Chantilly Lace": "#F4F4F0",
+  "Hale Navy": "#434C56",
+  "Revere Pewter": "#CCC7B9"
+ },
+ "AREAS": [
+  "Pinecrest",
+  "Coral Gables",
+  "Kendall",
+  "South Miami",
+  "Miami",
+  "Doral",
+  "Hialeah",
+  "Fort Lauderdale"
+ ],
+ "MARK": {
+  "client": "client",
+  "area": "area",
+  "built": "lead",
+  "hours": "hours",
+  "deadline": "due",
+  "earliest": "start",
+  "value": "value",
+  "hoa": "hoa",
+  "lang": "lang",
+  "important": "vip",
+  "drywall": "drywall",
+  "prep": "prep",
+  "cutin": "cutin",
+  "spray": "spray",
+  "color": "color",
+  "type": "type"
+ },
+ "isoToIdx": "(iso,cap=34)=>{if(!iso)return null;const t=new Date(iso+'T12:00:00');if(isNaN(t))return null;return Math.min(cap,idxOfDate(t));}",
+ "hashColor": "n=>{let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%360;return `hsl(${h} 18% 72%)`;}",
+ "clientByName": "n=>{if(!n)return null;const ln=String(n).toLowerCase().split(/[ &]/).filter(Boolean).pop();return CLIENTS.find(c=>c.name.toLowerCase()===String(n).toLowerCase())||CLIENTS.find(c=>c.name.toLowerCase().split(/[ &]/).includes(ln));}",
+ "CLIENTS": [
+  {
+   "id": "hernandez",
+   "name": "Rosa & Daniel Hernandez",
+   "lang": "es",
+   "past": [
+    [
+     "2019",
+     "Interior repaint",
+     "Tania",
+     "5â˜…"
+    ]
+   ]
+  },
+  {
+   "id": "okafor",
+   "name": "James Okafor",
+   "lang": "en",
+   "past": []
+  },
+  {
+   "id": "patel",
+   "name": "Priya Patel",
+   "lang": "en",
+   "past": []
+  },
+  {
+   "id": "gutierrez",
+   "name": "Ana Gutierrez",
+   "lang": "ht",
+   "past": []
+  },
+  {
+   "id": "morales",
+   "name": "Luis & Carmen Morales",
+   "lang": "es",
+   "past": [
+    [
+     "2021",
+     "Interior repaint",
+     "Gian",
+     "5â˜…"
+    ]
+   ]
+  },
+  {
+   "id": "ortega",
+   "name": "Ortega family",
+   "lang": "es",
+   "past": [
+    [
+     "2026",
+     "Exterior repaint",
+     "Rigo",
+     "On the calendar"
+    ]
+   ]
+  }
+ ],
+ "DIMS": [
+  {
+   "k": "interior",
+   "l": "Interior repaint",
+   "g": "job"
+  },
+  {
+   "k": "exterior",
+   "l": "Exterior repaint",
+   "g": "job"
+  },
+  {
+   "k": "cabinets",
+   "l": "Cabinets",
+   "g": "job"
+  },
+  {
+   "k": "commercial",
+   "l": "Commercial / HOA",
+   "g": "job"
+  },
+  {
+   "k": "wallpaper",
+   "l": "Wallpaper",
+   "g": "job"
+  },
+  {
+   "k": "decorative",
+   "l": "Decorative",
+   "g": "job"
+  },
+  {
+   "k": "drywall",
+   "l": "Drywall / skim",
+   "g": "skill"
+  },
+  {
+   "k": "prep",
+   "l": "Prep & repairs",
+   "g": "skill"
+  },
+  {
+   "k": "cutin",
+   "l": "Cut-in & finish",
+   "g": "skill"
+  },
+  {
+   "k": "spray",
+   "l": "Spraying",
+   "g": "skill"
+  },
+  {
+   "k": "color",
+   "l": "Color & detail",
+   "g": "skill"
+  },
+  {
+   "k": "speed",
+   "l": "Speed",
+   "g": "attr"
+  },
+  {
+   "k": "reliability",
+   "l": "Reliability",
+   "g": "attr"
+  },
+  {
+   "k": "quality",
+   "l": "Quality",
+   "g": "attr"
+  },
+  {
+   "k": "communication",
+   "l": "Communication",
+   "g": "attr"
+  },
+  {
+   "k": "care",
+   "l": "Jobsite care",
+   "g": "attr"
+  },
+  {
+   "k": "independence",
+   "l": "Independence",
+   "g": "attr"
+  },
+  {
+   "k": "client",
+   "l": "Client-facing",
+   "g": "attr"
+  }
+ ]
+}

@@ -3,7 +3,7 @@
 Backend for Crew Board, built to the Phase 2 design (modular monolith: Python 3.13, FastAPI, Pydantic v2,
 SQLAlchemy 2, Alembic, PostgreSQL 17 + PostGIS).
 
-This covers **build steps 1 to 3** of the design's build order:
+This covers **build steps 1 to 4** of the design's build order:
 
 1. Foundation: tenancy with row-level security, platform (users, members, roles), settings, geography, crews,
    clients, jobs, painting job details, audit log, demo-tenant seed.
@@ -14,7 +14,14 @@ This covers **build steps 1 to 3** of the design's build order:
    every decision builds a review batch in the recipient's language (texts identical to the prototype), edit text,
    channel or language, send or skip, message log, trigger settings. Sending is log-only until a provider is chosen.
 
-Intake, Plan all and optimizer endpoints, and Riley's settings are steps 4 to 6. The engine for Plan all, the
+4. Adding jobs from estimates: upload a PDF, Word file, photo or text, or paste it; read it with the AI reader
+   (Claude, when `CREWBOARD_ANTHROPIC_API_KEY` is set) or the built-in rules reader; every field shows where it came
+   from (PaintScout, typed, AI, rules, client history, edited, missing); client history fills only language and the
+   important flag; edit the draft, see the 3 best crews, add it to the top of the queue. PaintScout is a stub with
+   the prototype's sample sold estimates for demo workspaces. Edit job keeps every change as a revision and
+   re-plans a placed job with the same crew and start.
+
+Plan all and optimizer endpoints, and Riley's settings are steps 5 and 6. The engine for Plan all, the
 optimizer and Riley's pick is already ported and tested; only their endpoints are left.
 
 ## Run it
@@ -51,6 +58,12 @@ pytest                       # everything; needs the database (docker compose up
   (needs Playwright).
 - `tests/golden/test_messages_parity.py`: every message text (crew lead, client, HOA, PM, color confirmations,
   shifted bookings) in every language matches the prototype (`capture_messages.py`).
+- `tests/golden/test_intake_parity.py`: the rules reader, the field merge and the marked write-up match the
+  prototype on its 5 sample estimates and 6 more texts (`capture_intake.py`). Three intentional changes: any month
+  works (the prototype only read Oct to Dec 2026), the longest area name wins ("Miami Beach", not "Miami"), and
+  fields found by the rules reader are marked `rules`, not `ai`.
+- `tests/api/test_intake.py`: paste, PDF, Word, photo (needs the AI reader), a fake AI reader, AI failure falling
+  back to rules, required fields, Color TBD, client history, PaintScout import, idempotent commit, edit job.
 - `tests/api/test_placements.py`: place, confirm with and without a reason, Riley learning, idempotent confirm,
   message edit and send, drag, non-working days, version conflicts, second crew, split, PM handoff, move with a
   reason, unschedule, append-only decisions, review-off sending, calendar.
