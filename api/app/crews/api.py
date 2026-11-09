@@ -31,6 +31,7 @@ class MemberOut(BaseModel):
     name: str
     role: str
     is_lead: bool
+    lead_safe: bool = False
     languages: str
     note: str
 
@@ -134,7 +135,7 @@ async def _load(ctx: Ctx, crews: list[Crew]) -> list[CrewOut]:
             lead_language=c.lead_language, channel=c.channel, lead_safe_certified=c.lead_safe_certified, phone=c.phone, email=c.email,
             notes=c.notes, hours=HoursOut(**hb) if hb else None,
             ratings=[RatingOut(dimension=dims[r.dimension_id].key, value=float(r.value) if r.value is not None else None, source=r.source, review_count=r.review_count) for r in rs],
-            members=[MemberOut(id=m.id, name=m.name, role=m.role, is_lead=m.is_lead, languages=m.languages, note=m.note) for m in members[c.id]],
+            members=[MemberOut(id=m.id, name=m.name, role=m.role, is_lead=m.is_lead, lead_safe=m.lead_safe, languages=m.languages, note=m.note) for m in members[c.id]],
             ready=c.status == "active" and not miss, missing=miss, version=c.version))
     return out
 
@@ -221,6 +222,7 @@ class MemberIn(BaseModel):
     name: str = Field(min_length=1)
     role: str = "Painter"
     is_lead: bool = False
+    lead_safe: bool = False
     languages: str = ""
     note: str = ""
 
@@ -237,7 +239,7 @@ async def add_member(crew_id: uuid.UUID, body: MemberIn, ctx: Ctx = Depends(requ
     ctx.session.add(m)
     await ctx.session.flush()
     await record(ctx, "Crew data", f"Added {m.name} to {c.name}.", entity_type="crew", entity_id=c.id)
-    return MemberOut(id=m.id, name=m.name, role=m.role, is_lead=m.is_lead, languages=m.languages, note=m.note)
+    return MemberOut(id=m.id, name=m.name, role=m.role, is_lead=m.is_lead, lead_safe=m.lead_safe, languages=m.languages, note=m.note)
 
 
 @router.delete("/crews/{crew_id}/members/{member_id}", status_code=204, operation_id="crews_members_delete")

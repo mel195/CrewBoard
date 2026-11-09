@@ -24,7 +24,7 @@ from app.settings.models import ProjectManager
 
 from .engine import core as E
 from .engine.model import Placement as EP
-from .engine.ranking import dlabel, rank
+from .engine.ranking import dlabel, hard, rank
 from .models import Placement, PlacementCrew, PlacementVisit, SchedulingDecision
 from .snapshot import LoadedSnapshot, load_snapshot
 
@@ -281,6 +281,22 @@ def _auto_reason(L: LoadedSnapshot, jid: str, row: Placement, ep: EP) -> str | N
     return None
 
 
+def _blockers(L: LoadedSnapshot, jid: str, ep: EP, has_reason: bool) -> list[dict]:
+    """Why Confirm is disabled in the prototype (canOk in planPanel, G-40): an overlap with another booking, a finish after
+    the finish-by date, or a lead crew that fails the rules without a stored reason."""
+    job = L.snap.jobs[jid]
+    out = []
+    conf = E.place_conf(L.snap, jid)
+    if conf:
+        out.append({"code": "conflict", "message": f"Overlaps another booking on {', '.join(dlabel(L.snap, d) for d in conf)}. Move it or pick another crew."})
+    if E.place_end(ep) > job.deadline:
+        out.append({"code": "after_deadline", "message": f"Finishes {dlabel(L.snap, E.place_end(ep))}, after the {dlabel(L.snap, job.deadline)} deadline."})
+    fails = hard(L.snap, job, ep.crew)
+    if fails and not has_reason:
+        out.append({"code": "fails_rules", "message": f"{L.crew_names[ep.crew]} doesn’t pass: {'; '.join(f.message for f in fails)}. Pick the crew with a reason, or pick another crew."})
+    return out
+
+
 async def confirm_preview(ctx: Ctx, placement_id: uuid.UUID) -> dict:
     row = await get_placement(ctx, placement_id)
     L, jid, job = await _ctx(ctx, row.job_id)
@@ -290,7 +306,8 @@ async def confirm_preview(ctx: Ctx, placement_id: uuid.UUID) -> dict:
     me = next((r for r in rows if r.crew == ep.crew), None)
     needs = bool(best and best.crew != ep.crew and not row.override_reason and not _auto_reason(L, jid, row, ep))
     msgs = await job_messages(ctx, L.snap, job, E.crews_of(ep.crew, ep.extra), E.place_start(ep), E.place_end(ep), "confirm", row.pm_id)
-    return {"reason_required": needs, "reasons": PICK_REASONS,
+    blockers = _blockers(L, jid, ep, bool(row.override_reason))
+    return {"reason_required": needs, "reasons": PICK_REASONS, "can_confirm": not blockers, "blockers": blockers,
             "top": {"crew_id": best.crew, "crew_name": L.crew_names[best.crew], "score": best.score} if best else None,
             "chosen": {"crew_id": ep.crew, "crew_name": L.crew_names[ep.crew], "score": me.score if me else None},
             "conflicts": [L.date(d) for d in E.place_conf(L.snap, jid)], "messages": msgs}
@@ -321,6 +338,9 @@ async def confirm(ctx: Ctx, placement_id: uuid.UUID, if_match: str | None, reaso
                            f"{L.crew_names[ep.crew]} isn’t the top-ranked crew. {L.crew_names[best.crew]} scored {best.score}, "
                            f"{L.crew_names[ep.crew]} scored {me.score if me else 0}. Add a reason so the decision is on record.",
                            reasons=PICK_REASONS, top={"crew_id": best.crew, "score": best.score}, chosen={"crew_id": ep.crew, "score": me.score if me else None})
+    blockers = _blockers(L, jid, ep, bool(row.override_reason or given))
+    if blockers:
+        raise AppError(422, blockers[0]["code"], blockers[0]["message"], blockers=blockers)
     rp = riley_pick(L.snap, jid, rows)   # Riley's pick before the confirm (rileyLearn)
     conflicts = E.place_conf(L.snap, jid)
     row.status = "scheduled"

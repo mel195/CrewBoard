@@ -62,38 +62,95 @@ async def _explain(ctx: Ctx, job_id: uuid.UUID, crew_id: uuid.UUID | None) -> di
         return FACTOR_LABELS.get(k) or snap.dim_label(k)
     table = [{"factor": k, "label": flabel(k), "value": r.f[k], "weight": v, "share_pct": round(v / total_w * 100, 1),
               "points": round(r.f[k] * v / total_w, 1)} for k, v in sorted(used.items(), key=lambda x: -x[1])]
-    never = [{"factor": k, "label": flabel(k), "value": r.f.get(k), "why": f"Weight 0 in “{label_for(snap, jid)}”"}
-             for k in r.f if k not in used]
+    not_weighted = [{"factor": k, "label": flabel(k), "value": r.f.get(k), "why": f"Weight 0 in “{label_for(snap, jid)}”"}
+                    for k in r.f if k not in used]
     return {"job_id": job_id, "job_title": job.title, "crew_id": uuid.UUID(r.crew), "crew_name": L.crew_names[r.crew], "label": label_for(snap, jid),
             "custom_weights": jid in snap.job_weights, "score": r.score, "passes": r.ok,
+            "position": rows.index(r) + 1, "of": len(rows),
             "formula": "Score = sum of (factor value × weight) ÷ sum of weights, rounded. Factors run 0 to 100.",
-            "rule_checks": checks, "factor_table": table, "never_used": never}
+            "rule_checks": _proto_checks(L, job, c, r), "all_rules": checks, "factor_table": table, "not_weighted": not_weighted,
+            "never_used": NEVER_USED, "who_decides": WHO_DECIDES}
+
+
+NEVER_USED = ("Age, gender, race, ethnicity, national origin, religion, disability or any other personal trait. "
+              "Language only counts when the client asks for it.")
+WHO_DECIDES = ("This is a suggestion. A scheduler confirms the crew, and picking anyone other than the top crew needs a reason, "
+               "saved in the audit log.")
+INPUTS_NOTE = ("Inputs used: ratings, certifications, past job results, drive time, availability, client requests. "
+               "Not used: age, gender, race, ethnicity, national origin, religion, disability or any other personal trait.")
+
+
+def _dl(L, i: int) -> str:
+    d = L.date(i)
+    return f"{d:%a} {d:%b} {d.day}"
+
+
+def _num(v):
+    return int(v) if v is not None and float(v).is_integer() else v
+
+
+def _proto_checks(L, job, c, r) -> list[dict]:
+    """The prototype's five plain-language checks (ruleChecks), in its order."""
+    snap, R = L.snap, L.snap.rules
+    tl = snap.dim_label(job.type)
+    out = []
+    rt = c.ratings.get(job.type)
+    out.append({"code": "job_type_rating", "rule": f"{tl} rating {_num(R.min_type)}+",
+                "passed": (rt is not None and rt >= R.min_type) or (rt is None and R.untested),
+                "detail": "Not rated yet" if rt is None else f"Rated {_num(rt)}"})
+    if job.built is not None and job.built < 1978 and R.lead:
+        out.append({"code": "lead_safe", "rule": f"Lead-safe certified (home built {job.built})", "passed": c.lead_safe is True,
+                    "detail": "On file" if c.lead_safe is True else "Not on file"})
+    if R.imp and imp(snap, job):
+        q, cf = c.ratings.get("quality"), c.ratings.get("client")
+        out.append({"code": "important_bar", "rule": f"Quality and client-facing {_num(R.imp_bar)}+ (important client)",
+                    "passed": (q or 0) >= R.imp_bar and (cf or 0) >= R.imp_bar,
+                    "detail": f"Quality {_num(q) if q is not None else 'not rated'}, client-facing {_num(cf) if cf is not None else 'not rated'}"})
+    dm = drive_min(snap, c.base, job.area)
+    out.append({"code": "drive_limit", "rule": f"Within {R.max_drive} min drive", "passed": dm is not None and dm <= R.max_drive,
+                "detail": f"{dm} min from {c.base}" if dm is not None else "No home base"})
+    out.append({"code": "deadline", "rule": f"Done by {_dl(L, job.deadline)}", "passed": bool(r.slot) and r.slot.e <= job.deadline,
+                "detail": f"Earliest finish {_dl(L, r.slot.e)}" if r.slot else "No opening in 4 weeks"})
+    return out
 
 
 @router.get("/jobs/{job_id}/ranking/explanation", operation_id="jobs_ranking_explanation")
 async def explanation(job_id: uuid.UUID, crew_id: uuid.UUID | None = None, ctx: Ctx = Depends(tenant_ctx)):
-    """For one crew (the top crew by default): every rule check, each factor with its weight and points, and the factors not counted."""
+    """For one crew (the top crew by default): the prototype's five rule checks (plus the full rule list), each factor with its
+    weight and points, what's never used, and who decides (MAT-08)."""
     return await _explain(ctx, job_id, crew_id)
 
 
 @router.get("/jobs/{job_id}/ranking/explanation.csv", response_class=PlainTextResponse, operation_id="jobs_ranking_explanation_csv")
-async def explanation_csv(job_id: uuid.UUID, crew_id: uuid.UUID | None = None, ctx: Ctx = Depends(tenant_ctx)):
-    e = await _explain(ctx, job_id, crew_id)
+async def explanation_csv(job_id: uuid.UUID, ctx: Ctx = Depends(tenant_ctx)):
+    """The prototype's score record (exportscore): every crew, with each weighted factor's value, weight and points."""
+    L, jid = await _loaded_job(ctx, job_id)
+    snap = L.snap
+    job = snap.jobs[jid]
+    rows = rank(snap, jid)
+    w = weights(snap, jid)
+    ks = [k for k in w if w[k] > 0]
+    sw = sum(w.values()) or 1
+    def flabel(k):
+        return FACTOR_LABELS.get(k) or snap.dim_label(k)
     buf = io.StringIO()
-    w = csv.writer(buf)
-    w.writerow(["Job", e["job_title"], "Crew", e["crew_name"], "Label", e["label"], "Score", e["score"]])
-    w.writerow([])
-    w.writerow(["Rule", "Applies", "Passed", "Detail"])
-    for c in e["rule_checks"]:
-        w.writerow([c["rule"], "Yes" if c["applies"] else "No", "Yes" if c["passed"] else "No", c["detail"] or ""])
-    w.writerow([])
-    w.writerow(["Factor", "Value (0-100)", "Weight", "Share %", "Points"])
-    for f in e["factor_table"]:
-        w.writerow([f["label"], f["value"], f["weight"], f["share_pct"], f["points"]])
-    for f in e["never_used"]:
-        w.writerow([f["label"], f["value"], 0, 0, 0])
-    name = e["job_title"].lower().replace(" ", "-")
-    return PlainTextResponse(buf.getvalue(), media_type="text/csv", headers={"Content-Disposition": f'attachment; filename="score-{name}.csv"'})
+    out = csv.writer(buf)
+    out.writerow(["Crew Board score record"])
+    out.writerow(["Job", job.title])
+    out.writerow(["Run at", business_today(ctx.tenant).isoformat()])
+    out.writerow(["Run by", ctx.membership.display_name])
+    out.writerow(["Label", label_for(snap, jid)])
+    out.writerow([])
+    out.writerow(["Crew", "Can take it", "Rules failed", *[f"{flabel(k)} value" for k in ks], *[f"{flabel(k)} weight" for k in ks],
+                  *[f"{flabel(k)} points" for k in ks], "Score"])
+    for r in rows:
+        out.writerow([L.crew_names[r.crew], "Yes" if r.ok else "No", "; ".join(f.message for f in r.fails),
+                      *[r.f.get(k, "") for k in ks], *[_num(w[k]) for k in ks],
+                      *[f"{w[k] * r.f[k] / sw:.1f}" if r.f.get(k) is not None else "" for k in ks], r.score])
+    out.writerow([])
+    out.writerow([INPUTS_NOTE])
+    name = job.title.lower().replace(" ", "-")
+    return PlainTextResponse(buf.getvalue(), media_type="text/csv", headers={"Content-Disposition": f'attachment; filename="crewboard-score-{name}.csv"'})
 
 
 # ---------- weather (CAL-04) ----------

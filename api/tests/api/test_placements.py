@@ -119,10 +119,20 @@ async def test_manual_pick_asks_why(t: As):
     assert r.status_code == 422 and r.json()["code"] == "reason_required"
     r = await t.post(f"/jobs/{J['patel']}/placement", json={"lead_crew_id": crews["Rigo"], "manual": True, "reason_code": "Pairing or training"})
     assert r.status_code == 201 and r.json()["override_reason"] == "Pairing or training"
-    # Confirm uses the stored reason without asking again
+    p = r.json()
+    # Rigo can't finish Patel by its deadline: the prototype disables Confirm (canOk, G-40), and so does the API
+    pv = (await t.get(f"/placements/{p['id']}/confirm-preview")).json()
+    assert pv["can_confirm"] is False and [b["code"] for b in pv["blockers"]] == ["after_deadline"]
+    c = await t.post(f"/placements/{p['id']}/confirm", json={}, headers={"If-Match": f'"{p["version"]}"', **key()})
+    assert c.status_code == 422 and c.json()["code"] == "after_deadline"
+    # A lower-ranked crew that fits: confirm uses the stored reason without asking again
+    rows = (await t.get(f"/jobs/{J['patel']}/ranking")).json()["rows"]
+    alt = next(x for x in rows[1:] if x["ok"])
+    assert (await t.delete(f"/placements/{p['id']}")).status_code == 204
+    r = await t.post(f"/jobs/{J['patel']}/placement", json={"lead_crew_id": alt["crew_id"], "manual": True, "reason_code": "Pairing or training"})
     p = r.json()
     c = await t.post(f"/placements/{p['id']}/confirm", json={}, headers={"If-Match": f'"{p["version"]}"', **key()})
-    assert c.status_code == 200 and c.json()["decision"]["reason"] == "Pairing or training"
+    assert c.status_code == 200 and c.json()["decision"]["reason"] == "Pairing or training", c.text
 
 
 async def test_drag_split_resize_extra_crew_clear(t: As):
@@ -203,11 +213,21 @@ async def test_review_off_sends_at_once(t: As):
     assert tr["triggers"]["confirm"]["hoa"] is True
     r = await t.put("/settings/message-triggers", json={**tr, "review_before_send": False})
     assert r.status_code == 200 and r.json()["review_before_send"] is False
-    J = await jobs(t)
+    # a job placed on its top crew at its earliest slot, so nothing blocks the confirm (G-40)
     cal = (await t.get("/calendar")).json()
-    pid = next(b["placement_id"] for b in cal["bookings"] if b["job_id"] == J["hernandez"])
-    p = (await t.get(f"/placements/{pid}")).json()
-    c = await t.post(f"/placements/{pid}/confirm", json={"reason_code": "Schedule or travel reason"}, headers={"If-Match": f'"{p["version"]}"', **key()})
+    p = None
+    for it in (await t.get("/queue")).json()["items"]:
+        old = next((b["placement_id"] for b in cal["bookings"] if b["job_id"] == it["job_id"]), None)
+        if old:
+            await t.delete(f"/placements/{old}")
+        if it.get("top_crew_id"):
+            r = await t.post(f"/jobs/{it['job_id']}/placement", json={"lead_crew_id": it["top_crew_id"]})
+            if r.status_code == 201 and (await t.get(f"/placements/{r.json()['id']}/confirm-preview")).json()["can_confirm"]:
+                p = r.json()
+                break
+    assert p, "no job could be confirmed cleanly"
+    pid = p["id"]
+    c = await t.post(f"/placements/{pid}/confirm", json={}, headers={"If-Match": f'"{p["version"]}"', **key()})
     assert c.status_code == 200, c.text
     assert c.json()["message_batch"]["status"] == "sent"
     await t.put("/settings/message-triggers", json={**tr, "review_before_send": True})

@@ -25,11 +25,11 @@ from .models import PaintingColor, PaintingJob
 router = APIRouter(tags=["painting"])
 
 # The prototype's "Colors and materials needed" template, with the form link added (a change from the prototype, listed in the README: the color form now sends a message)
-COLOR_FORM = {
-    "en": "Hi {first}, it’s {company}. We still need your color and material picks for {job} before we start. Pick them here: {link}",
-    "es": "Hola {first}, le escribe {company}. Todavía necesitamos su selección de colores y materiales para {job} antes de comenzar. Elíjalos aquí: {link}",
-    "ht": "Bonjou {first}, se {company}. Nou toujou bezwen chwa koulè ak materyèl ou pou {job} anvan nou kòmanse. Chwazi yo isit la: {link}",
-    "pt": "Oi {first}, aqui é a {company}. Ainda precisamos da sua escolha de cores e materiais para {job} antes de começar. Escolha aqui: {link}",
+COLOR_FORM = {  # en is the prototype's text (M.colors); the others say the same thing
+    "en": "Hello {first}, this is {company}. We’re ready to schedule your {job}. Please confirm your color selections here: {link}. It takes about two minutes. Thank you.",
+    "es": "Hola {first}, le saluda {company}. Estamos listos para programar su {job}. Confirme su selección de colores aquí: {link}. Toma unos dos minutos. Gracias.",
+    "ht": "Bonjou {first}, se {company}. Nou pare pou pwograme {job} ou a. Tanpri konfime chwa koulè ou yo isit la: {link}. Sa pran anviwon de minit. Mèsi.",
+    "pt": "Olá {first}, aqui é a {company}. Estamos prontos para agendar seu {job}. Confirme sua seleção de cores aqui: {link}. Leva cerca de dois minutos. Obrigado.",
 }
 
 
@@ -121,7 +121,7 @@ async def color_form(job_id: uuid.UUID, request: Request, idempotency_key: str |
         raise AppError(422, "no_client", "This job has no client to text")
     link = f"{LINK_BASE}{str(c.id)[:8]}/colors/{str(job.id)[:8]}"
     def fill(t):
-        return t.replace("{first}", c.first_name or "there").replace("{company}", company_name(ctx)).replace("{job}", job.title).replace("{link}", link)
+        return t.replace("{first}", c.first_name or "there").replace("{company}", company_name(ctx)).replace("{job}", " ".join(job.title.split(" ")[1:]) or job.title).replace("{link}", link)
     m = Msg(key="client", role="client", to=f"{c.name} (client)", channel=c.channel, lang=c.language if c.language in COLOR_FORM else "en",
             langs=list(COLOR_FORM))
     m.variants = {l: fill(t) for l, t in COLOR_FORM.items()}

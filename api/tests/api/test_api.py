@@ -148,6 +148,12 @@ async def test_crew_create_patch_clients(ido: As):
     p = await ido.patch(f"/crews/{cid}", json={"status": "inactive"}, headers={"If-Match": f'"{r.json()["version"]}"'})
     assert p.status_code == 200 and p.json()["status"] == "inactive" and p.json()["version"] == 2
     assert (await ido.post("/crews", json={"name": "new crew"})).json()["code"] == "name_taken"
+    # CRW-07: a member's lead-safe certification is separate from being the crew lead
+    m1 = (await ido.post(f"/crews/{cid}/members", json={"name": "Ana", "lead_safe": True})).json()
+    m2 = (await ido.post(f"/crews/{cid}/members", json={"name": "Luis", "is_lead": True, "lead_safe": True})).json()
+    assert m1["role"] == "Painter" and m1["lead_safe"] is True and m1["is_lead"] is False and m2["is_lead"] is True
+    members = (await ido.get(f"/crews/{cid}")).json()["members"]
+    assert [(m["name"], m["is_lead"], m["lead_safe"]) for m in members] == [("Ana", False, True), ("Luis", True, True)]
     c = await ido.post("/clients", json={"name": "Maria Lopez", "language": "es"})
     assert c.status_code == 201 and c.json()["first_name"] == "Maria"
     f = await ido.post(f"/clients/{c.json()['id']}/follow-ups", json={"due_date": "2026-11-20"})

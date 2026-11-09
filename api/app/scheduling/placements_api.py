@@ -203,6 +203,8 @@ class MessagePreview(BaseModel):
 class ConfirmPreviewOut(BaseModel):
     reason_required: bool
     reasons: list[str]
+    can_confirm: bool = True
+    blockers: list[dict] = []
     top: dict | None
     chosen: dict
     conflicts: list[date]

@@ -21,13 +21,14 @@ from app.settings.extra_api import router as settings_extra
 from app.trades.painting.api import router as painting
 from app.telemetry.api import router as telemetry
 from app.workspace.api import router as workspace
+from app.workspace.onboarding_api import router as onboarding
 
 app = FastAPI(title="Crew Board API", version="0.6.0",
               description="Backend for Crew Board. Build steps 1 to 6: foundation, settings, crews, clients, jobs, the "
                           "scheduling engine, placements and decisions, messages (logged, not sent), adding jobs from estimates, Plan all, the optimizer, Riley, "
                           "usage and feedback, workspace export and import, and integration stubs. See the Phase 2 design doc for the full API.")
 errors.install(app)
-for r in (platform, settings, settings_extra, geo, crew_import, crews, clients, scheduling_extra, scheduling, placements, messaging, templates, painting, intake, optimizer, riley, telemetry, workspace, integrations, audit):
+for r in (platform, settings, settings_extra, geo, crew_import, crews, clients, scheduling_extra, scheduling, placements, messaging, templates, painting, intake, optimizer, riley, telemetry, workspace, onboarding, integrations, audit):
     app.include_router(r, prefix="/api/v1")
 
 

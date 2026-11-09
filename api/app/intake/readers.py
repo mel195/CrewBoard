@@ -157,7 +157,7 @@ class Draft:
 
 def to_draft(ai: dict | None, text: str, reader: str, *, areas: list[str], job_types: list[str], skills: list[str], today: date,
              paintscout: dict | None = None, typed: dict | None = None, history: ClientHistory | None = None) -> Draft:
-    """Merge: PaintScout field > typed by a person > AI > rules (BL-56). Dates are never guessed (BL-57)."""
+    """Merge, later wins: rules < AI < PaintScout < typed by a person (BL-56, as the prototype applies them). Dates are never guessed (BL-57)."""
     rr = rule_read(text or "", areas, today)
 
     def pick(k):

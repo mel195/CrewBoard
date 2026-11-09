@@ -148,7 +148,7 @@ async def create_demo_tenant(s: AsyncSession, owner: AppUser, name: str = "PPP (
                 v = h.get(key)
                 s.add(CrewHours(tenant_id=tid, crew_id=crew.id, day_kind=kind, start_time=_t(v[0]) if v else None, end_time=_t(v[1]) if v else None))
         for j, mbr in enumerate(c.get("members") or []):
-            s.add(CrewMember(tenant_id=tid, crew_id=crew.id, name=mbr["n"], role=mbr.get("role") or "Painter", is_lead=bool(mbr.get("lead")),
+            s.add(CrewMember(tenant_id=tid, crew_id=crew.id, name=mbr["n"], role=mbr.get("role") or "Painter", lead_safe=bool(mbr.get("lead")),
                              languages=mbr.get("langs") or "", note=mbr.get("note") or "", phone=mbr.get("phone") or None, sort_order=j))
         hist = d["HIST"].get(c["id"])
         if hist:

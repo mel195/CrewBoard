@@ -158,7 +158,7 @@ async def test_colors_and_color_form(client):
     b = await t.post(f"/jobs/{patel}/color-form", headers=key())
     assert b.status_code == 200, b.text
     msg = b.json()["messages"][0]
-    assert b.json()["trigger"] == "color_form" and msg["recipient_role"] == "client" and "/colors/" in msg["body"]
+    assert b.json()["trigger"] == "color_form" and msg["recipient_role"] == "client" and "/colors/" in msg["body"] and "ready to schedule your kitchen cabinets" in msg["body"] and msg["body"].endswith("It takes about two minutes. Thank you.")
     assert (await t.get(f"/jobs/{patel}")).json()["colors_status"] == "sent"
     # Place and confirm it, then confirm the colors: crew lead and PM get a heads-up
     p = (await t.post(f"/jobs/{patel}/placement", json={})).json()
@@ -192,9 +192,14 @@ async def test_explanation_weather_jobs_audit(client):
     assert all(c["passed"] for c in e["rule_checks"]) and e["passes"] is True
     failing = next(r for r in rk["rows"] if not r["ok"])
     e2 = (await t.get(f"/jobs/{jid}/ranking/explanation?crew_id={failing['crew_id']}")).json()
-    assert {c["code"] for c in e2["rule_checks"] if not c["passed"]} == {f["code"] for f in failing["failures"]}
+    assert {c["code"] for c in e2["all_rules"] if not c["passed"]} == {f["code"] for f in failing["failures"]}
+    # the prototype's five plain checks (ruleChecks), its never-used statement and who decides
+    assert [c["code"] for c in e["rule_checks"]][0] == "job_type_rating" and e["rule_checks"][-1]["rule"].startswith("Done by ")
+    assert e["never_used"].startswith("Age, gender, race, ethnicity, national origin, religion, disability")
+    assert e["who_decides"].startswith("This is a suggestion. A scheduler confirms the crew")
     csv_ = await t.get(f"/jobs/{jid}/ranking/explanation.csv")
-    assert csv_.status_code == 200 and "Rule,Applies,Passed,Detail" in csv_.text
+    assert csv_.status_code == 200 and "Crew,Can take it,Rules failed," in csv_.text and "Inputs used: ratings" in csv_.text
+    assert csv_.text.count("\n") >= len(rk["rows"]) + 8
 
     cal = (await t.get("/calendar")).json()
     wx = (await t.get("/weather")).json()
@@ -211,3 +216,16 @@ async def test_explanation_weather_jobs_audit(client):
     assert (await t.get("/audit-events.csv")).text.startswith("When,Who,Type,What")
     s = await scheduler(client, t)
     assert (await s.get("/audit-events")).status_code == 403
+
+
+async def test_onboarding_from_data(client):
+    t = await fresh(client, "onb")
+    o = (await t.get("/onboarding")).json()
+    m = {x["key"]: x for x in o["milestones"]}
+    assert o["total"] == 9 and [x["title"] for x in o["milestones"]][:3] == ["Kickoff", "Connect your tools", "Bring in your crews"]
+    assert m["kickoff"]["status"] == "done" and m["crews"]["status"] == "done"
+    assert m["tools"]["status"] == "now"            # nothing is connected, so it isn't marked done (G-26)
+    assert sum(1 for x in o["milestones"] if x["status"] == "now") == 1
+    assert m["go_live"]["status"] == "next"
+    await t.post("/members", json={"email": f"s-{uuid.uuid4().hex[:6]}@ppp.example", "display_name": "Sam", "role": "scheduler"})
+    assert {x["key"]: x for x in (await t.get("/onboarding")).json()["milestones"]}["go_live"]["status"] == "done"
